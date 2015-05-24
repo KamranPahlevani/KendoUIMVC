@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Configuring_the_ImageBrowser";
+}
+
+<h2>Configuring_the_ImageBrowser</h2>
+
+<textarea id="editor" name="editor" data-role="editor"></textarea>
+
+<script>
+    $(document).ready(function () {
+        $("#editor").kendoEditor({
+            imageBrowser: {
+                transport: {
+                    read: "imagebrowser/read",
+                    destroy: "imagebrowser/destroy",
+                    create: "imagebrowser/createDirectory",
+                    uploadUrl: "imagebrowser/upload",
+                    thumbnailUrl: "imagebrowser/thumbnail",
+                    imageUrl: "/content/images/{0}"
+                }
+            }
+        });
+    });
+</script>

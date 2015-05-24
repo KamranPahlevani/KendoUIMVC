@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "animation_close";
+}
+
+<h2>animation_close</h2>
+
+<input type="text" id="comboBox" name="comboBox" />
+
+<script>
+    $("#comboBox").kendoComboBox({
+        dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                    dataType: "json"
+                },
+            }
+        }),
+        dataTextField: "ProductName",
+        animation: {
+            close: {
+                effects: "fadeOut",
+                duration: 300,
+                hide: true,
+                show: false
+            }
+        }
+    })
+</script>
+

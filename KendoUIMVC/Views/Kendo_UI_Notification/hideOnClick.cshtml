@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "hideOnClick";
+}
+
+<h2>hideOnClick</h2>
+
+<span id="notification"></span>
+<script>
+    $("#notification").kendoNotification({
+        hideOnClick: false
+    });
+    $('#notification').data('kendoNotification').show('Test notification');
+</script>

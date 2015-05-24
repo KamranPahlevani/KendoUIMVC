@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "close_the_suggestion_popup";
+}
+
+<h2>close_the_suggestion_popup</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Apples</option>
+    <option>Oranges</option>
+</select>
+<script>
+$("#multiselect").kendoMultiSelect();
+var multiselect = $("#multiselect").data("kendoMultiSelect");
+// Search for items starting with "A" - will open the suggestion popup and show "Apples"
+multiselect.search("A");
+// Close the suggestion popup
+multiselect.close();
+</script>

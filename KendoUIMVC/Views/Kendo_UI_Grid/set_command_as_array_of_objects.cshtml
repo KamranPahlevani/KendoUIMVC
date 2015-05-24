@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "set_command_as_array_of_objects";
+}
+
+<h2>set_command_as_array_of_objects</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "ProductID" },
+          { field: "ProductName" },
+          {
+              field: "UnitPrice",
+          },
+          { field: "UnitsInStock", groupable: false },
+          { field: "Discontinued", groupable: true },
+          {
+              command: [
+                         {
+                             name: "details",
+                             click: function (e) {
+                                 alert('details command');
+                             }
+                         },
+                         { name: "destroy" } // built-in "destroy" command
+              ]
+          }],
+        editable: "inline",
+        dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                    dataType: "json"
+                },
+            }
+        }),
+    });
+</script>
+
+

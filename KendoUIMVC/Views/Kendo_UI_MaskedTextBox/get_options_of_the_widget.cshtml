@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "get_options_of_the_widget";
+}
+
+<h2>get_options_of_the_widget</h2>
+
+<input id="maskedtextbox" />
+<script>
+    $("#maskedtextbox").kendoMaskedTextBox();
+
+    var maskedtextbox = $("#maskedtextbox").data("kendoMaskedTextBox");
+
+    var options = maskedtextbox.options;
+</script>
+

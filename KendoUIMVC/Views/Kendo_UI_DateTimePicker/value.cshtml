@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "value";
+}
+
+<h2>value</h2>
+
+<input id="dateTimePicker" name="dateTimePicker" style="width: 200px" type="date"  />
+<input type="button"  id="btnGetValue" value="Get Value"/> 
+<input type="button"  id="btnSetValue" value="Set Value"/> 
+
+
+<script src="~/Scripts/kendo/2013.3.1213/cultures/kendo.culture.en-US.min.js"></script>
+<script>
+    // set the selected value to January 1st, 2011 12:00 AM
+    $("#dateTimePicker").kendoDateTimePicker({
+    });
+
+    // get a reference to the dateTimePicker widget
+    var dateTimePicker = $("#dateTimePicker").data("kendoDateTimePicker");
+    // set the selected value on the dateTimePicker to January 1st, 2011
+
+    $('#btnGetValue').click(function () {
+        alert(dateTimePicker.value());
+    })
+
+    $('#btnSetValue').click(function () {
+        dateTimePicker.value(new Date(2011, 0, 1));
+    })
+
+</script>
+

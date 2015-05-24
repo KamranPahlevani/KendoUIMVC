@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Get_the_value_of_a_field";
+}
+
+<h2>Get_the_value_of_a_field</h2>
+
+<script>
+    var observable = new kendo.data.ObservableObject({ name: "John Doe" });
+    var name = observable.get("name");
+
+    alert(name); //outputs "John Doe"
+</script>

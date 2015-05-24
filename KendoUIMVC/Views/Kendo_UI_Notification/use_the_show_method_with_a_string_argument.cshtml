@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "use_the_show_method_with_a_string_argument";
+}
+
+<h2>use_the_show_method_with_a_string_argument</h2>
+
+<span id="notification"></span>
+<script>
+    var notificationWidget = $("#notification").kendoNotification().data("kendoNotification");
+
+    notificationWidget.show("foo text", "warning");
+</script>

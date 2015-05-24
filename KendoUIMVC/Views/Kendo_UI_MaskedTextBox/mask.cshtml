@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "mask";
+}
+
+<h2>specify_a_phone_number_mask</h2>
+
+<input id="maskedtextbox" />
+<script>
+    $("#maskedtextbox").kendoMaskedTextBox({
+        mask: "(000) 000-0000"
+    });
+</script>
+

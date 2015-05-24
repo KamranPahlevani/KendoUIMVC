@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "specify_column_footer_template";
+}
+
+<h2>specify_column_footer_template</h2>
+
+<div id="grid"></div>
+<script>
+$("#grid").kendoGrid({
+  columns: [
+    { field: "name" },
+    { field: "age",
+      footerTemplate: "Min: #: min # Max: #: max #"
+    }
+  ],
+  dataSource: {
+    data: [
+      { name: "Jane Doe", age: 30 },
+      { name: "John Doe", age: 33 }
+    ],
+    aggregate: [
+        { field: "age", aggregate: "min" },
+        { field: "age", aggregate: "max" }
+    ]
+  }
+});
+</script>

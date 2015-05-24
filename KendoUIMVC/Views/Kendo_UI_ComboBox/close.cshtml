@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "close";
+}
+
+<h2>close</h2>
+
+<input type="text" id="comboBox" name="comboBox" />
+<input type="button" id="btnClose" value="Close"/>
+
+<script>
+    $("#comboBox").kendoComboBox({
+        dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                    dataType: "json"
+                },
+            }
+        }),
+        dataTextField: "ProductName",
+    });
+
+    $('btnClose').click(function () {
+        var comboBox = $('#comboBox').data('kendoComboBox');
+        comboBox.close();
+    })
+</script>
+

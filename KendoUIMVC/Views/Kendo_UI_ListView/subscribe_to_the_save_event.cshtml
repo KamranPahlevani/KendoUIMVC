@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "subscribe_to_the_save_event";
+}
+
+<h2>subscribe_to_the_save_event</h2>
+
+<div id="listview"></div>
+
+<script type="text/x-kendo-tmpl" id="template">
+    <div class="item">
+        <p>#: name # || #: age #</p>
+        <div class="edit-buttons">
+            <a class="k-button k-button-icontext k-edit-button" href="\\#"><span class="k-icon k-edit"></span></a>
+            <a class="k-button k-button-icontext k-delete-button" href="\\#"><span class="k-icon k-delete"></span></a>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-kendo-tmpl" id="editTemplate">
+    <div class="item">
+        <div class="edit-buttons">
+            <a class="k-button k-button-icontext k-update-button" href="\\#"><span class="k-icon k-update"></span></a>
+            <a class="k-button k-button-icontext k-cancel-button" href="\\#"><span class="k-icon k-cancel"></span></a>
+        </div>
+        <input type="text" class="k-textbox" data-bind="value:name" name="name" required="required" validationmessage="required" />
+        <span data-for="name" class="k-invalid-msg"></span>
+        <br />
+        <input type="text" data-role="numerictextbox" data-bind="value:age" name="age" required="required" validationmessage="required" />
+        <span data-for="age" class="k-invalid-msg"></span>
+    </div>
+</script>
+
+<script>
+    $("#listview").kendoListView({
+        dataSource: {
+            data: [
+              { id: 1, name: "Jane Doe", age: 30 },
+              { id: 2, name: "John Doe", age: 33 }
+            ],
+            schema: {
+                model: { id: "id" }
+            }
+        },
+        template: kendo.template($("#template").html()),
+        editTemplate: kendo.template($("#editTemplate").html()),
+        save: function (e) {
+            alert("record is modified");
+            //handle event
+        }
+    });
+</script>
+

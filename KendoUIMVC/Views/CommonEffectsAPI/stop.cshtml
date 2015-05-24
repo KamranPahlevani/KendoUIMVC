@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "stop";
+}
+
+<h2>stop</h2>
+
+<div id="foo">
+    I will be faded out
+</div>
+
+<script>
+    var effect = kendo.fx($("#foo")).fadeOut();
+    effect.duration(4000).play();
+    setTimeout(function () {
+        effect.stop();
+    }, 1000);
+</script>

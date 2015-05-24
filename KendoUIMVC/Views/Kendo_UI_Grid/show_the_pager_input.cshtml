@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "show_the_pager_input";
+}
+
+<h2>show_the_pager_input</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "productName" },
+          { field: "category" }
+        ],
+        dataSource: [
+          { productName: "Tea", category: "Beverages" },
+          { productName: "Coffee", category: "Beverages" },
+          { productName: "Ham", category: "Food" },
+          { productName: "Bread", category: "Food" }
+        ],
+        pageable: {
+            pageSize: 2,
+            input: true
+        }
+    });
+</script>

@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Get_the_value_of_a_nested_field";
+}
+
+<h2>Get_the_value_of_a_nested_field</h2>
+
+<script>
+    var observable = new kendo.data.ObservableObject({ person: { name: "John Doe" } });
+
+    var name = observable.get("person.name"); // use dot notation to denote nested fields
+
+    alert(name); //outputs "John Doe"
+</script>

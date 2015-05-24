@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "hide_a_column_by_index";
+}
+
+<h2>hide_a_column_by_index</h2>
+
+<div id="grid"></div>
+<input type="button" id="btnHideColumn" value="Hide Column" />
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+            { name: "Jane Doe", age: 30 },
+            { name: "John Doe", age: 33 }
+        ]
+    });
+
+    $('#btnHideColumn').click(function () {
+        var grid = $("#grid").data("kendoGrid");
+        grid.hideColumn(1);
+    })
+</script>

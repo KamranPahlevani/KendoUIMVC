@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_error_event_during_initialization";
+}
+
+<h2>subscribe_to_the_error_event_during_initialization</h2>
+
+<script>
+    $(document).ready(function () {
+        function dataSource_error(e) {
+            alert(e.status); // displays "error"
+        }
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "http://demos.kendoui.com/service/"
+                }
+            }
+        });
+        dataSource.bind("error", dataSource_error);
+        dataSource.fetch();
+    })
+</script>

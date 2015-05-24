@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "show";
+}
+
+<h2>show</h2>
+
+<div id="app"></div>
+
+<script>
+    var view = new kendo.View("Hi!", { show: function() { alert("View is rendered") } });
+    view.render($("#app"));
+</script>

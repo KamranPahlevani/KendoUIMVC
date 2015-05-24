@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "ClassFields";
+}
+
+<h2>ClassFields</h2>
+
+<script>
+    // Create a base class
+    var Animal = kendo.Class.extend({
+        // The `init` method will be called when a new instance is created
+        init: function (legs) {
+            this.legs = legs;
+        }
+    });
+
+    // Inherit from that class
+    var Bird = Animal.extend({
+        init: function () {
+            // Use the `fn` field to call the `init` method of the base class (Animal)
+            Animal.fn.init.call(this, 2);
+        }
+    });
+
+    var birdie = new Bird();
+    alert("birdie legs: " + birdie.legs);
+</script>

@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "set_the_template_as_a_function_returned_by_kendo_template";
+}
+
+<h2>set_the_template_as_a_function_returned_by_kendo_template</h2>
+
+<div id="grid"></div>
+<script id="name-template" type="text/x-kendo-template">
+  <strong>#: name #</strong>
+</script>
+<script>
+    $("#grid").kendoGrid({
+        columns: [{
+            field: "name",
+            template: kendo.template($("#name-template").html())
+        }],
+        dataSource: [{ name: "Jane Doe" }, { name: "John Doe" }]
+    });
+</script>

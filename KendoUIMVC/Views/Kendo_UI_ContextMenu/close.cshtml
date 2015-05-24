@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "close";
+}
+
+<h2>close</h2>
+
+<div id="target">Target</div>
+<ul id="context-menu">
+    <li id="Item1">
+        Item 1
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+    <li>
+        Item 2
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    // initialize the ContextMenu
+    $("#context-menu").kendoContextMenu({
+        target: "#target"
+    });
+    // get a reference to the ContextMenu widget
+    var contextMenu = $("#context-menu").data("kendoContextMenu");
+    // close the ContextMenu
+    contextMenu.close(100, 100);
+</script>

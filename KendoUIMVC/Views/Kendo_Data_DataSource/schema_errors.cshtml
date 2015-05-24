@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "schema_errors";
+}
+
+<h2>schema_errors</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "http://demos.kendoui.com/service/twitter/search",
+                    dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: { q: "#" }
+                }
+            },
+            schema: {
+                errors: function (response) {
+                    return response.error; // twitter's response is { "error": "Invalid query" }
+                }
+            },
+            error: function (e) {
+                alert(e.errors); // displays "Invalid query"
+            }
+        });
+        dataSource.fetch();
+    })
+</script>

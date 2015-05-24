@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "cancel";
+}
+
+<h2>cancel</h2>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        dataSource: {
+            data: [
+                { name: "Jane Doe" },
+                { name: "John Doe" }
+            ]
+        },
+        template: "<div>#:name#</div>",
+        editTemplate: '<div><input type="text" name="name" data-bind="value:name" /></div>'
+    });
+    // get a reference to the list view widget
+    var listView = $("#listView").data("kendoListView");
+    // add item
+    listView.add();
+    // cancel changes in currently edited item
+    listView.cancel();
+</script>
+

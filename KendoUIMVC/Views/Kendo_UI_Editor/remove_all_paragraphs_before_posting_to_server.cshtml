@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "remove_all_paragraphs_before_posting_to_server";
+}
+
+<h2>remove_all_paragraphs_before_posting_to_server</h2>
+
+<form>
+    <textarea id="comments"></textarea>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    var comments = $("#comments");
+
+    comments.kendoEditor({ encoded: false });
+
+    $("form").on("submit", function () {
+        var value = comments.data("kendoEditor").value();
+
+        // strip all paragraphs
+        value = value
+          .replace(/<p[^>]*>/g, "")
+          .replace(/<\/p>/g, "<br />");
+
+        comments.val(value);
+    });
+</script>

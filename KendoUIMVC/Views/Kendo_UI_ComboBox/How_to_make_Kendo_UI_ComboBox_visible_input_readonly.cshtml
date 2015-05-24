@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "How_to_make_Kendo_UI_ComboBox_visible_input_readonly";
+}
+
+<h2>How_to_make_Kendo_UI_ComboBox_visible_input_readonly</h2>
+
+<div id="example" role="application">
+    <form>
+        <h4>T-shirt Fabric</h4>
+        <input id="fabric" placeholder="Select fabric..." />
+    </form>
+    <script>
+        $(document).ready(function () {
+            // create ComboBox from input HTML element
+            $("#fabric").kendoComboBox({
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: [
+                  { text: "Cotton", value: "1" },
+                  { text: "Polyester", value: "2" },
+                  { text: "Cotton/Polyester", value: "3" },
+                  { text: "Rib Knit", value: "4" }
+                ],
+                filter: "contains",
+                suggest: true,
+                index: 3
+            });
+
+            var fabric = $("#fabric").data("kendoComboBox");
+
+            debugger;
+            fabric.input.attr("readonly", true)
+            .on("keydown", function (e) {
+                if (e.keyCode === 8) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</div>

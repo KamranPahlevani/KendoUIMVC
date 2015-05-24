@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "set_position_bottom";
+}
+
+<h2>set_position_bottom</h2>
+
+<span id="notification"></span>
+<script>
+    $("#notification").kendoNotification({
+        position: {
+            bottom: 30
+        }
+    });
+    $('#notification').data('kendoNotification').show('Test notification');
+</script>

@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "remove";
+}
+
+<h2>remove</h2>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        dataSource: {
+            data: [
+                { name: "Jane Doe" },
+                { name: "John Doe" }
+            ]
+        },
+        template: "<div>#:name#</div>"
+    });
+    // get a reference to the list view widget
+    var listView = $("#listView").data("kendoListView");
+    // remove first list view item
+    listView.remove(listView.element.children().first());
+</script>
+

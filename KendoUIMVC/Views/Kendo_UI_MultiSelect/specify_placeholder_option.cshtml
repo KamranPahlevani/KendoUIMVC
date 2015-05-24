@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "specify_placeholder_option";
+}
+
+<h2>specify_placeholder_option</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Item1</option>
+    <option>Item2</option>
+</select>
+<script>
+$("#multiselect").kendoMultiSelect({
+  placeholder: "Select..."
+});
+</script>
+

@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "get_input_element";
+}
+
+<h2>get_input_element</h2>
+
+<select id="multiselect" multiple="multiple"></select>
+<script>
+$("#multiselect").kendoMultiSelect();
+
+var multiselect = $("#multiselect").data("kendoMultiSelect");
+
+var input = multiselect.input;
+</script>
+

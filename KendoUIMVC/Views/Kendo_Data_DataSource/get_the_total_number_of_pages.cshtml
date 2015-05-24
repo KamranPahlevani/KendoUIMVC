@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "get_the_total_number_of_pages";
+}
+
+<h2>get_the_total_number_of_pages</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { name: "Jane Doe", age: 30 },
+              { name: "John Doe", age: 33 }
+            ],
+            pageSize: 1
+        });
+        alert(dataSource.totalPages());   // displays "2"
+    })
+</script>

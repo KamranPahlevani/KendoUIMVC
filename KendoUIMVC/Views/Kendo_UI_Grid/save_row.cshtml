@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "save_row";
+}
+
+<h2>save_row</h2>
+
+<div id="grid"></div>
+<input type="button" id="btnSaveRow" value="Save Row"/>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: {
+            data: [
+              { id: 1, name: "Jane Doe", age: 30 },
+              { id: 2, name: "John Doe", age: 33 }
+            ],
+            schema: {
+                model: { id: "id" }
+            }
+        },
+        editable: "inline"
+    });
+
+    $('#btnSaveRow').click(function () {
+        var grid = $("#grid").data("kendoGrid");
+        grid.editRow($("#grid tr:eq(1)"));
+        grid.saveRow();
+    })
+</script>

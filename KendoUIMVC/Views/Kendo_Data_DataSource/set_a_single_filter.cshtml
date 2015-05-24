@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "set_a_single_filter";
+}
+
+<h2>set_a_single_filter</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { name: "Jane Doe" },
+              { name: "John Doe" }
+            ],
+            filter: { field: "name", operator: "startswith", value: "Jane" }
+        });
+        dataSource.fetch(function () {
+            var view = dataSource.view();
+            alert(view.length); // displays "1"
+            alert(view[0].name); // displays "Jane Doe"
+        });
+    })
+</script>

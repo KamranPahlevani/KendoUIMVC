@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "set_the_number_greater_than_or_equal_to_operator";
+}
+
+<h2>set_the_number_greater_than_or_equal_to_operator</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: {
+            data: [
+              { name: "Jane Doe", age: 30 },
+              { name: "John Doe", age: 33 }
+            ],
+            schema: {
+                model: {
+                    fields: {
+                        age: { type: "number" }
+                    }
+                }
+            }
+        },
+        filterable: {
+            operators: {
+                number: {
+                    gte: "Greater than or equal to"
+                }
+            }
+        }
+    });
+</script>

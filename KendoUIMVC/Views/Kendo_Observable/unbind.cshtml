@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "unbind";
+}
+
+<h2>unbind</h2>
+
+<script>
+    var obj = new kendo.Observable();
+
+    var numberOfCalls = 0;
+
+    function handler(e) {
+        numberOfCalls++;
+    }
+
+    obj.bind("myevent", handler);
+
+    obj.trigger("myevent");
+
+    obj.unbind("myevent", handler);
+
+    obj.trigger("myevent");
+
+    alert(numberOfCalls); // outputs "1"
+</script>

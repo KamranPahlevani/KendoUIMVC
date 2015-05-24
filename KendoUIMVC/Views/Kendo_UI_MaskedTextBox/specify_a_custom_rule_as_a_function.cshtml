@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "specify_a_custom_rule_as_a_function";
+}
+
+<h2>specify_a_custom_rule_as_a_function</h2>
+
+<input id="maskedtextbox" />
+<script>
+    $("#maskedtextbox").kendoMaskedTextBox({
+        mask: "^000^",
+        rules: {
+            "^": function (char) {
+                return char === "^"; //allow ony "^" symbol
+            }
+        }
+    });
+</script>

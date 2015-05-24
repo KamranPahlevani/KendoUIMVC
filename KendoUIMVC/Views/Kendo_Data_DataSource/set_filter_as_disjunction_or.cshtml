@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "set_filter_as_disjunction_or";
+}
+
+<h2>set_filter_as_disjunction_or</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { name: "Tea", category: "Beverages" },
+              { name: "Coffee", category: "Beverages" },
+              { name: "Ham", category: "Food" }
+            ],
+            filter: {
+                // leave data items which are "Food" or "Tea"
+                logic: "or",
+                filters: [
+                  { field: "category", operator: "eq", value: "Food" },
+                  { field: "name", operator: "eq", value: "Tea" }
+                ]
+            }
+        });         
+        dataSource.fetch(function () {
+            var view = dataSource.view();
+            alert(view.length); // displays "2"
+            alert(view[0].name); // displays "Tea"
+            alert(view[1].name); // displays "Ham"
+        });
+    })
+</script>

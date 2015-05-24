@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "navigateToFuture";
+}
+
+<h2>navigateToFuture</h2>
+
+<div class="k-widget k-calendar" id="calendar"></div>
+
+<script>
+    $("#calendar").kendoCalendar({
+    });
+
+    var calendar = $("#calendar").data("kendoCalendar");
+
+    // navigate to future
+    calendar.navigateToFuture();
+</script>
+

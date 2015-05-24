@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "draggable";
+}
+
+<h2>draggable</h2>
+<table style="width: 100%">
+    <tr>
+        <td style="width: 33%">
+            <div id="draggable" style="width: 100px; height: 100px; background-color: blue">
+            </div>
+        </td>
+        <td style="width: 33%">
+            <div id="dropTarget" style="width: 200px; height: 200px; background-color: green">
+                drop Target
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="dragMessage">
+            </div>
+            <div id="dragcancelMessage">
+            </div>
+            <div id="dragendMessage">
+            </div>
+            <div id="dragstartMessage">
+            </div>
+        </td>        
+        <td>
+            <div id="dragenterMessage">
+            </div>
+            <div id="dragleaveMessage">
+            </div>
+            <div id="dropMessage">
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+
+<script>
+    $(document).ready(function () {
+        $("#draggable").kendoDraggable({
+            //Used to group sets of draggable and drop targets. A draggable with the same group value as a drop target will be accepted by the drop target.
+            group: 'kamz1',
+            /*If set, specifies the offset of the hint relative to the mouse cursor/finger.
+            By default, the hint is initially positioned on top of the draggable source offset.
+            The option accepts an object with two keys: top and left.*/
+            cursorOffset: { top: 10, left: 10 },
+            //The required distance that the mouse should travel in order to initiate a drag
+            distance: 50,
+            //Provides a way for customization of the drag indicator. If a function is supplied, it receives one argument - the draggable element's jQuery object.
+            hint: function (element) {
+                return $("#draggable").clone();
+                // same as
+                //  return element.clone();
+            },
+            //Fires while dragging.
+            drag: function (e) {
+                $('#dragMessage').html('drag');
+            },
+            //Fires when item drag is canceled by pressing the Escape key
+            dragcancel: function (e) {
+                $('#dragcancelMessage').html('drag cancel');
+            },
+            dragend: function (e) {
+                $('#dragendMessage').html('drag end');
+            },
+            dragstart: function (e) {
+                $('#dragstartMessage').html('drag start');
+            }
+        });
+
+        //hint as jQuery object
+        //$("#draggable").kendoDraggable({
+        //    cursorOffset: {top: 10, left: 10},
+        //    hint: $("#draggableHint")
+        //});
+
+        $('#dropTarget').kendoDropTarget({
+            //Used to group sets of draggable and drop targets. A draggable with the same group value as a drop target will be accepted by the drop target.
+            group: 'kamz',
+            //Fires when draggable moves over the drop target.
+            //e.draggable kendo.ui.Draggable : Reference to the draggable that enters the drop target.
+            dragenter: function (e) {
+                $('#dragenterMessage').html('drag enter');
+            },
+            //Fires when draggable moves out of the drop target.
+            //e.draggable kendo.ui.Draggable : Reference to the draggable that enters the drop target.
+            dragleave: function (e) {
+                $('#dragleaveMessage').html('drag leave');
+            },
+            //Fires when draggable is dropped over the drop target.
+            //e.draggable kendo.ui.Draggable : Reference to the draggable that enters the drop target.
+            drop: function (e) {
+                $('#dropMessage').html('drop');
+            }
+        })
+    })
+</script>

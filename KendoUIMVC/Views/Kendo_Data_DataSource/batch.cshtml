@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "batch";
+}
+
+<h2>batch</h2>
+
+<script>
+    var dataSource = new kendo.data.DataSource({
+        batch: true,
+        transport: {
+            read: {
+                url: "/Kendo_Data_DataSource/GetProducts",
+                dataType: "json" //"jsonp" is required for cross-domain requests; use "json" for same-domain requests
+            },
+            update: {
+                url: "/Kendo_Data_DataSource/UpdateProducts",
+                dataType: "json" //"jsonp" is required for cross-domain requests; use "json" for same-domain requests
+            }
+        },
+        schema: {
+            model: { id: "ProductID" }
+        }
+    });
+    dataSource.fetch(function () {
+        var product = dataSource.at(0);
+        product.set("UnitPrice", 1000);
+        var anotherProduct = dataSource.at(1);
+        anotherProduct.set("UnitPrice", 2000);
+        dataSource.sync(); // causes only one request to "/Kendo_Data_DataSource/UpdateProducts"
+    });
+</script>

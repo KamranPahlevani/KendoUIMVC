@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "allowHideAfter";
+}
+
+<h2>allowHideAfter</h2>
+
+<span id="notification"></span>
+<script>
+    $("#notification").kendoNotification({
+        allowHideAfter: 3000
+    });
+    $('#notification').data('kendoNotification').show('Test notification');
+</script>

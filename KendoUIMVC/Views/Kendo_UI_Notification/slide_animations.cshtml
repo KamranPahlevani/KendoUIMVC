@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "slide_animations";
+}
+
+<h2>slide_animations</h2>
+
+<span id="notification"></span>
+<script>
+    $("#notification").kendoNotification({
+        animation: {
+            open: {
+                effects: "slideIn:left"
+            },
+            close: {
+                effects: "slideIn:left",
+                reverse: true
+            }
+        }
+    });
+    $('#notification').data('kendoNotification').show('Test notification');
+</script>

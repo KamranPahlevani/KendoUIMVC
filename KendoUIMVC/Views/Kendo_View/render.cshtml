@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "render";
+}
+
+<h2>render</h2>
+
+<div id="app"></div>
+
+<script>
+    var index = new kendo.View('<span>Hello World!</span>');
+
+    index.render("#app");
+</script>

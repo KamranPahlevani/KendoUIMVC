@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "dataBinding_event";
+}
+
+<h2>dataBinding_event</h2>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        template: "<div>#: name#</div>",
+        dataSource: [
+            { name: "John Doe", age: 30 }
+        ],
+        dataBinding: function () {
+            alert('dataBinding event is fired!');
+        }
+    });
+</script>
+

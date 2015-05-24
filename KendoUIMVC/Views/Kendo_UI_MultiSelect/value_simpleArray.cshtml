@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "value_simpleArray";
+}
+
+<h2>value_simpleArray</h2>
+
+<select id="multiselect" multiple="multiple"></select>
+<script>
+$("#multiselect").kendoMultiSelect({
+     dataSource: ["Item1", "Item2", "Item3", "Item4"],
+     value: ["Item2", "Item3"]
+});
+</script>
+

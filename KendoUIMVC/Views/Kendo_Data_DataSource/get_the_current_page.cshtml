@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "get_the_current_page";
+}
+
+<h2>get_the_current_page</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { name: "Jane Doe" },
+              { name: "John Doe" }
+            ],
+            pageSize: 1,
+            page: 2
+        });
+        alert(dataSource.page()); // displays "2"
+    })
+</script>

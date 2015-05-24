@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "show_a_hidden_column_by_field";
+}
+
+<h2>show_a_hidden_column_by_field</h2>
+
+<div id="grid"></div>
+<input type="button" id="btnShowColumn" value="Show Column" />
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age", hidden: true }
+        ],
+        dataSource: [
+            { name: "Jane Doe", age: 30 },
+            { name: "John Doe", age: 33 }
+        ]
+    });
+
+    $('#btnShowColumn').click(function () {
+        var grid = $("#grid").data("kendoGrid");
+        grid.showColumn("age");
+    })
+</script>

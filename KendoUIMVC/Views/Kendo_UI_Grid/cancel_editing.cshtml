@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "cancel_editing";
+}
+
+<h2>cancel_editing</h2>
+
+<div id="grid"></div>
+<input type="button" id="btnCancelEditing" value="Cancel Editing" />
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: {
+            data: [
+              { id: 1, name: "Jane Doe", age: 30 },
+              { id: 2, name: "John Doe", age: 33 }
+            ],
+            schema: {
+                model: { id: "id" }
+            }
+        },
+        editable: true
+    });
+    $('#btnCancelEditing').click(function () {
+        var grid = $("#grid").data("kendoGrid");
+        grid.addRow();
+        grid.cancelRow();
+    })
+</script>

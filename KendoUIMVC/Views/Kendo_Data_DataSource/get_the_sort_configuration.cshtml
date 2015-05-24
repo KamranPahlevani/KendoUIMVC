@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "get_the_sort_configuration";
+}
+
+<h2>get_the_sort_configuration</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { name: "Jane Doe", age: 30 },
+              { name: "John Doe", age: 33 }
+            ],
+            sort: { field: "age", dir: "desc" }
+        });
+        var sort = dataSource.sort();
+        alert(sort.length);   // displays "1"
+        alert(sort[0].field); // displays "age"
+    })
+</script>

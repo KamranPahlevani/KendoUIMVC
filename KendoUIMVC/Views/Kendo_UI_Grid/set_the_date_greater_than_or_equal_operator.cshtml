@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "set_the_date_greater_than_or_equal_operator";
+}
+
+<h2>set_the_date_greater_than_or_equal_operator</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "date", format: "{0:yyyy-MM-dd}" }
+        ],
+        dataSource: {
+            data: [
+              { date: kendo.parseDate("2000-10-10") },
+              { date: kendo.parseDate("2013-08-02") }
+            ],
+            schema: {
+                model: {
+                    fields: {
+                        date: { type: "date" }
+                    }
+                }
+            }
+        },
+        filterable: {
+            operators: {
+                date: {
+                    gte: "After or equal to"
+                }
+            }
+        }
+    });
+</script>

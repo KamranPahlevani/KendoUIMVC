@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "set_the_model_as_a_JavaScript_object";
+}
+
+<h2>set_the_model_as_a_JavaScript_object</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            schema: {
+                model: {
+                    id: "ProductID",
+                    fields: {
+                        ProductID: {
+                            //this field will not be editable (default value is true)
+                            editable: false,
+                            // a defaultValue will not be assigned (default value is false)
+                            nullable: true
+                        },
+                        ProductName: {
+                            //set validation rules
+                            validation: { required: true }
+                        },
+                        UnitPrice: {
+                            //data type of the field {Number|String|Boolean|Date} default is String
+                            type: "number",
+                            // used when new model is created
+                            defaultValue: 42,
+                            validation: { required: true, min: 1 }
+                        }
+                    }
+                }
+            }
+        });
+    })
+</script>

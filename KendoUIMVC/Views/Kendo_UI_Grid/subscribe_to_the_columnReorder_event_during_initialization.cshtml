@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_columnReorder_event_during_initialization";
+}
+
+<h2>subscribe_to_the_columnReorder_event_during_initialization</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ],
+        reorderable: true,
+        columnReorder: function (e) {
+            ///e.column Object : A JavaScript object which represents the column configuration.            
+            ///e.newIndex Number : The new column index.            
+            ///e.oldIndex Number : The previous column index.            
+            ///e.sender kendo.ui.Grid : The widget instance which fired the event.            
+            alert('filed:' + e.column.field + ' newIndex:' +  e.newIndex + ' oldIndex:' + e.oldIndex);
+        }
+    });
+</script>

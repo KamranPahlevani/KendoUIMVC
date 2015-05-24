@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "How_to_expand_the_background_of_long_list_items";
+}
+
+<h2>How_to_expand_the_background_of_long_list_items</h2>
+
+<div id="example" role="application">
+    <style>
+        /* the first part of the ID matches the ID of the widget */
+        #combo1-list .k-item {
+            display: inline-block;
+            min-width: 100%;
+        }
+    </style>
+
+    <p>
+        Expand backgrounds (widths) of long items only, via CSS:
+        <select id="combo1">
+            <option>foo</option>
+            <option>bar</option>
+            <option>baz baz baz baz baz baz bazzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz</option>
+        </select>
+    </p>
+
+    <p>
+        Expand backgrounds (widths) of all items, via Javascript:
+        <select id="combo2">
+            <option>foo</option>
+            <option>bar</option>
+            <option>baz baz baz baz baz baz bazzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz</option>
+        </select>
+    </p>
+
+    <script>
+        $(document).ready(function() {
+          $("#combo1").kendoComboBox();
+
+          $("#combo2").kendoComboBox({
+            open: function(e){
+              setTimeout(function(){
+                var list = e.sender.list.children("ul");
+                var w = list[0].scrollWidth;
+                list.children().width(w);
+              });
+            }
+          });
+        });
+    </script>
+</div>

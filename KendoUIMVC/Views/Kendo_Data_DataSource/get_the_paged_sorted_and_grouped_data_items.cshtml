@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "get_the_paged_sorted_and_grouped_data_items";
+}
+
+<h2>get_the_paged_sorted_and_grouped_data_items</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { name: "Tea", category: "Beverages" },
+              { name: "Coffee", category: "Beverages" },
+              { name: "Ham", category: "Food" }
+            ],
+            group: { field: "category" },
+            sort: { field: "name", dir: "asc" },
+            pageSize: 2,
+            page: 1
+        });
+        dataSource.fetch(function () {
+            var view = dataSource.view();
+            alert(view.length); // displays "1"
+            var beverages = view[0];
+            alert(beverages.value); // displays "Beverages"
+            alert(beverages.items.length); // displays "2"
+            alert(beverages.items[0].name); // displays "Coffee"
+            alert(beverages.items[1].name); // displays "Tea"
+        });
+    })
+</script>

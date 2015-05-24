@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "How_to_add_option_label_manually";
+}
+
+<h2>How_to_add_option_label_manually</h2>
+
+<div id="example">
+    <div class="demo-section k-header">
+        <h4>Products</h4>
+        <input id="products" style="width: 400px" />
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#products").kendoComboBox({
+                placeholder: "Select product",
+                dataTextField: "ProductName",
+                dataValueField: "ProductID",
+                filter: "contains",
+                index: 0,
+                dataSource: {
+                    type: "json",
+                    transport: {
+                        read: {
+                            url: '@Url.Action("GetProducts", "Kendo_Data_DataSource")',
+                        }
+                    },
+                    requestEnd: function (e) {
+                        if(e.response != undefined)
+                           e.response.unshift({ ProductID: '', ProductName: 'All' });
+                    }
+                }
+            });
+        });
+    </script>
+
+    <style scoped>
+        .demo-section {
+            width: 400px;
+        }
+    </style>
+</div>

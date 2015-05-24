@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "disable_filtering";
+}
+
+<h2>disable_filtering</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name"},
+          { field: "age", filterable: false}
+        ],
+        filterable: true,
+        dataSource: [{ name: "Jane", age: 30 }, { name: "John", age: 33 }]
+    });
+</script>

@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "toJSON";
+}
+
+<h2>toJSON</h2>
+
+<script>
+    var observable = new kendo.data.ObservableObject({ person: { name: "John Doe" } });
+    var json = observable.toJSON();
+
+    alert(JSON.stringify(json)); // outputs {"person":{"name":"John Doe"}}
+</script>

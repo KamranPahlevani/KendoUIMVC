@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "culture";
+}
+
+<h2>culture</h2>
+
+<input id="dateTimePicker" name="dateTimePicker" style="width: 200px" type="date"  />
+
+<script src="~/Scripts/kendo/2013.3.1213/cultures/kendo.culture.de-DE.min.js"></script>
+<script>
+    $("#dateTimePicker").kendoDateTimePicker({
+        culture: "de-DE"
+    });
+</script>
+

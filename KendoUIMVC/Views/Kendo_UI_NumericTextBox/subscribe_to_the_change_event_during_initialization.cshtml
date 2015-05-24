@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_change_event_during_initialization";
+}
+
+<h2>subscribe_to_the_change_event_during_initialization</h2>
+
+<input id="numerictextbox" />
+<script>
+    $("#numerictextbox").kendoNumericTextBox({
+        change: function () {
+            var value = this.value();
+            alert(value); //value is the selected date in the numerictextbox
+        }
+    });
+</script>

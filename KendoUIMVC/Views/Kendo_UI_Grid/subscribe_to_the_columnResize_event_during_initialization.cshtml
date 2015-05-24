@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_columnResize_event_during_initialization";
+}
+
+<h2>subscribe_to_the_columnResize_event_during_initialization</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" },
+          { field: "post"}
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30, post: "Manager" },
+          { name: "John Doe", age: 33, post: "Student" }
+        ],
+        resizable: true,
+        columnResize: function (e) {
+            ///e.column Object : A JavaScript object which represents the column configuration.            
+            ///e.newWidth Number : The new column width.            
+            ///e.oldWidth Number : The previous column width.            
+            ///e.sender kendo.ui.Grid : The widget instance which fired the event.            
+            alert(e.column.field, e.newWidth, e.oldWidth);
+        }
+    });
+</script>

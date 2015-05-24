@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "specify_column_HTML_attributes";
+}
+
+<h2>specify_column_HTML_attributes</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "ProductID" },
+          { field: "ProductName" },
+          {
+              field: "UnitPrice",
+              attributes: {
+                  "class": "table-cell",
+                  style: "font-size: 14px; color: red; text-align: center;"
+              }
+          },
+          { field: "UnitsInStock", groupable: false },
+          { field: "Discontinued", groupable: true }
+        ],
+        dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                    dataType: "json"
+                },
+            }
+        }),
+    });
+</script>

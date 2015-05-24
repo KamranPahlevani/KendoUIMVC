@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "insert_new_data_items_at_the_bottom";
+}
+
+<h2>insert_new_data_items_at_the_bottom</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ],
+        editable: {
+            createAt: "bottom"
+        },
+        toolbar: ["create"]
+    });
+</script>

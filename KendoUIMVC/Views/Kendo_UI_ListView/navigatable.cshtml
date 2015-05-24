@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "navigatable";
+}
+
+<h2>navigatable</h2>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        dataSource: {
+            data: [
+                { name: "Jane Doe" },
+                { name: "John Doe" }
+            ]
+        },
+        template: "<div>#:name#</div>",
+        navigatable: true
+    });
+</script>

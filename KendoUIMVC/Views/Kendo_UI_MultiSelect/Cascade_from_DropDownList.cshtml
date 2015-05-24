@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Cascade_from_DropDownList";
+}
+
+<h2>Cascade_from_DropDownList</h2>
+
+<div>
+    supplier: <select id="suppliers"></select>
+</div>
+<div>
+    product: <select id="products"></select>
+</div>
+<script>
+      $(function() {
+        var productsDataSource = new kendo.data.DataSource({
+          type: "json",
+          serverFiltering: false,
+          transport: {
+            read: {
+              url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+            }
+          }
+        });
+
+        $("#products").kendoMultiSelect({
+          autoBind: false,
+          dataTextField: "ProductName",
+          dataValueField: "ProductID",
+          dataSource: productsDataSource
+        });
+
+        $("#suppliers").kendoDropDownList({
+          optionLabel: "Select supplier",
+          dataTextField: "CompanyName",
+          dataValueField: "SupplierID",
+          dataSource: {
+            type: "json",
+            serverFiltering: false,
+            transport: {
+              read: {
+                url: "@Url.Action("GetSuppliers", "Kendo_Data_DataSource")"
+              }
+            }
+          },
+          change: function() {
+            var filters = buildFilters([this.dataItem()]);
+            productsDataSource.filter(filters);
+          }
+        });
+
+        function buildFilters(dataItems) {
+          var filters = [];
+          var length = dataItems.length;
+          var supplierID;
+          var idx = 0;
+
+          for (; idx < length; idx++) {
+            supplierID = parseInt(dataItems[idx].SupplierID);
+
+            if (!isNaN(supplierID)) {
+              filters.push({
+                field: "SupplierID",
+                operator: "eq",
+                value: supplierID
+              });
+            }
+          }
+          return filters;
+        }
+      });
+</script>

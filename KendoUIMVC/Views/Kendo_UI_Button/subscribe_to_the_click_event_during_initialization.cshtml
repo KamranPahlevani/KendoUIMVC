@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_click_event_during_initialization";
+}
+
+<h2>subscribe_to_the_click_event_during_initialization</h2>
+
+<button id="button" type="button">Edit</button>
+<script>
+    $("#button").kendoButton({
+        click: function (e) {
+            alert(e.event.target.tagName);
+        }
+    });
+</script>

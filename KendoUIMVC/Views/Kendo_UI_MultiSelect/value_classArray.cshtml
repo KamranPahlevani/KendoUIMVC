@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "value_classArray";
+}
+
+<h2>value_classArray</h2>
+
+<select id="multiselect" multiple="multiple"></select>
+<script>
+$("#multiselect").kendoMultiSelect({
+    autoBind: false,
+    dataTextField: "productName",
+    dataValueField: "productId",
+    value: [{ productName: "Item 1", productId: "1" }, { productName: "Item 2", productId: "2" }]
+});
+</script>
+

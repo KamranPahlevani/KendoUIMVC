@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "destroy";
+}
+
+<h2>destroy</h2>
+
+<input id="maskedtextbox" />
+<script>
+    $("#maskedtextbox").kendoMaskedTextBox();
+
+    var maskedtextbox = $("#maskedtextbox").data("kendoMaskedTextBox");
+
+    // detach events
+    maskedtextbox.destroy();
+</script>
+

@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "kendoAnimate";
+}
+
+<h2>kendoAnimate</h2>
+
+<div id="box" style="width:200px; height:200px; background-color:blue;">
+</div>
+
+<span><input type="button" value="Stop Animation" onclick="StopAnimation();"/></span>
+<span><input type="button" value="Change Animation" onclick="ChangeAnimation();"/></span>
+
+<script>
+    $(document).ready(function () {
+        $("#box").kendoAnimate({
+            effects: "fade:in",
+            duration: 4000,
+            //(default: false) Whether the effect should play backwards, useful when doing the same animation but with the opposite direction, like opening and closing.
+            reverse: false,
+            //(default: false) Whether the element should be shown before animating.
+            show: false,
+            //(default: false) Whether the element should be hidden after the animation completes.
+            hide: false,
+            complete: function (element) {
+                alert('animation completed!');
+            }
+        });
+    })
+
+    function StopAnimation() {
+        /*Stops the animation effect running on the specified elements and optionally jumps to the end and clears the animation effect queue.
+        In browsers that don't support transitions falls back to jQuery stop().
+        This functionality is useful to avoid chaining many effects, causing them to run longer than expected.
+        clearQueue Boolean (default: false) Whether to clear the animation effects queue and start anew.
+        gotoEnd Boolean (default: false) Whether to jump to the animation end position when stopping or just leave the element at its current position.
+        */
+        $("#box").kendoStop(true, true);
+    }
+
+    function ChangeAnimation() {
+        $("#box").kendoStop(true, true).kendoAnimate({
+            effects: "fade:in",
+            duration: 8000,
+            reverse: true,
+            complete: function (element) {
+                alert('animation change completed!');
+            }
+        });
+    }
+</script>

@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Creating_ObservableObject_with_complex_and_array_fields";
+}
+
+<h2>Creating_ObservableObject_with_complex_and_array_fields</h2>
+
+<script>
+    var observable = kendo.observable({
+        // complex object field
+        person: {
+            name: "John Doe"
+        },
+        // array field
+        numbers: [1, 2, 3]
+    });
+
+    alert(observable.person instanceof kendo.data.ObservableObject); // outputs "true"
+    alert(observable.numbers instanceof kendo.data.ObservableArray); // outputs "true"
+</script>

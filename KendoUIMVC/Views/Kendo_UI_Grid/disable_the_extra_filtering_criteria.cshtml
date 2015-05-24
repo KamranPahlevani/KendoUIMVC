@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "disable_the_extra_filtering_criteria";
+}
+
+<h2>disable_the_extra_filtering_criteria</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        filterable: {
+            extra: false
+        },
+        dataSource: {
+            data: [
+                   { name: "Jane Doe", age: 30 },
+                   { name: "John Doe", age: 33 }
+            ],
+            schema: {
+                model: {
+                    fields: {
+                        name: { type: "string" },
+                        age: { type: "number" }
+                    }
+                }
+            },
+        }
+    });
+</script>

@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "specify_column_values";
+}
+
+<h2>specify_column_values</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "productName" },
+          {
+              field: "category", values: [
+              { text: "Beverages", value: 1 },
+              { text: "Food", value: 2 }
+              ]
+          }
+        ],
+        dataSource: [
+          { productName: "Tea", category: 1 },
+          { productName: "Ham", category: 2 }
+        ]
+    });
+</script>

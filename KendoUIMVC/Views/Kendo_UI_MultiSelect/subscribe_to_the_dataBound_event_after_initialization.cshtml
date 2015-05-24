@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_dataBound_event_after_initialization";
+}
+
+<h2>subscribe_to_the_dataBound_event_after_initialization</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Item1</option>
+    <option>Item2</option>
+</select>
+<script>
+    function multiselect_dataBound(e) {
+        // handle the event
+        alert('dataBound event is fired!')
+
+    }
+    $("#multiselect").kendoMultiSelect();
+    var multiselect = $("#multiselect").data("kendoMultiSelect");
+    multiselect.bind("dataBound", multiselect_dataBound);
+</script>

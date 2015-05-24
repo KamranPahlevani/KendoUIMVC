@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "do_not_allow_unsorting";
+}
+
+<h2>do_not_allow_unsorting</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ],
+        sortable: {
+            allowUnsort: false
+        }
+    });
+</script>

@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "set_destroy_as_a_function";
+}
+
+<h2>set_destroy_as_a_function</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: function (options) {
+                    $.ajax({
+                        url: "/Kendo_Data_DataSource/GetProducts",
+                        dataType: "json",
+                        success: function (result) {
+                            options.success(result);
+                        }
+                    });
+                },
+                destroy: function (options) {
+                    // make JSON request to /Kendo_Data_DataSource/DestroyProducts
+
+                    $.ajax({
+                        url: "/Kendo_Data_DataSource/DestroyProducts",
+                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                        // send the destroyed data items as the "models" service parameter encoded in JSON
+                        data: {
+                            models: kendo.stringify(options.data.models)
+                        },
+                        success: function (result) {
+                            // notify the data source that the request succeeded
+
+                            options.success(result);
+                        },
+                        error: function (result) {
+                            // notify the data source that the request failed
+                            options.error(result);
+                        }
+                    });
+                }
+            },
+            batch: true,
+            schema: {
+                model: { id: "ProductID" }
+            }
+        });
+        dataSource.fetch(function () {
+            var products = dataSource.data();
+            dataSource.remove(products[0]);
+            dataSource.remove(products[0]);
+            dataSource.sync();
+        });
+    })
+</script>

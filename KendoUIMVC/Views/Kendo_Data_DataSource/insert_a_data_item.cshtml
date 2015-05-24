@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "insert_a_data_item";
+}
+
+<h2>insert_a_data_item</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { id: 1, name: "Jane Doe" }
+            ],
+            schema: {
+                model: { id: "id" }
+            }
+        });
+        dataSource.fetch(function () {
+            var dataItem = dataSource.insert(0, { name: "John Doe" });
+            var index = dataSource.indexOf(dataItem);
+            alert(index); // displays "0"
+        });
+    })
+</script>

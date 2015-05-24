@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_edit_event_during_initialization";
+}
+
+<h2>subscribe_to_the_edit_event_during_initialization</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "id" },
+          { field: "name" },
+          { field: "age" },
+          { command: "edit" }
+        ],
+        dataSource: {
+            data: [
+              { id: 1, name: "Jane Doe", age: 30 },
+              { id: 2, name: "John Doe", age: 33 }
+            ],
+            schema: {
+                model: {
+                    id: "id",
+                    fields: {
+                        "id": { type: "number" }
+                    }
+                }
+            }
+        },
+        editable: "popup",
+        toolbar: ["create"],
+        edit: function (e) {
+            //e.container jQuery : The jQuery object representing the container element. That element contains the editing UI.            
+            //e.model kendo.data.Model : The data item which is going to be edited. Use its isNew method to check if the data item is new (created) or not (edited).            
+            //e.sender kendo.ui.Grid : The widget instance which fired the event.            
+            if (!e.model.isNew()) {
+                // Disable the editor of the "id" column when editing data items
+                var numeric = e.container.find("input[name=id]").data("kendoNumericTextBox");
+                numeric.enable(false);
+            }
+        }
+    });
+</script>

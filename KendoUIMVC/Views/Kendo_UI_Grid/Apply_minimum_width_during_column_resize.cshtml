@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Apply_minimum_width_during_column_resize";
+}
+
+<h2>Apply_minimum_width_during_column_resize</h2>
+
+<div id="grid"></div>
+<script>
+    $(function () {
+
+        $("#grid").kendoGrid({
+            dataSource: {
+                data: [{ foo: "item", bar: "number", baz: "one" }]
+            },
+            resizable: true
+        });
+
+        var minTableWidth;
+        var minColumnWidth = 100;
+        var th;
+        var idx;
+        var grid;
+
+        $("#grid").data("kendoGrid").resizable.bind("start", function (e) {
+            th = $(e.currentTarget).data("th");
+            idx = th.index();
+            grid = th.closest(".k-grid").data("kendoGrid");
+        });
+
+        $("#grid").data("kendoGrid").resizable.bind("resize", function (e) {
+            if (th.width() >= minColumnWidth) {
+                minTableWidth = grid.tbody.closest("table").width();
+            }
+
+            if (th.width() < minColumnWidth) {
+                // the next line is ONLY needed if Grid scrolling is enabled
+                grid.thead.closest("table").width(minTableWidth).children("colgroup").find("col").eq(idx).width(minColumnWidth);
+
+                grid.tbody.closest("table").width(minTableWidth).children("colgroup").find("col").eq(idx).width(minColumnWidth);
+            }
+        });
+
+    });
+</script>

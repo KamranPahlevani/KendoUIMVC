@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "set_the_CSS_class_of_the_command";
+}
+
+<h2>set_the_CSS_class_of_the_command</h2>
+
+<style>
+    .btn-destroy {
+        background-color: red;
+    }
+</style>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "ProductID" },
+          { field: "ProductName" },
+          {
+              field: "UnitPrice",
+          },
+          { field: "UnitsInStock", groupable: false },
+          { field: "Discontinued", groupable: true },
+           { command: [{ className: "btn-destroy", name: "destroy", text: "Remove" }] }
+        ],
+        editable: true,
+        dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                    dataType: "json"
+                },
+            }
+        }),
+    });
+</script>

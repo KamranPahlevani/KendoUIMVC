@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "pop";
+}
+
+<h2>pop</h2>
+
+<script>
+    var array = new kendo.data.ObservableArray([{ name: "John Doe" }]);
+
+    var result = array.pop();
+
+    alert(array.length); // outputs "0"
+
+    alert(result.get("name")); // outputs "John Doe"
+</script>

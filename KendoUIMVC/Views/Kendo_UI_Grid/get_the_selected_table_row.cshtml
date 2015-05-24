@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "get_the_selected_table_row";
+}
+
+<h2>get_the_selected_table_row</h2>
+
+<div id="grid"></div>
+<input type="button" id="btnGetSelectedRow" value="Get Selected Row"/>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+            { name: "Jane Doe", age: 30 },
+            { name: "John Doe", age: 33 }
+        ],
+        selectable: "row"
+    });
+
+    $('#btnGetSelectedRow').click(function () {
+        var grid = $("#grid").data("kendoGrid");
+        grid.select("tr:eq(1)");
+        var row = grid.select();
+        var data = grid.dataItem(row);
+        alert(data.name); // displays "Jane Doe"
+    })
+</script>

@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "specify_the_page_sizes_as_array";
+}
+
+<h2>specify_the_page_sizes_as_array</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "productName" },
+          { field: "category" }
+        ],
+        dataSource: [
+          { productName: "Tea", category: "Beverages" },
+          { productName: "Coffee", category: "Beverages" },
+          { productName: "Ham", category: "Food" },
+          { productName: "Bread", category: "Food" }
+        ],
+        pageable: {
+            pageSize: 2,
+            pageSizes: [2, 3, 4]
+        }
+    });
+</script>

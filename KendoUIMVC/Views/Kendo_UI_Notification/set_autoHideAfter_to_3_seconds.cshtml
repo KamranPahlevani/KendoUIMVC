@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "set_autoHideAfter_to_3_seconds";
+}
+
+<h2>set_autoHideAfter_to_3_seconds</h2>
+
+<span id="notification"></span>
+<script>
+    $("#notification").kendoNotification({
+        autoHideAfter: 1000
+    });
+    $('#notification').data('kendoNotification').show('Test notification');
+</script>

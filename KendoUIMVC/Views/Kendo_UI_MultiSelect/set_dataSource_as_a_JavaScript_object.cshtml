@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "set_dataSource_as_a_JavaScript_object";
+}
+
+<h2>set_dataSource_as_a_JavaScript_object</h2>
+
+<select id="multiselect" multiple="multiple"></select>
+<script>
+    $("#multiselect").kendoMultiSelect({
+        dataSource: {
+            data: ["One", "Two"]
+        }
+    });
+</script>

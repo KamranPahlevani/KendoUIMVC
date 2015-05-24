@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "close_event";
+}
+
+<h2>close_event</h2>
+
+<input id="dateTimePicker" name="dateTimePicker" style="width: 200px" type="date" />
+
+<script src="~/Scripts/kendo/2013.3.1213/cultures/kendo.culture.en-US.min.js"></script>
+<script>
+    $("#dateTimePicker").kendoDateTimePicker({
+    });
+
+    var dateTimePicker = $('#dateTimePicker').data('kendoDateTimePicker');
+    dateTimePicker.bind("close", function () {
+        alert("close event");
+    });
+</script>

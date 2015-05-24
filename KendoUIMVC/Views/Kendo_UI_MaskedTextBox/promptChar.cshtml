@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "promptChar";
+}
+
+<h2>promptChar</h2>
+
+<input id="maskedtextbox" />
+<script>
+    $("#maskedtextbox").kendoMaskedTextBox({
+        mask: "000000",
+        promptChar: " " //specify prompt char as empty char
+    });
+</script>
+

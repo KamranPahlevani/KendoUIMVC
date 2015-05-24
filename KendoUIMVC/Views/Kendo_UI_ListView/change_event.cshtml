@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "change_event";
+}
+
+<h2>change_event</h2>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        template: "<div>#: name#</div>",
+        dataSource: [
+            { name: "John Doe", age: 30 }
+        ],
+        selectable: true,
+        change: function (e) {
+            alert();
+        }
+    });
+</script>
+

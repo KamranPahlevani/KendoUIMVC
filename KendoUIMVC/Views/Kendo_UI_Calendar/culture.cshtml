@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "culture";
+}
+
+<h2>culture</h2>
+
+<div class="k-widget k-calendar" id="calendar"></div>
+
+<script src="~/Scripts/kendo/2013.3.1213/cultures/kendo.culture.de-DE.min.js"></script>
+<script>
+    $("#calendar").kendoCalendar({
+        culture: "de-DE"
+    });
+</script>

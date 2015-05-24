@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "format";
+}
+
+<h2>format</h2>
+
+<input id="datePicker" name="datePicker" style="width: 150px" type="date"  />
+
+<script src="~/Scripts/kendo/2013.3.1213/cultures/kendo.culture.en-US.min.js"></script>
+<script>
+    $("#datePicker").kendoDatePicker({
+        format: "yyyy/MM/dd"
+    });
+</script>
+

@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_requestStart_event_after_initialization";
+}
+
+<h2>subscribe_to_the_requestStart_event_after_initialization</h2>
+
+<script>
+    $(document).ready(function () {
+        function dataSource_requestStart(e) {
+            alert("request started");
+        }
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "/Kendo_Data_DataSource/GetProducts",
+                    dataType: "json"
+                }
+            }
+        });
+        dataSource.bind("requestEnd", dataSource_requestStart);
+        dataSource.fetch();
+    })
+</script>

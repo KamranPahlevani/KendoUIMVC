@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "get_the_step_value_of_the_NumericTextBox";
+}
+
+<h2>get_the_step_value_of_the_NumericTextBox</h2>
+
+<input id="numerictextbox" />
+<script>
+    $("#numerictextbox").kendoNumericTextBox();
+
+    var numerictextbox = $("#numerictextbox").data("kendoNumericTextBox");
+
+    var step = numerictextbox.step();
+
+    alert(step);
+</script>

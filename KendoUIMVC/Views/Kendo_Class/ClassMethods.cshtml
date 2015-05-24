@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "ClassMethods";
+}
+
+<h2>ClassMethods</h2>
+
+<script>
+    var Animal = kendo.Class.extend({
+        move: function () {
+            alert("Animal.move()");
+        }
+    });
+
+    var Bird = Animal.extend({
+        move: function () {
+            Animal.fn.move.call(this);
+            alert("Fly");
+        }
+    });
+
+    var Cat = Animal.extend({
+        move: function () {
+            Animal.fn.move.call(this);
+            alert("Sneak");
+        }
+    });
+
+    var tweety = new Bird();
+
+    tweety.move(); // outputs "Animal.move()" then "Fly"
+
+    var sylvester = new Cat();
+
+    sylvester.move(); // outputs "Animal.move()" then "Sneak"
+
+    alert(tweety instanceof Bird); // outputs "true" because tweety is an instanfe of Bird
+
+    alert(tweety instanceof Animal); // outputs "true" because Animal is the base class of Bird
+
+    alert(tweety instanceof Cat); // outputs "false" because tweety is not an instance of Cat
+</script>

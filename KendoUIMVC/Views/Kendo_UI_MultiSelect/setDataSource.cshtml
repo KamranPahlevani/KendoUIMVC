@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "setDataSource";
+}
+
+<h2>setDataSource</h2>
+
+<select id="multiselect" multiple="multiple"></select>
+<script>
+$("#multiselect").kendoMultiSelect({
+  dataSource: [ "Apples", "Oranges" ]
+});
+var dataSource = new kendo.data.DataSource({
+  data: [ "Bananas", "Cherries" ]
+});
+var multiselect = $("#multiselect").data("kendoMultiSelect");
+multiselect.setDataSource(dataSource);
+</script>

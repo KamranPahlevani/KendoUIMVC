@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_open_event_during_initialization";
+}
+
+<h2>subscribe_to_the_open_event_during_initialization</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Item1</option>
+    <option>Item2</option>
+</select>
+<script>
+    $("#multiselect").kendoMultiSelect({
+        open: function (e) {
+            alert('open event is fired!');
+        }
+    });
+</script>

@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_navigate_event_during_initialization";
+}
+
+<h2>subscribe_to_the_navigate_event_during_initialization</h2>
+
+<div class="k-widget k-calendar" id="calendar"></div>
+
+<script>
+    $("#calendar").kendoCalendar({
+        navigate: function (e) {
+            alert('calendar is navigated!');
+        },
+    });
+</script>
+
+

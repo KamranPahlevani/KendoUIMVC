@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "tile";
+}
+
+<h2>tile</h2>
+
+<style>
+    #container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+    }
+
+    #foo {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: blue;
+    }
+
+    #bar {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: red;
+    }
+
+</style>
+
+<div id="container">
+    <div id="bar"> Page 2</div>
+    <div id="foo"> Page 1</div>
+</div>
+
+<script>
+    kendo.fx($("#bar")).tile("left", $("#foo")).play();
+    //kendo.fx($("#bar")).tileLeft($("#foo")).play();
+</script>

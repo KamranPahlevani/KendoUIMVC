@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "set_the_create_remote_service";
+}
+
+<h2>set_the_create_remote_service</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                // make JSON request to /Kendo_Data_DataSource/CreateProducts
+                create: {
+                    url: "/Kendo_Data_DataSource/CreateProducts",
+                    dataType: "json" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                },
+                parameterMap: function (data, type) {
+                    if (type == "create") {
+                        // send the created data items as the "models" service parameter encoded in JSON
+                        return { models: kendo.stringify(data.models) };
+                    }
+                }
+            },
+            batch: true,
+            schema: {
+                model: { id: "ProductID" }
+            }
+        });
+        // create a new data item
+        dataSource.add({ProductName: "F", UnitPrice: 1000, UnitsInStock: 10, Discontinued: true });
+        dataSource.add({ProductName: "B", UnitPrice: 2000, UnitsInStock: 20, Discontinued: false });
+        // save the created data item
+        dataSource.sync();
+    })
+</script>

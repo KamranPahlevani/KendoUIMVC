@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "disable_animations";
+}
+
+<h2>disable_animations</h2>
+
+<span id="notification"></span>
+<script>
+    $("#notification").kendoNotification({
+        animation: false
+    });
+    $('#notification').data('kendoNotification').show('Test notification');
+</script>

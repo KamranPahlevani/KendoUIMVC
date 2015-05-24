@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_columnReorder_event_after_initialization";
+}
+
+<h2>subscribe_to_the_columnReorder_event_after_initialization</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ],
+        reorderable: true
+    });
+    var grid = $("#grid").data("kendoGrid");
+    grid.bind("columnReorder", grid_columnReorder);
+
+    function grid_columnReorder(e) {
+        alert('filed:' + e.column.field + ' newIndex:' + e.newIndex + ' oldIndex:' + e.oldIndex);
+    }
+</script>

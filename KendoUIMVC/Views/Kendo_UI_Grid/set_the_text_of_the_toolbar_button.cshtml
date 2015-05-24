@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "set_the_text_of_the_toolbar_button";
+}
+
+<h2>set_the_text_of_the_toolbar_button</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        toolbar: [
+          { name: "create", text: "Add new" }
+        ],
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { id: 1, name: "Jane Doe", age: 30 },
+          { id: 2, name: "John Doe", age: 33 }
+        ],
+        editable: true
+    });
+</script>

@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Define_the_Fields_of_a_Model";
+}
+
+<h2>Define_the_Fields_of_a_Model</h2>
+
+<script>
+    $(document).ready(function () {
+        var Product = kendo.data.Model.define({
+            id: "id", // the identifier is the "id" field (declared below)
+            fields: {
+                /* name of the field */ name: {
+                    type: "string", // the field is a string
+                    validation: { // validation rules
+                        required: true // the field is required
+                    },
+                    defaultValue: "<empty>" // default field value
+                },
+
+                /* name of the field */ price: {
+                    type: "number", // the field is a number
+                    validation: { // validation rules
+                        required: true, // the field is required
+                        min: 1 // the minimum value is 1
+                    },
+                    defaultValue: 99.99 // default field value
+                },
+
+                /* name of the field */ id: {
+                    editable: false, // this field is not editable
+                    nullable: true // a default value will not be assigned
+                }
+            }
+        });
+        var productOne = new Product();
+
+        productOne.bind('get', function (e) { alert('get event fired on field:' + e.field) });
+        productOne.bind('set', function (e) { alert('set event fired on field:' + e.field) });
+        productOne.bind('change', function (e) { alert('change event fired on field:' + e.field) });
+
+
+        alert(productOne.editable("id")); // outputs "false"
+        alert(productOne.editable("name")); // outputs "true"
+
+        alert(productOne.isNew()); // outputs "true"
+
+        var json = productOne.toJSON();
+
+        alert(productOne.get('price'));
+        productOne.set('name', 'banz');
+        alert(productOne.get('name'));
+
+        var productTwo = new Product({ productId: 1 });
+        alert(productTwo.isNew()); // outputs "false" because productId is set to 1
+    })
+</script>

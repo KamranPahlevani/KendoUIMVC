@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "setDataSource";
+}
+
+<h2>setDataSource</h2>
+
+<input type="text" id="comboBox" name="comboBox" />
+
+<script>
+    $("#comboBox").kendoComboBox({
+
+        dataTextField: "ProductName"
+    });
+
+    var dataSource = new kendo.data.DataSource({
+        transport: {
+            read: {
+                url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                dataType: "json"
+            },
+        }
+    })
+
+    $("#comboBox").data("kendoComboBox").setDataSource(dataSource);
+</script>

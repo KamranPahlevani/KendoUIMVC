@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "clear_selection";
+}
+
+<h2>clear_selection</h2>
+
+<div id="grid"></div>
+<input type="button" id="btnClearSelection" value="Clear Selection"/>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 },
+        ],
+        selectable: true
+    });
+    var grid = $("#grid").data("kendoGrid");
+    // select the first table row
+    grid.select("tr:eq(1)");
+
+    $('#btnClearSelection').click(function () {
+        grid.clearSelection();
+    })
+</script>

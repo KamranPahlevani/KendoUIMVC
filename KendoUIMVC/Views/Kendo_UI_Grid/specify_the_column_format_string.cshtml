@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "specify_the_column_format_string";
+}
+
+<h2>specify_the_column_format_string</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [{
+            field: "date",
+            format: "{0: yyyy-MM-dd HH:mm:ss}",
+            filterable: {
+                ui: "datetimepicker" 
+            }
+        },
+        {
+            field: "number",
+            filterable: {
+                ui: "numerictextbox"
+            }
+        }],
+        filterable:
+            {
+                extra: false,
+            },
+        dataSource: {
+            data: [{ date: new Date(), number: 3.14 }],
+            schema: {
+                model: {
+                    fields: {
+                        date: { type: "date" },
+                        number: { type: "number" }
+                    }
+                }
+            },
+        }
+    });
+</script>

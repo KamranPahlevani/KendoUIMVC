@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "How_to_make_search_for_dropped_with_the_mouse_text";
+}
+
+<h2>How_to_make_search_for_dropped_with_the_mouse_text</h2>
+
+<div id="example">
+    <div class="demo-section k-header">
+        <h4>Products</h4>
+        <div> Drag: c </div>
+        <input id="products" style="width: 400px" />
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#products").kendoComboBox({
+                placeholder: "Select product",
+                dataTextField: "ProductName",
+                dataValueField: "ProductID",
+                filter: "contains",
+                autoBind: false,
+                minLength: 3,
+                dataSource: {
+                    type: "jason",
+                    serverFiltering: false,
+                    transport: {
+                        read: {
+                            url: '@Url.Action("GetProducts", "Kendo_Data_DataSource")',
+                        }
+                    }
+                }
+            });
+
+            //Wire the drop event
+            var combobox = $("#products").data("kendoComboBox");
+
+            combobox.input.on("drop", function (e) {
+                debugger;
+                var input = e.currentTarget;
+                var droppedText = e.originalEvent.dataTransfer.getData("text");
+
+                setTimeout(function () {
+                    input.value = droppedText;
+                    combobox.search(droppedText);
+                });
+            });
+        });
+    </script>
+
+    <style scoped>
+        .demo-section {
+            width: 400px;
+        }
+    </style>
+</div>

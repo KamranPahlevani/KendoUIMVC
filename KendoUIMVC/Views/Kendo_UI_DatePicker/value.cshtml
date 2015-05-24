@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "value";
+}
+
+<h2>value</h2>
+
+<input id="datePicker" name="datePicker" style="width: 150px" type="date"  />
+<input type="button" id="btnGetDate" value="Get Date"/>
+<input type="button" id="btnSetDate" value="Set Date"/>
+
+
+<script src="~/Scripts/kendo/2013.3.1213/cultures/kendo.culture.en-US.min.js"></script>
+<script>
+    $("#datePicker").kendoDatePicker({
+    });
+
+    var datePicker = $('#datePicker').data('kendoDatePicker');
+
+    $('#btnGetDate').click(function () {
+       alert(datePicker.value());
+    })
+
+    $('#btnSetDate').click(function () {
+        datePicker.value(new Date(2011, 0, 1));
+    })
+
+</script>
+

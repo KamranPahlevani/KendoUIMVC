@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "destroy";
+}
+
+<h2>destroy</h2>
+
+<ul id="menu">
+    <li>
+        Item 1
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+    <li>
+        Item 2
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    $("#menu").kendoMenu({
+    });
+
+    var menu = $("#menu").data("kendoMenu");
+
+    // detach events
+    menu.destroy();
+</script>
+

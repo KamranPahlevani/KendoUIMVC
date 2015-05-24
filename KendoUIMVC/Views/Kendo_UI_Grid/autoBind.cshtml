@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "autoBind";
+}
+
+<h2>autoBind</h2>
+
+<div id="grid"></div>
+<input id="btnBindDataSource" type="button" value="Bind Data Source" />
+<script>
+    var dataSource = new kendo.data.DataSource({
+        data: [{ name: "Jane Doe" }, { name: "John Doe" }]
+    });
+    $("#grid").kendoGrid({
+        autoBind: false,
+        dataSource: dataSource
+    });
+
+    $('#btnBindDataSource').click(function () {
+        dataSource.read(); // "read()" will fire the "change" event of the dataSource and the widget will be bound
+    })
+</script>

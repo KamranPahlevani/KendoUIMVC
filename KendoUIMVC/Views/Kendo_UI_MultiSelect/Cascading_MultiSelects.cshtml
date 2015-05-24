@@ -1,0 +1,142 @@
+﻿@{
+    ViewBag.Title = "Cascading_MultiSelects";
+}
+
+<h2>Cascading_MultiSelects</h2>
+
+supplier: <select id="suppliers"></select>
+    product: <select id="products"></select>
+<script>
+    @*$(function() {
+        var productsDataSource = new kendo.data.DataSource({
+          type: "json",
+          serverFiltering: false,
+          transport: {
+              read: {
+                url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")"
+            },
+            parameterMap: function(data) {
+              var result = {};
+              var filter = data.filter;
+
+              if (filter) {
+                filter = filter.filters;
+
+                for (var i = 0, length = filter.length; i < length; i++) {
+                  result["filters[" + i + "]"] = filter[i].value;
+                }
+              }
+
+              return result;
+            }
+          }
+        });
+
+        $("#products").kendoMultiSelect({
+          autoBind: false,
+          dataTextField: "ProductName",
+          dataValueField: "ProductID",
+          dataSource: productsDataSource
+        });
+
+        $("#suppliers").kendoMultiSelect({
+          autoBind: false,
+          dataTextField: "CompanyName",
+          dataValueField: "SupplierID",
+          dataSource: {
+            type: "json",
+            serverFiltering: true,
+            transport: {
+              read: {
+                  url: "@Url.Action("GetSuppliers", "Kendo_Data_DataSource")"
+              }
+            }
+          },
+            change: function() {
+                var filters = buildFilters(this.dataItems());
+                productsDataSource.filter(filters);
+            }
+        });
+
+function buildFilters(dataItems) {
+    var filters = [],
+        length = dataItems.length,
+        idx = 0, dataItem;
+
+    for (; idx < length; idx++) {
+        dataItem = dataItems[idx];
+
+        filters.push({
+            field: "SupplierID",
+            operator: "eq",
+            value: parseInt(dataItem.SupplierID)
+        });
+    }
+
+    return {
+        logic: "or",
+        filters: filters
+    };
+}
+});*@
+
+
+    $(document).ready(function () {
+        $("#products").kendoMultiSelect({
+            dataTextField: "ProductName",
+            dataValueField: "ProductID",
+            dataSource: []
+        });
+
+        $("#suppliers").kendoMultiSelect({
+            dataTextField: "CompanyName",
+            dataValueField: "SupplierID",
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        url: "@Url.Action("GetSuppliers", "Kendo_Data_DataSource")"
+                    }
+                }
+            },
+            change: function () {
+                if (this.dataItems().length > 0)
+                    FillProductsBySuppliers();
+            }
+        });
+
+        function FillProductsBySuppliers() {
+            var selectedSuppliersList = [];
+            var suppliersMultiSelect = $('#suppliers').data('kendoMultiSelect');
+            var selectedSuppliers = suppliersMultiSelect.dataItems();
+            for (var i = 0; i < selectedSuppliers.length; i++) {
+                selectedSuppliersList.push(selectedSuppliers[i].SupplierID)
+            }
+            var productsDataSource = new kendo.data.DataSource({
+                transport: {
+                    read: function (options) {
+                        $.ajax({
+                            type: "POST",
+                            url: '@Url.Action("GetProductsBySupplier", "Kendo_Data_DataSource")',
+                            dataType: 'json',
+                            data: {selectedSuppliersListJsonObj : JSON.stringify(selectedSuppliersList)},
+                            success: function (result) {
+                                var productsMultiSelect = $('#products').data('kendoMultiSelect');
+                                productsMultiSelect.refresh();
+                                productsMultiSelect.setDataSource(result);
+                            },
+                            error: function (xhr, error) {
+                                alert(error);
+                            }
+                        });
+                    }
+                }
+            })
+            productsDataSource.read();
+            return productsDataSource;
+        }
+
+    })
+
+
+</script>

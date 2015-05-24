@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "routeMissing";
+}
+
+<h2>routeMissing</h2>
+
+<script>
+var router = new kendo.Router({ routeMissing: function(e) { alert(e.url) } });
+
+$(function() {
+    router.start();
+    router.navigate("/foo");
+});
+</script>

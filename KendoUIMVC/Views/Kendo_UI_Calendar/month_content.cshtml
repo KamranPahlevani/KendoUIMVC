@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "month_content";
+}
+
+<style>
+    .exhibition {
+        background-color: #fff;
+        width:26px;
+        height:24px;
+        display: inline-block;
+        vertical-align: middle;
+        text-align:center;
+    }
+
+    .party {
+        background-color: #70c114;
+        width:26px;
+        height:24px;
+        display: inline-block;
+        vertical-align: middle;
+        text-align:center;
+    }
+</style>
+
+<h2>month_content</h2>
+
+<div class="k-widget k-calendar" id="calendar"></div>
+
+<script>
+    function isInArray(date) {
+        var isInRange = null;
+        isInRange = date.getDate() < 10 ? true : false;
+        return isInRange;
+    }
+
+    $("#calendar").kendoCalendar({
+        month: {
+            content: '# if (isInArray(data.date)) { #' +
+                             '<div class="exhibition">#= data.value #</div>' +
+                     '# }' +
+                     'else { #' +
+                             '<div class="party">#= data.value #</div>' +
+                            '# }' +
+                     '#'
+        }
+    });
+</script>
+

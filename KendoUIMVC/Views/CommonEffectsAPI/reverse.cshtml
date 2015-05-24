@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "reverse";
+}
+
+<h2>reverse</h2>
+
+<div id="foo">
+    I will be faded out
+</div>
+
+<script>
+    kendo.fx($("#foo")).fadeOut().reverse().then(function () {
+        alert("Foo faded out");
+    });
+</script>
+

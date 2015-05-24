@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "schema";
+}
+
+<h2>schema</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "http://demos.kendoui.com/service/twitter/search",
+                    dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: { q: "html5" } // search for tweets that contain "html5"
+                }
+            },
+            schema: {
+                data: function (response) {
+                    return response.results; // twitter's response is { "results": [ /* results */ ] }
+                }
+            }
+        });
+        dataSource.fetch(function () {
+            var data = this.data();
+            alert(data.length);
+        });
+    })
+</script>

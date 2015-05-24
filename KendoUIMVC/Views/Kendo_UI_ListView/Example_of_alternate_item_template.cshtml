@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Example_of_alternate_item_template";
+}
+
+<h2>Example_of_alternate_item_template</h2>
+
+<script type="text/kendo-x-tmpl" id="template">
+    <div>
+        Item template for #:name#
+    </div>
+</script>
+
+<script type="text/kendo-x-tmpl" id="altTemplate">
+    <div>
+        Alternate item template for #:name#
+    </div>
+</script>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        dataSource: {
+            data: [
+                { name: "Jane Doe" },
+                { name: "John Doe" }
+            ]
+        },
+        template: kendo.template($("#template").html()),
+        altTemplate: kendo.template($("#altTemplate").html())
+    });
+</script>
+

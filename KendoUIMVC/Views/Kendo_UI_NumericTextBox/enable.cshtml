@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "enable";
+}
+
+<h2>enable</h2>
+
+<input id="numerictextbox" disabled="disabled" />
+<script>
+    $("#numerictextbox").kendoNumericTextBox();
+
+    var numerictextbox = $("#numerictextbox").data("kendoNumericTextBox");
+    numerictextbox.enable(true);
+</script>

@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_filterMenuInit_event_during_initialization";
+}
+
+<h2>subscribe_to_the_filterMenuInit_event_during_initialization</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" }
+        ],
+        dataSource: [
+          { name: "Jane Doe" },
+          { name: "John Doe" }
+        ],
+        filterable: true,
+        filterMenuInit: function (e) {
+            //e.container jQuery : The jQuery object representing filter menu form element.            
+            //e.field String : The field of the column for which the filter menu is initialized.            
+            //e.sender kendo.ui.Grid : The widget instance which fired the event.            
+            if (e.field == "name") {
+                var firstValueDropDown = e.container.find("select:eq(0)").data("kendoDropDownList");
+                firstValueDropDown.value("contains");
+                var logicDropDown = e.container.find("select:eq(1)").data("kendoDropDownList");
+                logicDropDown.value("or");
+                var secondValueDropDown = e.container.find("select:eq(2)").data("kendoDropDownList");
+                secondValueDropDown.value("contains");
+            }
+        }
+    });
+</script>

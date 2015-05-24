@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "set_group_as_an_array";
+}
+
+<h2>set_group_as_an_array</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { name: "Pork", category: "Food", subcategory: "Meat" },  
+              { name: "Pepper", category: "Food", subcategory: "Vegetables" },
+              { name: "Beef", category: "Food", subcategory: "Meat" }
+            ],
+            group: [
+              // group by "category" and then by "subcategory"
+              { field: "category" },
+              { field: "subcategory" }
+            ]
+        });
+        dataSource.fetch(function () {
+            var view = dataSource.view();
+            alert(view.length); // displays "1"
+            var food = view[0];
+            alert(food.value); // displays "Food"
+            var meat = food.items[0];
+            alert(meat.value); // displays "Meat"
+            alert(meat.items.length); // displays "2"
+            alert(meat.items[0].name); // displays "Pork"
+            alert(meat.items[1].name); // displays "Beef"
+            var vegetables = food.items[1];
+            alert(vegetables.value); // displays "Vegetables"
+            alert(vegetables.items.length); // displays "1"
+            alert(vegetables.items[0].name); // displays "Pepper" 
+        });
+    })
+</script>

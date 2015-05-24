@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "hide";
+}
+
+<h2>hide</h2>
+
+<div id="app"></div>
+
+<script>
+    var foo = new kendo.View("<span>Foo</span>", { hide: function() { console.log("Foo is hidden now"); });
+    var bar = new kendo.View("<span>Bar</span>");
+
+    var layout = new kendo.Layout("<header>Header</header><section id=\"content\"></section><footer></footer>");
+
+    layout.render($("#app"));
+
+    layout.showIn("#content", foo);
+    layout.showIn("#content", bar);
+</script>

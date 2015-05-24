@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "destroy";
+}
+
+<h2>destroy</h2>
+
+<div id="app"></div>
+
+<script>
+var view = new kendo.View("Hi!", { tagName: "span" });
+view.render($("#app"));
+view.destroy();
+</script>

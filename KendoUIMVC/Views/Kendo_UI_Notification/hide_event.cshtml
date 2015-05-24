@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "hide_event";
+}
+
+<h2>hide_event</h2>
+
+<span id="notification"></span>
+<script>
+
+    function onHide(e) {
+        var elementBeingHidden = e.element;
+        alert('hide event is fired!')
+    }
+
+    $("#notification").kendoNotification({
+        hide: onHide
+    });
+
+    $('#notification').data('kendoNotification').show('Test notification');
+
+</script>

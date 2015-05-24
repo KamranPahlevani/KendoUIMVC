@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "change";
+}
+
+<h2>change</h2>
+
+<script>
+    var array = new kendo.data.ObservableArray([1, 2, 3]);
+
+    array.bind("change", function (e) {
+        alert('action:' + e.action + ' index:' + e.index + ' items:' + e.items);
+    });
+
+    array.push(4, 5); // outputs "add", 3, [4, 5]
+
+    array.pop(); // outputs "remove", 4, [5]
+
+    var people = new kendo.data.ObservableArray([{ name: "John Doe" }]);
+
+    people.bind("change", function (e) {
+        alert('action:' + e.action + ' field:' + e.field + ' name:' + e.items[0].get("name"));
+    });
+
+    people[0].set("name", "Jane Doe"); // outputs "itemchange", "name", "Jane Doe"
+
+</script>

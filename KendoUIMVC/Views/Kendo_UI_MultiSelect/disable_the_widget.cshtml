@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "disable_the_widget";
+}
+
+<h2>disable_the_widget</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Item1</option>
+    <option>Item2</option>
+</select>
+<script>
+    $("#multiselect").kendoMultiSelect({
+        enable: false
+    });
+</script>
+

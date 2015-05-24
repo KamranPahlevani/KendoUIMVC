@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "messages";
+}
+
+<h2>messages</h2>
+
+<textarea cols="20" id="editor" name="editor" rows="5" style="width: 740px;height:440px"></textarea>
+
+<script>
+    $("#editor").kendoEditor({
+        messages: {
+            bold: "Bold",
+            italic: "Italic",
+            underline: "Underline",
+            strikethrough: "Strikethrough",
+            superscript: "Superscript",
+            subscript: "Subscript",
+            justifyCenter: "Center text",
+            justifyLeft: "Align text left",
+            justifyRight: "Align text right",
+            justifyFull: "Justify",
+            insertUnorderedList: "Insert unordered list",
+            insertOrderedList: "Insert ordered list",
+            indent: "Indent",
+            outdent: "Outdent",
+            createLink: "Insert hyperlink",
+            unlink: "Remove hyperlink",
+            insertImage: "Insert image",
+            insertHtml: "Insert HTML",
+            fontName: "Select font family",
+            fontNameInherit: "(inherited font)",
+            fontSize: "Select font size",
+            fontSizeInherit: "(inherited size)",
+            formatBlock: "Format",
+            style: "Styles",
+            emptyFolder: "Empty Folder",
+            uploadFile: "Upload",
+            orderBy: "Arrange by:",
+            orderBySize: "Size",
+            orderByName: "Name",
+            invalidFileType: "The selected file \"{0}\" is not valid. Supported file types are {1}.",
+            deleteFile: "Are you sure you want to delete \"{0}\"?",
+            overwriteFile: "A file with name \"{0}\" already exists in the current directory. Do you want to overwrite it?",
+            directoryNotFound: "A directory with this name was not found.",
+            imageWebAddress: "Web address",
+            imageAltText: "Alternate text",
+            linkWebAddress: "Web address",
+            linkText: "Text",
+            linkToolTip: "ToolTip",
+            linkOpenInNewWindow: "Open link in new window",
+            dialogInsert: "Insert",
+            dialogUpdate: "Update",
+            dialogButtonSeparator: "or",
+            dialogCancel: "Cancel"
+        }
+    });
+</script>
+

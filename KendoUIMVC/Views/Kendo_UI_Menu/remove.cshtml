@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "remove";
+}
+
+<h2>remove</h2>
+
+<ul id="menu">
+    <li id="Item1">
+        Item 1
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+    <li>
+        Item 2
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    $("#menu").kendoMenu({
+    });
+
+    // get a reference to the menu widget
+    var menu = $("#menu").data("kendoMenu");
+    // remove the item with the id "Item1"
+    menu.remove("#Item1");
+</script>
+

@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "How_to_use_promises_to_detect_when_all_widgets_are_bound";
+}
+
+<h2>How_to_use_promises_to_detect_when_all_widgets_are_bound</h2>
+
+<div id="example">
+    <div class="demo-section k-header">
+        <h4>View Order Details</h4>
+        <p>
+            <label for="suppliers">Suppliers:</label><input id="suppliers" style="width: 270px" value="1" />
+        </p>
+        <p>
+            <label for="products">Products:</label><input id="products" style="width: 270px" />
+        </p>
+    </div>
+
+    <style scoped>
+        .demo-section {
+            width: 400px;
+        }
+
+            .demo-section p {
+                margin-top: 1em;
+            }
+
+            .demo-section label {
+                display: inline-block;
+                width: 100px;
+                padding-right: 5px;
+                text-align: right;
+            }
+
+            .demo-section .k-button {
+                margin: 1em 0 0 105px;
+            }
+
+        .k-readonly {
+            color: gray;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            debugger;
+            var promises = [];
+
+            var change = function () {
+                debugger;
+                this.deferred.resolve();
+            }
+
+            var suppliers = $("#suppliers").kendoDropDownList({
+                dataTextField: "CompanyName",
+                dataValueField: "SupplierID",
+                dataSource: {
+                    type: "json",
+                    serverFiltering: false,
+                    transport: {
+                        read: '@Url.Action("GetSuppliers", "Kendo_Data_DataSource")'
+                    },
+                    requestStart: function () {
+                        debugger;
+                        this.deferred = $.Deferred();
+                        promises.push(this.deferred.promise());
+                    }
+                }
+            }).data("kendoDropDownList");
+
+            var products = $("#products").kendoDropDownList({
+                dataTextField: "ProductName",
+                dataValueField: "ProductID",
+                dataSource: {
+                    type: "json",
+                    serverFiltering: false,
+                    transport: {
+                        read: '@Url.Action("GetProducts", "Kendo_Data_DataSource")'
+                    },
+                    requestStart: function () {
+                        debugger;
+                        this.deferred = $.Deferred();
+                        promises.push(this.deferred.promise());
+                    }
+                }
+            }).data("kendoDropDownList");
+
+            suppliers.dataSource.bind("change", change);
+            products.dataSource.bind("change", change);
+
+            $.when.apply(null, promises)
+            .done(function () {
+                debugger;
+                alert("done");
+                alert(suppliers.value());
+                alert(products.value());
+            });
+        });
+    </script>
+</div>

@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "hide_a_column_from_the_column_menu";
+}
+
+<h2>hide_a_column_from_the_column_menu</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "id", menu: false },
+          { field: "name" },
+          { field: "age" }
+        ],
+        columnMenu: true,
+        dataSource: [
+          { id: 1, name: "Jane Doe", age: 30 },
+          { id: 2, name: "John Doe", age: 33 }
+        ]
+    });
+</script>

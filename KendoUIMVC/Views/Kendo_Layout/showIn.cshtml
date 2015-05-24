@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "showIn";
+}
+
+<h2>showIn</h2>
+
+<div id="app" style="border:outset 1px green">app</div>
+
+<script>
+    var view = new kendo.View("<span>Foo</span>");
+
+    var layout = new kendo.Layout("<header>Header</header><section id='content'>Section</section><footer>Footer</footer>");
+
+    layout.render($("#app"));
+
+    layout.showIn("#content", view);
+</script>

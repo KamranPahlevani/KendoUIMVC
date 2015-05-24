@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "binder";
+}
+
+<h2>binder</h2>
+
+<script>
+    kendo.data.binders.slide = kendo.data.Binder.extend({
+        refresh: function () {
+            var value = this.bindings["slide"].get();
+
+            if (value) 
+                $(this.element).slideDown();
+            else 
+                $(this.element).slideUp();
+        }
+    });
+</script>

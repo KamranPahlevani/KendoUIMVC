@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "set_dataSource_as_an_existing_kendo_data_DataSource_instance";
+}
+
+<h2>set_dataSource_as_an_existing_kendo_data_DataSource_instance</h2>
+
+<div id="grid"></div>
+<script>
+    var dataSource = new kendo.data.DataSource({
+        transport: {
+            read: {
+                url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                dataType: "json"
+            },
+        },
+        pageSize: 2,
+        serverPaging: true,
+    });
+    $("#grid").kendoGrid({
+        dataSource: dataSource,
+        columns: [
+                  { field: "ProductID", title: "Product ID" },
+                  { field: "ProductName", title: "Product Name" },
+                  { field: "UnitPrice", title: "Unit Price" },
+                  { field: "UnitsInStock", title: "Units In Stock" },
+                  { field: "Discontinued", title: "Discontinued" }
+                 ],
+        pageable: true
+    });
+</script>

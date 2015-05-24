@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "specify_tagTemplate_as_a_string";
+}
+
+<h2>specify_tsgTemplate_as_a_string</h2>
+
+<select id="multiselect" multiple="multiple"></select>
+<script>
+$("#multiselect").kendoMultiSelect({
+  dataSource: [
+    { id: 1, name: "Apples" },
+    { id: 2, name: "Oranges" }
+  ],
+  dataTextField: "name",
+  dataValueField: "id",
+  tagTemplate: '<span><img src="/Images/#: name #.png" alt="#: name #" /> #: name #</span>'
+});
+</script>
+

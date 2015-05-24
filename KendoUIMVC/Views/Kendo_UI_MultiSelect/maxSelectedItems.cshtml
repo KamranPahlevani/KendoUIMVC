@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "maxSelectedItems";
+}
+
+<h2>maxSelectedItems</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Item1</option>
+    <option>Item2</option>
+    <option>Item3</option>
+    <option>Item4</option>
+</select>
+<script>
+$("#multiselect").kendoMultiSelect({
+    maxSelectedItems: 3 //only three or less items could be selected
+});
+</script>
+

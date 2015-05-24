@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "wrap";
+}
+
+<h2>wrap</h2>
+
+<div id="app"></div>
+
+<script>
+ var view = new kendo.View('<div id="foo"></div>', { wrap: false });
+ view.render($("#app"));
+ alert(view.element.attr('id')) // foo
+</script>

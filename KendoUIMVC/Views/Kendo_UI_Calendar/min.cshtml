@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "min";
+}
+
+<h2>min</h2>
+
+<div class="k-widget k-calendar" id="calendar1"></div>
+
+<div class="k-widget k-calendar" id="calendar2"></div>
+
+<script>
+    $("#calendar1").kendoCalendar({
+        min: new Date(2012, 11, 29),
+        value: new Date(2012, 11, 29)
+    });
+
+    $("#calendar2").kendoCalendar({
+    });
+
+    var calendar = $("#calendar2").data("kendoCalendar");
+    var date = new Date(2012, 11, 29);
+    calendar.min(date);
+    calendar.value(date);
+</script>
+

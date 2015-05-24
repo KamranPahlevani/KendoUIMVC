@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "query_the_data_source";
+}
+
+<h2>query_the_data_source</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "http://localhost:14635/Kendo_Data_DataSource/GetProducts",
+                    dataType: "json" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                }
+            },
+            change: function (e) {
+                var view = this.view();
+                alert(view[0].ProductName); // displays "Manjimup Dried Apples"
+            }
+        });
+        // sort by "ProductName" and get the third page with page size set to 20
+        dataSource.query({
+            sort: { field: "ProductName", dir: "desc" },
+            page: 1,
+            pageSize: 2
+        });
+    })
+</script>

@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Restrict_user_input_to_min_max_values";
+}
+
+<h2>Restrict_user_input_to_min_max_values</h2>
+
+<input id="DOB" value="30/06/2010" />
+<script>
+    $(function () {
+        $("#DOB").kendoDatePicker({
+            format: "dd/MM/yyyy",
+            min: new Date(2008, 10, 10),
+            max: new Date(2016, 10, 10),
+            change: onDOBChange
+        });
+    });
+</script>
+
+<script>
+    function onDOBChange(e) {
+        debugger;
+        var dt = e.sender;
+        var value = dt.value();
+
+        if (value === null) {
+            value = kendo.parseDate(dt.element.val(), dt.options.parseFormats);
+        }
+
+        if (value < dt.min()) {
+            dt.value(dt.min());
+        } else if (value > dt.max()) {
+            dt.value(dt.max());
+        }
+    }
+</script>

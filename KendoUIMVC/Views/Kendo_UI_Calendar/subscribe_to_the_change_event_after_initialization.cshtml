@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_change_event_after_initialization";
+}
+
+<h2>subscribe_to_the_change_event_after_initialization</h2>
+
+<div class="k-widget k-calendar" id="calendar"></div>
+
+<script>
+    $("#calendar").kendoCalendar({
+    });
+
+    // get a reference to the Kendo UI calendar widget
+    var calendar = $("#calendar").data("kendoCalendar");
+    // bind to the change event
+    calendar.bind("change", function (e) {
+        alert(e.sender.value());
+    });
+</script>
+

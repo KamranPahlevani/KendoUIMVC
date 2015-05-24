@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_detailInit_event_after_initialization";
+}
+
+<h2>subscribe_to_the_detailInit_event_after_initialization</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" }
+        ],
+        dataSource: [
+          {
+              name: "Beverages",
+              products: [
+                { name: "Tea" },
+                { name: "Coffee" }
+              ]
+          },
+          {
+              name: "Food",
+              products: [
+                { name: "Ham" },
+                { name: "Bread" }
+              ]
+          }
+        ],
+        detailTemplate: 'Products: <div class="grid"></div>'
+    });
+    var grid = $("#grid").data("kendoGrid");
+    grid.bind("detailInit", grid_detailInit);
+
+    function grid_detailInit(e) {
+        e.detailRow.find(".grid").kendoGrid({
+            dataSource: e.data.products
+        });
+    }
+</script>

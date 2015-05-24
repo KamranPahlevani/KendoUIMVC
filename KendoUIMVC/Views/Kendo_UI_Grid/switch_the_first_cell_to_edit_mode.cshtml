@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "switch_the_first_cell_to_edit_mode";
+}
+
+<h2>switch_the_first_cell_to_edit_mode</h2>
+
+<div id="grid"></div>
+<input type="button" id="btnEditCell" value="Edit Cell" />
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: {
+            data: [
+              { id: 1, name: "Jane Doe", age: 30 },
+              { id: 2, name: "John Doe", age: 33 }
+            ],
+            schema: {
+                model: { id: "id" }
+            }
+        },
+        editable: "incell"
+    });
+
+    $('#btnEditCell').click(function () {
+        var grid = $("#grid").data("kendoGrid");
+        grid.editCell($("#grid td:eq(0)"));
+    })
+</script>

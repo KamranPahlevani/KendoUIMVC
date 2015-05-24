@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Control_header_format_based_on_selected_culture";
+}
+
+<h2>Control_header_format_based_on_selected_culture</h2>
+
+<script src="~/Scripts/kendo/cultures/kendo.culture.fa-IR.min.js"></script>
+<script>
+    kendo.culture("fa-IR");
+    kendo.calendar.views[0].title = function (date) {
+        debugger;
+        var culture = kendo.culture();
+        var cultureName = culture.name;
+
+        var month = culture.calendar.months.names[date.getMonth()];
+        var year = date.getFullYear();
+
+        var title;
+
+        switch (culture.name) {
+            case "zh-TW":
+            case "ko-KR":
+            case "fa-IR":
+            case "ja-JS":
+                title = year + " " + month;
+                break;
+            case "fr-CA":
+                title = month + ", " + year;
+                break;
+            default:
+                title = month + " " + year;
+        }
+
+        return title;
+    };
+
+</script>
+<div id="example">
+    <div class="demo-section k-header" style="width: 300px; text-align: center;">
+        <div id="calendar"></div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            // create Calendar from div HTML element
+            $("#calendar").kendoCalendar();
+        });
+    </script>
+</div>

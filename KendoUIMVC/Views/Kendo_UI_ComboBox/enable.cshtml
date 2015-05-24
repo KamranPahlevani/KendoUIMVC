@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "enable";
+}
+
+<h2>enable</h2>
+
+<input type="text" id="comboBox1" name="comboBox" />
+<input type="text" id="comboBox2" name="comboBox" />
+
+<script>
+    $("#comboBox1").kendoComboBox({
+        dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                    dataType: "json"
+                },
+            }
+        }),
+        dataTextField: "ProductName",
+        dataValueField: "ProductID",
+        enable: false
+    });
+
+    $("#comboBox2").kendoComboBox({
+        dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                    dataType: "json"
+                },
+            }
+        }),
+        dataTextField: "ProductName",
+        dataValueField: "ProductID",
+    });
+
+    var comboBox = $('#comboBox2').data('kendoComboBox');
+    comboBox.enable(false);
+</script>
+

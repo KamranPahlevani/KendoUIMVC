@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "schema_parse";
+}
+
+<h2>schema_parse</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "/Kendo_Data_DataSource/GetProducts",
+                    dataType: "json"
+                }
+            },
+            schema: {
+                parse: function (response) {
+                    var products = [];
+                    for (var i = 0; i < response.length; i++) {
+                        var product = {
+                            id: response[i].ProductID,
+                            name: response[i].ProductName
+                        };
+                        products.push(product);
+                    }
+                    return products;
+                }
+            }
+        });
+        dataSource.fetch(function () {
+            var data = dataSource.data();
+            var product = data[0];
+            alert(product.name);
+        });
+    })
+</script>

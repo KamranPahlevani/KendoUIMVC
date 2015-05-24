@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "navigateUp";
+}
+
+<h2>navigateUp</h2>
+
+<div class="k-widget k-calendar" id="calendar"></div>
+
+<script>
+    $("#calendar").kendoCalendar({
+    });
+
+    var calendar = $("#calendar").data("kendoCalendar");
+
+    // navigate up
+    calendar.navigateUp();
+</script>
+

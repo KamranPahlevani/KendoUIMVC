@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "customize_column_menu_messages";
+}
+
+<h2>customize_column_menu_messages</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        columnMenu: {
+            messages: {
+                columns: "Choose columns",
+                filter: "Apply filter",
+                sortAscending: "Sort (asc)",
+                sortDescending: "Sort (desc)"
+            }
+        },
+        sortable: true,
+        filterable: true,
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ]
+    });
+</script>

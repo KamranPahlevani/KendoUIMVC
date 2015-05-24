@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "cancel_changes_of_only_one_data_item";
+}
+
+<h2>cancel_changes_of_only_one_data_item</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { id: 1, name: "Jane Doe" }
+            ],
+            schema: {
+                model: { id: "id" }
+            }
+        });
+        dataSource.fetch(function () {
+            // add a new data item
+            dataSource.add({ name: "John Doe" });
+            // update existing data item
+            var dataItem = dataSource.at(0);
+            dataItem.set("name", "Jane Doe 2");
+            // cancel the changes of the dataItem
+            dataSource.cancelChanges(dataItem);
+            alert(dataItem.name); // displays "Jane Doe"
+            alert(dataSource.data().length); // displays "2"
+        });
+    })
+</script>

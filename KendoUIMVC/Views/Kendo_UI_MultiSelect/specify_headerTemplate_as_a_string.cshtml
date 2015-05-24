@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "specify_headerTemplate_as_a_string";
+}
+
+<h2>specify_headerTemplate_as_a_string</h2>
+
+<select id="multiselect"></select>
+<script>
+$("#multiselect").kendoMultiSelect({
+  dataSource: [
+    { id: 1, name: "Apples" },
+    { id: 2, name: "Oranges" }
+  ],
+  dataTextField: "name",
+  dataValueField: "id",
+  headerTemplate: '<div><h2>Fruits</h2></div>'
+});
+</script>
+

@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "ObservableArray_of_Complex_and_Primitive_Type";
+}
+
+<h2>ObservableArray_of_Complex_and_Primitive_Type</h2>
+
+<script>
+    var complex = new kendo.data.ObservableArray([{ name: "John Doe" }, { name: "Jane Doe" }]);
+    alert(complex[0] instanceof kendo.data.ObservableObject); // outputs "true"
+
+    var primitive = new kendo.data.ObservableArray(["John Doe", "Jane Doe"]);
+    alert(typeof (primitive[0])); // outputs "string"
+</script>

@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "parseDate";
+}
+
+<h2>parseDate</h2>
+
+<script>
+    var date1 = kendo.parseDate("12/22/2000"); //Fri Dec 22 2000
+    alert(date1);
+    var date2 = kendo.parseDate("2000/12/22", "yyyy/MM/dd"); //Fri Dec 22 2000
+    alert(date2);
+</script>

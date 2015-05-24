@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "refresh";
+}
+
+<h2>refresh</h2>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        dataSource: {
+            data: [
+                { name: "Jane Doe" },
+                { name: "John Doe" }
+            ]
+        },
+        template: "<div>#:name#</div>"
+    });
+    var listView = $("#listView").data("kendoListView");
+    // refreshes the list view
+    listView.refresh();
+</script>
+

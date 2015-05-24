@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "dates";
+}
+
+<h2>dates</h2>
+
+<div class="k-widget k-calendar" id="calendar"></div>
+
+<script>
+    $("#calendar").kendoCalendar({
+        dates: [new Date(2000, 10, 10, 10, 0, 0), new Date(2000, 10, 10, 30, 0)] //can manipulate month template depending on this array.
+    });
+</script>

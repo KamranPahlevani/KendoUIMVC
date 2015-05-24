@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "set_the_tooltip_of_the_next_page_button";
+}
+
+<h2>set_the_tooltip_of_the_next_page_button</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "productName" },
+          { field: "category" }
+        ],
+        dataSource: [
+          { productName: "Tea", category: "Beverages" },
+          { productName: "Coffee", category: "Beverages" },
+          { productName: "Ham", category: "Food" },
+          { productName: "Bread", category: "Food" }
+        ],
+        pageable: {
+            pageSize: 2,
+            messages: {
+                next: "Next page"
+            }
+        }
+    });
+</script>

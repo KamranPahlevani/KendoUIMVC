@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "render";
+}
+
+<h2>render</h2>
+
+<ul></ul>
+
+<script>
+    var template = kendo.template("<li>#: name #</li>");
+    var data = [{ name: "John Doe" }, { name: "Jane Doe" }];
+    $("ul").html(kendo.render(template, data)); // sets the html to <li>John Doe</li><li>Jane Doe</li>
+</script>

@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "select";
+}
+
+<h2>select</h2>
+
+<input type="text" id="comboBox" name="comboBox" />
+<input type="button" id="btnSelectsByjQueryObject" value="selects by jQuery object"/>
+<input type="button" id="btnSelectsByIndex" value="selects by index"/>
+<input type="button" id="btnSelectsByTextEqual" value="selects by text equal"/>
+<input type="button" id="btnGetSelectedIndex" value="get selected index"/>
+
+
+<script>
+    $("#comboBox").kendoComboBox({
+        dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                    dataType: "json"
+                },
+            }
+        }),
+            dataTextField: "ProductName",
+        });
+
+    var combobox = $("#comboBox").data("kendoComboBox");
+
+    $('#btnSelectsByjQueryObject').click(function () {
+        // selects by jQuery object
+        combobox.select(combobox.ul.children().eq(0));
+    })
+
+    $('#btnSelectsByIndex').click(function () {
+        // selects by index
+        combobox.select(1);
+    })
+
+    $('#btnSelectsByTextEqual').click(function () {
+        // selects item if its text is equal to "test" using predicate function
+        var dataItem = combobox.dataItem(2);
+        combobox.select(function (dataItem) {
+            return dataItem.ProductName === "C";
+        });
+    })
+
+    $('#btnGetSelectedIndex').click(function () {
+        // get selected index
+        var selectedIndex = combobox.select();
+        alert(selectedIndex);
+    })
+
+</script>
+
+

@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "How_to_create_Kendo_UI_DropDownList_with_long_items";
+}
+
+<h2>How_to_create_Kendo_UI_DropDownList_with_long_items</h2>
+
+<div id="div">
+    <select id="ddl">
+        <option>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</option>
+        <option>item 2</option>
+        <option>item 3</option>
+    </select>
+</div>
+<script>
+    $("#ddl").kendoDropDownList().parent().css("width", "100%");
+</script>
+<style>
+    html {
+        font: 12px sans-serif;
+    }
+
+    #div {
+        width: 500px;
+    }
+
+    .k-list-container .k-item {
+        white-space: nowrap;
+        float: left;
+        clear: left;
+        min-width: 100%;
+        box-sizing: border-box;
+    }
+</style>

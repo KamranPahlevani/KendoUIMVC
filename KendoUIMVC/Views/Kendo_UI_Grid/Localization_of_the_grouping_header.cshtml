@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Localization_of_the_grouping_header";
+}
+
+<h2>Localization_of_the_grouping_header</h2>
+
+<div id="grid"></div>
+<script>
+    function getData(length, delay) {
+        var data = [];
+        var sampleDate = new Date();
+        for (var j = 1; j <= length; j++) {
+            data[j - 1] = {
+                id: j
+            };
+            data[j - 1].person = {
+                fname: "First Name " + j,
+                lname: "Last Name " + j,
+                bdate: new Date(sampleDate.getTime() - j * 1000 * 60 * 60 * 24)
+            }
+        }
+        var dataSource = {
+            json: JSON.stringify({
+                data: data
+            }),
+            delay: delay
+        };
+        debugger;
+        return dataSource;
+    }
+
+    $("#grid").kendoGrid({
+        dataSource: {
+            data: { "data": [{ "id": 1, "person": { "fname": "First Name 1", "lname": "Last Name 1", "bdate": "2015-03-30T08:23:59.403Z" } }, { "id": 2, "person": { "fname": "First Name 2", "lname": "Last Name 2", "bdate": "2015-03-29T08:23:59.403Z" } }, { "id": 3, "person": { "fname": "First Name 3", "lname": "Last Name 3", "bdate": "2015-03-28T08:23:59.403Z" } }, { "id": 4, "person": { "fname": "First Name 4", "lname": "Last Name 4", "bdate": "2015-03-27T08:23:59.403Z" } }, { "id": 5, "person": { "fname": "First Name 5", "lname": "Last Name 5", "bdate": "2015-03-26T08:23:59.403Z" } }, { "id": 6, "person": { "fname": "First Name 6", "lname": "Last Name 6", "bdate": "2015-03-25T08:23:59.403Z" } }, { "id": 7, "person": { "fname": "First Name 7", "lname": "Last Name 7", "bdate": "2015-03-24T08:23:59.403Z" } }, { "id": 8, "person": { "fname": "First Name 8", "lname": "Last Name 8", "bdate": "2015-03-23T08:23:59.403Z" } }, { "id": 9, "person": { "fname": "First Name 9", "lname": "Last Name 9", "bdate": "2015-03-22T08:23:59.403Z" } }, { "id": 10, "person": { "fname": "First Name 10", "lname": "Last Name 10", "bdate": "2015-03-21T08:23:59.403Z" } }] },
+            schema: {
+                data: "data",
+                model: {
+                    id: "id",
+                    fields: {
+                        id: {
+                            type: "int"
+                        },
+                        fname: {
+                            from: "person.fname"
+                        },
+                        lname: {
+                            from: "person.lname"
+                        },
+                        bdate: {
+                            type: "date",
+                            from: "person.bdate"
+                        }
+                    }
+                }
+            }
+        },
+        sortable: true,
+        editable: {
+            mode: "inline"
+        },
+        groupable: {
+            messages: {
+                empty: "Custom message text"
+            }
+        },
+        columns: [{
+            field: "id",
+            title: "ID"
+        }, {
+            field: "fname",
+            title: "First Name"
+        }, {
+            field: "lname",
+            title: "Last Name"
+        }, {
+            field: "bdate",
+            title: "Birth Date",
+            format: "{0:yyyy-MM-dd}"
+        }, {
+            command: ["edit", "destroy"],
+            title: "&nbsp;"
+        }]
+    });
+
+</script>

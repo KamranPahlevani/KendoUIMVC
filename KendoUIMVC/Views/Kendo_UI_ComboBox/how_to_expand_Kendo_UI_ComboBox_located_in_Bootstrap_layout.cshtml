@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "how_to_expand_Kendo_UI_ComboBox_located_in_Bootstrap_layout";
+}
+
+<h2>how_to_expand_Kendo_UI_ComboBox_located_in_Bootstrap_layout</h2>
+
+<div class="row">
+    <div class="col-md-8"><input id="suppliers" style="width: 100%" /></div>
+    <div class="col-md-4">.col-md-4</div>
+<script>
+    $(document).ready(function() {
+        $("#suppliers").kendoComboBox({
+            dataTextField: "CompanyName",
+            dataValueField: "SupplierID",
+            dataSource: {
+                type: "json",
+                serverFiltering: false,
+                transport: {
+                    read: '@Url.Action("GetSuppliers", "Kendo_Data_DataSource")'
+                }
+            }
+        });
+    });
+</script>
+</div>
+

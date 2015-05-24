@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "load_and_append_more_Grid_records_as_the_user_scrolls_down";
+}
+
+<h2>load_and_append_more_Grid_records_as_the_user_scrolls_down</h2>
+
+<div id="grid"></div>
+
+<script>
+    var gridElement = $("#grid")
+    var pagingIncrement = 20;
+    var scrollbarWidth = kendo.support.scrollbar();
+    var dataBindingFlag = true;
+
+    gridElement.kendoGrid({
+        dataSource: {
+            type: "odata",
+            transport: {
+                read: "http://demos.kendoui.com/service/Northwind.svc/Orders"
+            },
+            schema: {
+                model: {
+                    fields: {
+                        OrderID: { type: "number" },
+                        Freight: { type: "number" },
+                        ShipName: { type: "string" },
+                        OrderDate: { type: "date" }
+                    }
+                }
+            },
+            pageSize: 20,
+            serverPaging: true
+        },
+        pageable: true,
+        dataBound: function () {
+            dataBindingFlag = true;
+        },
+        columns: [{
+            field: "OrderID"
+        }, {
+            field: "Freight"
+        }, {
+            field: "OrderDate",
+            title: "Order Date",
+            format: "{0:MM/dd/yyyy}"
+        }, {
+            field: "ShipName",
+            title: "Ship Name"
+        }]
+    });
+
+    var gridDataSource = gridElement.data("kendoGrid").dataSource;
+
+    gridElement.children(".k-grid-content")
+        .on("scroll", function (e) {
+            if (dataBindingFlag) {
+                var dataDiv = e.target;
+                var currentPageSize = gridDataSource.pageSize();
+                if (dataDiv.scrollTop >= dataDiv.scrollHeight - dataDiv.offsetHeight - scrollbarWidth && gridDataSource.total() > currentPageSize) {
+                    dataBindingFlag = false;
+                    gridDataSource.pageSize(currentPageSize + pagingIncrement);
+                }
+            }
+        });
+</script>
+
+<style>
+    #grid {
+        height: 300px;
+    }
+</style>

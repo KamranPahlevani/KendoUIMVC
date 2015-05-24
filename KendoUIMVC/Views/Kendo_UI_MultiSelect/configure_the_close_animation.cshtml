@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "configure_the_close_animation";
+}
+
+<h2>configure_the_close_animation</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Item1</option>
+    <option>Item2</option>
+</select>
+<script>
+    $("#multiselect").kendoMultiSelect({
+        animation: {
+            close: {
+                effects: "zoom:out",
+                duration: 300
+            }
+        }
+    });
+</script>
+

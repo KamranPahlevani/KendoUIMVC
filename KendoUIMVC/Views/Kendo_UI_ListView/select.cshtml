@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "select";
+}
+
+<h2>select</h2>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        dataSource: {
+            data: [
+                { id: 1, name: "Jane Doe", age: 47 },
+                { id: 2, name: "John Doe", age: 50 }
+            ]
+        },
+        template: "<div>#:name#</div>",
+        selectable: true
+    });
+    // get a reference to the list view widget
+    var listView = $("#listView").data("kendoListView");
+    // selects first list view item
+    listView.select(listView.element.children().first());
+</script>
+

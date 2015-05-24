@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "expand";
+}
+
+<h2>expand</h2>
+
+<div id="foo">
+    I will be animated
+</div>
+
+<script>
+    kendo.fx($("#foo")).expand("horizontal").play();
+    // or
+    kendo.fx($("#foo")).expandHorizontal().play();
+</script>

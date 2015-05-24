@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "insertBefore";
+}
+
+<h2>insertBefore</h2>
+
+<div id="target">Target</div>
+<ul id="context-menu">
+    <li>
+        Item 1
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+    <li>
+        Item 2
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    // initialize the ContextMenu
+    $("#context-menu").kendoContextMenu({
+        target: "#target"
+    });
+    // get a reference to the ContextMenu widget
+    var contextMenu = $("#context-menu").data("kendoContextMenu");
+    //
+    contextMenu.insertBefore(
+        [{
+            text: "Item 1",
+            url: "http://www.telerik.com"                // Link URL if navigation is needed, optional.
+        },
+        {
+            text: "<b>Item 2</b>",
+            encoded: false,                                 // Allows use of HTML for item text
+            content: "text"                                 // content within an item
+        },
+        {
+            text: "Item 3",
+            imageUrl: "http://www.telerik.com/test.jpg", // Item image URL, optional.
+            items: [{                                    // Sub item collection
+                text: "Sub Item 1"
+            },
+            {
+                text: "Sub Item 2"
+            }]
+        },
+        {
+            text: "Item 4",
+            spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+        }],
+        "li:first-child"
+    );
+</script>

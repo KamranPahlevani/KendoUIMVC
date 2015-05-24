@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "set_the_height_as_a_string";
+}
+
+<h2>set_the_height_as_a_string</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "productName" },
+          { field: "category" }
+        ],
+        dataSource: [
+          { productName: "Tea", category: "Beverages" },
+          { productName: "Coffee", category: "Beverages" },
+          { productName: "Ham", category: "Food" },
+          { productName: "Bread", category: "Food" }
+        ],
+        height: "10em"
+    });
+</script>

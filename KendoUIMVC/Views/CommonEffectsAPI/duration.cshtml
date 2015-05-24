@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "duration";
+}
+
+<h2>duration</h2>
+
+<div id="foo">
+    I will be animated
+</div>
+
+<script>
+    kendo.fx($("#foo")).fadeOut().duration(2000).play();
+</script>

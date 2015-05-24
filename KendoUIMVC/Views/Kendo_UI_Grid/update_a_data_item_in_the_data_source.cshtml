@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "update_a_data_item_in_the_data_source";
+}
+
+<h2>update_a_data_item_in_the_data_source</h2>
+
+<div id="grid"></div>
+<input id="btnUpdateDataItem" type="button" value="Update Data Item"/>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 }
+        ]
+    });
+
+    $('#btnUpdateDataItem').click(function () {
+        var grid = $("#grid").data("kendoGrid");
+        var data = grid.dataSource.at(0);
+        data.set("name", "John Doe");
+        data.set("age", 31);
+    })
+</script>

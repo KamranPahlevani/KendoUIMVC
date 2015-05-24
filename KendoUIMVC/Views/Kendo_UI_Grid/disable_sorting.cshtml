@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "disable_sorting";
+}
+
+<h2>disable_sorting</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { sortable: false, field: "id" },
+          { field: "name" }
+        ],
+        sortable: true,
+        dataSource: [{ id: 1, name: "Jane Doe" }, { id: 2, name: "John Doe" }]
+    });
+</script>

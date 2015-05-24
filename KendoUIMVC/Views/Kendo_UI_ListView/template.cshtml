@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "template";
+}
+
+<h2>template</h2>
+
+<script type="text/kendo-x-tmpl" id="template">
+    <div>
+        Item template for #:name#
+    </div>
+</script>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        dataSource: {
+            data: [
+                { name: "Jane Doe" },
+                { name: "John Doe" }
+            ]
+        },
+        template: kendo.template($("#template").html())
+    });
+</script>
+

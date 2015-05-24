@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "hide";
+}
+
+<h2>hide</h2>
+
+<span id="notification"></span>
+<script>
+    var notificationWidget = $("#notification").kendoNotification().data("kendoNotification");
+
+    notificationWidget.show("foo");
+    notificationWidget.show("bar");
+
+    notificationWidget.hide();
+</script>

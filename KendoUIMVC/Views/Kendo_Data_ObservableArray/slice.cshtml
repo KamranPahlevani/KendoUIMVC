@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "slice";
+}
+
+<h2>slice</h2>
+
+<script>
+    var array = new kendo.data.ObservableArray([1, 2, 3]);
+    var firstAndSecond = array.slice(0, 2);
+
+    alert(firstAndSecond); // outputs [1, 2]
+</script>

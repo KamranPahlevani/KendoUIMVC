@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Change_ContextMenu_animation_and_open_event";
+}
+
+<h2>Change_ContextMenu_animation_and_open_event</h2>
+
+<ul id="context-menu">
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ul>
+<script>
+    $("#context-menu").kendoContextMenu({
+        animation: {
+            open: { effects: "fadeIn" },
+            duration: 500
+        },
+        showOn: "click"
+    });
+</script>

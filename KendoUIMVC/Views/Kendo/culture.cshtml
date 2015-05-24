@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "culture";
+}
+
+<h2>culture</h2>
+
+<span><input type="button" value="Set Culture" onclick="SetCulture();"/></span>
+<span><input type="button" value="Get Culture" onclick="GetCulture();"/></span>
+
+<script src="~/Scripts/kendo/2013.3.1213/cultures/kendo.culture.fa-IR.min.js"></script>
+<script>
+    /*Sets or gets the current culture. 
+      Uses the passed culture name to select a culture from the culture scripts that you have included and then sets the current culture.
+      If there is no corresponding culture then the method will try to find culture which is equal to the country part of the culture name.
+      If no culture is found the default one is used
+    */
+    function SetCulture() {
+        //set current culture to "en-GB".
+        kendo.culture("fa-IR");
+    }
+
+    function GetCulture() {
+        var culture = kendo.culture();
+        alert(culture.name);
+    }
+
+</script>

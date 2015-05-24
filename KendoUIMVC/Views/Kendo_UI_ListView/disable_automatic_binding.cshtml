@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "disable_automatic_binding";
+}
+
+<h2>disable_automatic_binding</h2>
+
+<div id="listView"></div>
+<script>
+    var dataSource = new kendo.data.DataSource({
+        data: [{ name: "Jane Doe" }, { name: "John Doe" }]
+    });
+    $("#listView").kendoListView({
+        dataSource: dataSource,
+        template: "<div>#:name#</div>",
+        autoBind: false
+    });
+    dataSource.read(); // "read()" will fire the "change" event of the dataSource and the widget will be bound
+</script>
+

@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "initialize_the_filter_UI";
+}
+
+<h2>initialize_the_filter_UI</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [{
+            field: "date",
+            format: "{0:MM/dd/yyyy HH:mm tt}",
+            filterable: {
+                ui: "datetimepicker" // use Kendo UI DateTimePicker
+            }
+        }],
+        filterable:
+            {
+                extra: false,
+            },
+        dataSource: {
+            data: [{ date: new Date("7/22/2013") }, { date: new Date("7/23/2013") }],
+            schema: {
+                model: {
+                    fields: {
+                        date: { type: "date" }
+                    }
+                }
+            },
+        }
+    });
+</script>
+
+
+

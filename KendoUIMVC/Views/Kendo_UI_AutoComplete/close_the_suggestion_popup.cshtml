@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "close_the_suggestion_popup";
+}
+
+<h2>close_the_suggestion_popup</h2>
+
+<style scoped="scoped">
+    .info {
+        display: block;
+        line-height: 22px;
+        padding: 0 5px 5px 0;
+        color: #36558e;
+    }
+
+    #shipping {
+        width: 482px;
+        height: 500px;
+        padding: 110px 0 0 30px;
+        background: url('/Content/web/autocomplete/shipping.png') transparent no-repeat 0 0;
+        margin: 30px auto;
+    }
+
+    .k-autocomplete {
+        width: 250px;
+        vertical-align: middle;
+    }
+
+    .hint {
+        line-height: 22px;
+        color: #aaa;
+        font-style: italic;
+        font-size: .9em;
+        color: #7496d4;
+    }
+</style>
+
+<div id="shipping">
+    <input id="autocomplete" />
+</div>
+
+<script>
+    var dataSource = new kendo.data.DataSource({
+        transport: {
+            read: {
+                url: "@Url.Action("GetCountries", "Kendo_UI_AutoComplete")",
+                dataType: "json"
+            }
+        },
+    });
+    dataSource.fetch(function () {
+        $("#autocomplete").kendoAutoComplete({
+            dataSource: dataSource,
+            filter: "startswith",
+            separator: ", "
+        });
+        var autocomplete = $("#autocomplete").data("kendoAutoComplete");
+        // Search for items starting with "A" - will open the suggestion popup and show "Apples"
+        autocomplete.search("A");
+        // Close the suggestion popup
+        autocomplete.close();
+    });
+</script>

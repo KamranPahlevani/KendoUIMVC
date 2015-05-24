@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "fade";
+}
+
+<h2>fade</h2>
+
+<div id="foo">
+    I will be animated
+</div>
+
+<script>
+    kendo.fx($("#foo")).fade("out").play();
+    // or
+    kendo.fx($("#foo")).fadeOut().play();
+</script>

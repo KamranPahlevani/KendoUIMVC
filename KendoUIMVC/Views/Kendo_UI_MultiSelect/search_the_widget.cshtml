@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "search_the_widget";
+}
+
+<h2>search_the_widget</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Item1</option>
+    <option>Item2</option>
+</select>
+<script>
+$("#multiselect").kendoMultiSelect();
+
+var multiselect = $("#multiselect").data("kendoMultiSelect");
+
+multiselect.search("Item1");
+</script>
+

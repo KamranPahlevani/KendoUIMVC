@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "set_the_data_source_filter";
+}
+
+<h2>set_the_data_source_filter</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { name: "Jane Doe" },
+              { name: "John Doe" }
+            ]
+        });
+        dataSource.filter({ field: "name", operator: "startswith", value: "Jane" });
+        var view = dataSource.view();
+        alert(view.length);
+        alert(view[0].name); // displays "Jane Doe"
+    })
+</script>

@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "get_the_data_source_grouping_configuration";
+}
+
+<h2>get_the_data_source_grouping_configuration</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { name: "Tea", category: "Beverages" },
+              { name: "Coffee", category: "Beverages" },
+              { name: "Ham", category: "Food" }
+            ],
+            group: { field: "category" }
+        });
+        var groups = dataSource.group();
+        alert(groups.length); // displays "1"
+        alert(groups[0].field); // displays "category"
+    })
+</script>

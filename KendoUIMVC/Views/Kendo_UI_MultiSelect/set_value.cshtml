@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "set_value";
+}
+
+<h2>set_value</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option value="1">Item1</option>
+    <option value="2">Item2</option>
+</select>
+<script>
+$("#multiselect").kendoMultiSelect();
+
+var multiselect = $("#multiselect").data("kendoMultiSelect");
+
+// get the value of the multiselect.
+var value = multiselect.value();
+
+// set the value of the multiselect.
+multiselect.value(["1", "2"]); //select items which have value respectively "1" and "2"
+</script>
+

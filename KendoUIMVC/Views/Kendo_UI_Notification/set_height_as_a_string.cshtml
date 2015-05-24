@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "set_height_as_a_string";
+}
+
+<h2>set_height_as_a_string</h2>
+
+<span id="notification"></span>
+<script>
+    $("#notification").kendoNotification({
+        height: "4em"
+    });
+    $('#notification').data('kendoNotification').show('Test notification');
+</script>

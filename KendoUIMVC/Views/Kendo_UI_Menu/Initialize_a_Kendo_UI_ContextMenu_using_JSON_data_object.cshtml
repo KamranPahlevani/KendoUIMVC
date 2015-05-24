@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Initialize_a_Kendo_UI_ContextMenu_using_JSON_data_object";
+}
+
+<h2>Initialize_a_Kendo_UI_ContextMenu_using_JSON_data_object</h2>
+
+<ul id="context-menu"></ul>
+<script>
+    $(document).ready(function () {
+        $("#context-menu").kendoContextMenu({
+            dataSource:
+                [{
+                    text: "Item 1",
+                    cssClass: "myClass",                         // Add custom CSS class to the item, optional, added 2012 Q3 SP1.
+                    url: "http://www.telerik.com"                // Link URL if navigation is needed, optional.
+                },
+                {
+                    text: "<b>Item 2</b>",
+                    encoded: false,                              // Allows use of HTML for item text
+                    content: "text"                              // content within an item
+                },
+                {
+                    text: "Item 3",
+                    imageUrl: "http://www.telerik.com/test.jpg", // Item image URL, optional.
+                    items: [{                                    // Sub item collection
+                        text: "Sub Item 1"
+                    },
+                    {
+                        text: "Sub Item 2"
+                    }]
+                },
+                {
+                    text: "Item 4",
+                    spriteCssClass: "imageClass3"                // Item image sprite CSS class, optional.
+                }]
+        })
+    });
+</script>

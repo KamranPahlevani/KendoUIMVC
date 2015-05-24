@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "enable";
+}
+
+<h2>enable</h2>
+
+<ul id="menu">
+    <li>
+        Item 1
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+    <li id="secondItem">
+        Item 2
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    $("#menu").kendoMenu({
+    });
+
+    // get a reference to the menu widget
+    var menu = $("#menu").data("kendoMenu");
+    // disable the li menu item with the id "secondItem"
+    menu.enable("#secondItem", false);
+</script>
+

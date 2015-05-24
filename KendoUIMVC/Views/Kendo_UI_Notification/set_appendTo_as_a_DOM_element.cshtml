@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "set_appendTo_as_a_DOM_element";
+}
+
+<h2>set_appendTo_as_a_DOM_element</h2>
+
+<span id="notification"></span>
+<div id="container"></div>
+<script>
+    var container = document.getElementById("container");
+    $("#notification").kendoNotification({
+        appendTo: container
+    });
+    $('#notification').data('kendoNotification').show('Test notification');
+</script>
