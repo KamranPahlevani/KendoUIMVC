@@ -2061,6 +2061,33 @@
     <Content Include="Views\Kendo_UI_Pager\buttonCount.cshtml" />
     <Content Include="Views\Kendo_UI_Pager\standalone_pager.cshtml" />
     <Content Include="Views\Kendo_UI_Pager\grid_pager.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\selectTemplate.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\linkTemplate.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\info.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\input.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\numeric.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\show_the_page_size_DropDownList.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\show_the_page_size_DropDownList_with_custom_values.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\previousNext.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\refresh.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\set_the_display_message.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\set_the_empty_message.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\set_the_label_before_the_pager_input.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\set_the_label_after_the_pager_input.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\set_the_label_after_the_page_size_DropDownList.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\set_the_tooltip_of_the_first_page_button.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\set_the_tooltip_of_the_previous_page_button.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\set_the_tooltip_of_the_next_page_button.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\set_the_tooltip_of_the_last_page_button.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\set_the_tooltip_of_the_refresh_button.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\totalPages.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\pageSize.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\get_current_page.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\set_current_page.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\refresh_the_pager.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\destroy.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\subscribe_to_the_change_event_during_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_Pager\subscribe_to_the_change_event_after_initialization.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "subscribe_to_the_change_event_after_initialization";
+}
+
+<h2>subscribe_to_the_change_event_after_initialization</h2>
+
+<div id="pager"></div>
+
+<script>
+    function pager_change() {
+      alert("pager change event is fired!");
+    }
+
+    var dataSource = new kendo.data.DataSource({
+      data: [
+        { productName: "Tea", category: "Beverages" },
+        { productName: "Coffee", category: "Beverages" },
+        { productName: "Ham", category: "Food" },
+        { productName: "Bread", category: "Food" }
+      ],
+      pageSize: 2
+    });
+
+    dataSource.read();
+
+    var pager = $("#pager").kendoPager({
+      dataSource: dataSource
+    }).data("kendoPager");
+
+    pager.bind("change", pager_change);
+</script>
