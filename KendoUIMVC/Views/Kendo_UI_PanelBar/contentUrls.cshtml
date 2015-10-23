@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "contentUrls";
+}
+
+<h2>contentUrls</h2>
+
+<ul id="panelbar">
+    <li>
+        Item 1
+        <div>Content 1</div>
+    </li>
+    <li>
+        Ajax Item
+        <div></div>
+    </li>
+</ul>
+
+<script>
+    $("#panelbar").kendoPanelBar({
+        contentUrls: [
+          null,
+          "/infrastructure/PanelbarContent.html"
+        ]
+    });
+</script>
