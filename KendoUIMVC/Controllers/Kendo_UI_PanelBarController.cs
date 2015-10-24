@@ -268,6 +268,133 @@ namespace KendoUIMVC.Controllers
             return View();
         }
 
+        /// <summary>
+        /// select
+        /// Gets or sets the selected item.
+        /// Parameters
+        /// element String|Element|jQuery (optional)
+        /// The PanelBar item to be selected, expressed as a string containing a selector expression or represented by a jQuery selector.
+        /// Returns
+        /// jQuery the selected item if called without arguments. kendo.ui.PanelBar if called with arguments.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult select()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// activate
+        /// Triggered when an item of a PanelBar is activated.
+        /// Event Data
+        /// e.item Element
+        /// The activated item of the PanelBar.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Attach_activate_event_handler_during_initialization_detach_via_unbind()
+        {
+            return View();
+        }
+
+        public ActionResult Attach_activate_event_handler_via_bind_detach_via_unbind()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// collapse
+        /// Triggered when an item of a PanelBar is collapsed.
+        /// Event Data
+        /// e.item Element
+        /// The collapsing item of the PanelBar.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Attach_collapse_event_handler_during_initialization_detach_via_unbind()
+        {
+            return View();
+        }
+
+        public ActionResult Attach_collapse_event_handler_via_bind_detach_via_unbind()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// contentLoad
+        /// Fires when content is fetched from an AJAX request.
+        /// Event Data
+        /// e.item Element
+        /// The selected item
+        /// e.contentElement Element
+        /// The loaded content element
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult contentLoad_event()
+        {
+            return View();
+        }
+
+        public ActionResult contentLoad_event_To_set_after_initialization()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// error
+        /// Fires when AJAX request results in an error.
+        /// Event Data
+        /// e.xhr jqXHR
+        /// The jqXHR object used to load the content
+        /// e.status String
+        /// The returned status.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult error_event()
+        {
+            return View();
+        }
+
+        public ActionResult error_event_To_set_after_initialization()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// expand
+        /// Triggered when an item of a PanelBar is expanded.
+        /// Event Data
+        /// e.item Element
+        /// The expanding item of the PanelBar.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Attach_expand_event_handler_during_initialization_detach_via_unbind()
+        {
+            return View();
+        }
+
+        public ActionResult Attach_expand_event_handler_via_bind_detach_via_unbind()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// select
+        /// Triggered when an item of a PanelBar is selected.
+        /// Event Data
+        /// e.item Element
+        /// The selected item of the PanelBar.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Attach_select_event_handler_during_initialization_detach_via_unbind()
+        {
+            return View();
+        }
+
+        public ActionResult Attach_select_event_handler_via_bind_detach_via_unbind()
+        {
+            return View();
+        }
+
 
 
     }

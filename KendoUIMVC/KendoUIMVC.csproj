@@ -2112,6 +2112,20 @@
     <Content Include="Views\Kendo_UI_PanelBar\reload.cshtml" />
     <Content Include="Views\Kendo_UI_PanelBar\remove.cshtml" />
     <Content Include="Views\Kendo_UI_PanelBar\remove_method.cshtml" />
+    <Content Include="Views\Kendo_UI_PanelBar\select.cshtml" />
+    <Content Include="Views\Kendo_UI_PanelBar\activate.cshtml" />
+    <Content Include="Views\Kendo_UI_PanelBar\Attach_activate_event_handler_during_initialization_detach_via_unbind.cshtml" />
+    <Content Include="Views\Kendo_UI_PanelBar\Attach_activate_event_handler_via_bind_detach_via_unbind.cshtml" />
+    <Content Include="Views\Kendo_UI_PanelBar\Attach_collapse_event_handler_during_initialization_detach_via_unbind.cshtml" />
+    <Content Include="Views\Kendo_UI_PanelBar\Attach_collapse_event_handler_via_bind_detach_via_unbind.cshtml" />
+    <Content Include="Views\Kendo_UI_PanelBar\contentLoad_event.cshtml" />
+    <Content Include="Views\Kendo_UI_PanelBar\contentLoad_event_To_set_after_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_PanelBar\error_event.cshtml" />
+    <Content Include="Views\Kendo_UI_PanelBar\error_event_To_set_after_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_PanelBar\Attach_expand_event_handler_during_initialization_detach_via_unbind.cshtml" />
+    <Content Include="Views\Kendo_UI_PanelBar\Attach_expand_event_handler_via_bind_detach_via_unbind.cshtml" />
+    <Content Include="Views\Kendo_UI_PanelBar\Attach_select_event_handler_during_initialization_detach_via_unbind.cshtml" />
+    <Content Include="Views\Kendo_UI_PanelBar\Attach_select_event_handler_via_bind_detach_via_unbind.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
