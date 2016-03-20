@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "saveAsPDF";
+}
+
+<h2>saveAsPDF</h2>
+
+<button id="export">Export to PDF</button>
+<div id="pivotgrid"></div>
+<script>
+    $("#pivotgrid").kendoPivotGrid({
+        height: 550,
+        dataSource: {
+            type: "xmla",
+            columns: [{ name: "[Date].[Calendar]", expand: true }, { name: "[Geography].[City]" }],
+            rows: [{ name: "[Product].[Product]" }],
+            measures: ["[Measures].[Internet Sales Amount]"],
+            transport: {
+                connection: {
+                    catalog: "Adventure Works DW 2008R2",
+                    cube: "Adventure Works"
+                },
+                read: {
+                    url: "http://demos.telerik.com/olap/msmdpump.dll",
+                    dataType: "text",
+                    contentType: "text/xml",
+                    type: "POST"
+                }
+            },
+            schema: {
+                type: "xmla"
+            }
+        }
+    });
+
+    $("#export").click(function (e) {
+        var pivotgrid = $("#pivotgrid").data("kendoPivotGrid");
+        pivotgrid.saveAsPDF();
+    });
+</script>

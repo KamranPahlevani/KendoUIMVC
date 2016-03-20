@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "kpiStatusTemplate";
+}
+
+<h2>kpiStatusTemplate</h2>
+
+<div id="pivotgrid"></div>
+
+<script id="kpiStatusTemplate" type="text/x-kendo-template">
+    # if (dataItem.value !== 0) { #
+    <em>Open/Denied</em>
+    # } else { #
+    <strong>Hold</strong>
+    # } #
+</script>
+
+<script>
+    $("#pivotgrid").kendoPivotGrid({
+        kpiStatusTemplate: $("#kpiStatusTemplate").html(),
+        dataSource: {
+            type: "xmla",
+            columns: [{ name: "[Date].[Calendar]", expand: true }],
+            measures: ["[Measures].[Internet Revenue Status]"],
+            transport: {
+                connection: {
+                    catalog: "Adventure Works DW 2008R2",
+                    cube: "Adventure Works"
+                },
+                read: {
+                    url: "http://demos.telerik.com/olap/msmdpump.dll",
+                    dataType: "text",
+                    contentType: "text/xml",
+                    type: "POST"
+                }
+            },
+            schema: {
+                type: "xmla"
+            }
+        }
+    });
+</script>

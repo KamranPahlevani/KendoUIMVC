@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "cellInfo";
+}
+
+<h2>cellInfo</h2>
+
+<button id="get">Get info</button>
+<div id="pivotgrid"></div>
+<script>
+    $(function () {
+        var pivotgrid = $("#pivotgrid").kendoPivotGrid({
+            height: 550,
+            dataSource: {
+                type: "xmla",
+                columns: [{ name: "[Date].[Calendar]", expand: true }],
+                rows: [{ name: "[Product].[Category]", expand: true }],
+                measures: ["[Measures].[Internet Sales Amount]"],
+                transport: {
+                    connection: {
+                        catalog: "Adventure Works DW 2008R2",
+                        cube: "Adventure Works"
+                    },
+                    read: {
+                        url: "http://demos.telerik.com/olap/msmdpump.dll",
+                        dataType: "text",
+                        contentType: "text/xml",
+                        type: "POST"
+                    }
+                },
+                schema: {
+                    type: "xmla"
+                }
+            }
+        }).data("kendoPivotGrid");
+
+        $("#get").click(function () {
+            var columnIndex = 1; //2006
+            var rowIndex = 1; //Bikes
+
+            var info = pivotgrid.cellInfo(columnIndex, rowIndex); //retrieve data cell information
+
+            console.log(info);
+        });
+    });
+</script>
