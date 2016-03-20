@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "getting_the_current_ProgressBar_value";
+}
+
+<h2>getting_the_current_ProgressBar_value</h2>
+
+<div id="progressbar"></div>
+<script>
+    $("#progressbar").kendoProgressBar({
+        min: 10,
+        max: 20,
+        value: 15
+    });
+
+    $(function () {
+        var pb = $("#progressbar").data("kendoProgressBar");
+        alert("The current value is " + pb.value());
+    });
+</script>

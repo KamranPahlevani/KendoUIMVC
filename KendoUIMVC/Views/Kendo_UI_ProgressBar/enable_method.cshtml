@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "enable_method";
+}
+
+<h2>enable_method</h2>
+
+<div id="progressbar"></div>
+<script>
+    $("#progressbar").kendoProgressBar({
+        enable: false
+    });
+
+    $(function () {
+        var pb = $("#progressbar").data("kendoProgressBar");
+        pb.enable();
+    });
+</script>
