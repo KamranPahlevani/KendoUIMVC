@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "enable";
+}
+
+<h2>enable</h2>
+
+<div id="rangeSlider" style="width: 200px;">
+    <input />
+    <input />
+</div>
+
+<script>
+    $("#rangeSlider").kendoRangeSlider();
+
+    // get a reference to the range slider widget
+    var rangeSlider = $("#rangeSlider").data("kendoRangeSlider");
+
+    // disables the range slider
+    rangeSlider.enable(false);
+
+    // enables the range slider
+    rangeSlider.enable(true);
+</script>

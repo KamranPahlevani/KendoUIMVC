@@ -219,6 +219,7 @@
     <Compile Include="Controllers\Kendo_UI_PivotConfiguratorController.cs" />
     <Compile Include="Controllers\Kendo_UI_PivotGridController.cs" />
     <Compile Include="Controllers\Kendo_UI_ProgressBarController.cs" />
+    <Compile Include="Controllers\Kendo_UI_RangeSliderController.cs" />
     <Compile Include="Controllers\Kendo_ViewController.cs" />
     <Compile Include="Controllers\PageTurnController.cs" />
     <Compile Include="Controllers\SlideInController.cs" />
@@ -2268,6 +2269,13 @@
     <Content Include="Views\Kendo_UI_ProgressBar\subscribe_to_the_complete_event_during_initialization.cshtml" />
     <Content Include="Views\Kendo_UI_ProgressBar\subscribe_to_the_complete_event_after_initialization.cshtml" />
     <Content Include="Views\Kendo_UI_ProgressBar\Making_the_ProgressBar_100percent_wide_and_automatically_resizable.cshtml" />
+    <Content Include="Views\Kendo_UI_RangeSlider\Configuration.cshtml" />
+    <Content Include="Views\Kendo_UI_RangeSlider\destroy.cshtml" />
+    <Content Include="Views\Kendo_UI_RangeSlider\enable.cshtml" />
+    <Content Include="Views\Kendo_UI_RangeSlider\value.cshtml" />
+    <Content Include="Views\Kendo_UI_RangeSlider\resize.cshtml" />
+    <Content Include="Views\Kendo_UI_RangeSlider\change.cshtml" />
+    <Content Include="Views\Kendo_UI_RangeSlider\slide.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

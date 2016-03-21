@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "change";
+}
+
+<h2>change</h2>
+
+<div id="rangeslider" style="width: 200px;">
+    <input />
+    <input />
+</div>
+
+<script>
+    $("#rangeslider").kendoRangeSlider({
+        change: function (e) {
+            alert(e.value);
+        }
+    });
+</script>
+
+
+

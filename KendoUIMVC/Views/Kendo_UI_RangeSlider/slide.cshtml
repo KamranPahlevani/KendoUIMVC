@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "slide";
+}
+
+<h2>slide</h2>
+
+<div id="rangeslider" style="width: 200px;">
+    <input />
+    <input />
+</div>
+
+<script>
+    $("#rangeslider").kendoRangeSlider({
+        slide: function (e) {
+            console.log(e.value);
+        }
+    });
+</script>

@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "value";
+}
+
+<h2>value</h2>
+
+<div id="rangeSlider" style="width: 200px;">
+    <input />
+    <input />
+</div>
+
+<script>
+    $("#rangeSlider").kendoRangeSlider();
+
+    var rangeSlider = $("#rangeSlider").data("kendoRangeSlider");
+    alert(rangeSlider.value());
+</script>
