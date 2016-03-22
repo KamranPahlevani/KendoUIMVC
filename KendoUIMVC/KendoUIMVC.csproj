@@ -2365,6 +2365,15 @@
     <Content Include="Scripts\kendo\kendo.responsivepanel.min.js.map" />
     <Content Include="Scripts\kendo\kendo.treeview.draganddrop.min.js.map" />
     <Content Include="Scripts\kendo\kendo.virtuallist.min.js.map" />
+    <Content Include="Views\Kendo_UI_ResponsivePanel\breakpoint.cshtml" />
+    <Content Include="Views\Kendo_UI_ResponsivePanel\orientation.cshtml" />
+    <Content Include="Views\Kendo_UI_ResponsivePanel\close.cshtml" />
+    <Content Include="Views\Kendo_UI_ResponsivePanel\destroy.cshtml" />
+    <Content Include="Views\Kendo_UI_ResponsivePanel\open.cshtml" />
+    <Content Include="Views\Kendo_UI_ResponsivePanel\Attach_close_event_handler_during_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_ResponsivePanel\Attach_close_event_handler_via_bind_detach_via_unbind.cshtml" />
+    <Content Include="Views\Kendo_UI_ResponsivePanel\Attach_open_event_handler_during_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_ResponsivePanel\Attach_open_event_handler_via_bind_detach_via_unbind.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

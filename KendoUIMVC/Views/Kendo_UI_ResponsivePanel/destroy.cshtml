@@ -1,11 +1,8 @@
 ﻿@{
-    ViewBag.Title = "autoClose";
+    ViewBag.Title = "destroy";
 }
 
-
-
-<h2>autoClose</h2>
-
+<h2>destroy</h2>
 
 <nav id="navigation">
     <a href="#">Home</a>
@@ -20,7 +17,10 @@
 
 <script>
     $("#navigation").kendoResponsivePanel({
-        orientation: 'top',
-        autoClose: false
+        orientation:'top'
     });
+
+    var panel = $("#navigation").data("kendoResponsivePanel");
+
+    panel.destroy();
 </script>

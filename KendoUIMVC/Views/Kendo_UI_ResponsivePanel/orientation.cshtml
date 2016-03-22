@@ -1,11 +1,13 @@
 ﻿@{
-    ViewBag.Title = "autoClose";
+    ViewBag.Title = "orientation";
 }
 
+<h2>orientation</h2>
 
-
-<h2>autoClose</h2>
-
+<header>
+    <button class="k-rpanel-toggle"><span class="k-icon k-i-hbars"></span></button>
+    Logo
+</header>
 
 <nav id="navigation">
     <a href="#">Home</a>
@@ -13,14 +15,11 @@
 </nav>
 
 <article>
-    <button class="k-rpanel-toggle"><span class="k-icon k-i-hbars"></span></button>
-
     Content
 </article>
 
 <script>
     $("#navigation").kendoResponsivePanel({
-        orientation: 'top',
-        autoClose: false
+        orientation: "top"
     });
 </script>

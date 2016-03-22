@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "open";
+}
+
+<h2>open</h2>
+
+<nav id="navigation">
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+</nav>
+
+<article>
+    <button id="open-button"><span class="k-icon k-i-hbars"></span></button>
+    Content
+</article>
+
+<script>
+    $("#navigation").kendoResponsivePanel({
+        orientation: "top"
+    });
+
+    $("#open-button").click(function(e) {
+        e.stopPropagation();
+        var panel = $("#navigation").data("kendoResponsivePanel");
+        panel.open();
+    });
+</script>

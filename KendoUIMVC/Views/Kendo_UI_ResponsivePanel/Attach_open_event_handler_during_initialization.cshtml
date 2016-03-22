@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Attach_open_event_handler_during_initialization";
+}
+
+<h2>Attach_open_event_handler_during_initialization</h2>
+
+<nav id="navigation">
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+</nav>
+
+<article>
+    <button class="k-rpanel-toggle"><span class="k-icon k-i-hbars"></span></button>
+
+    Content
+</article>
+
+<script>
+    // event handler for open event
+    var onOpen = function() {
+        // the responsive panel is opening
+        console.log("opening");
+    };
+
+    // attach open event handler during initialization
+    $("#navigation").kendoResponsivePanel({
+        orientation:'top',
+        open: onOpen
+    });
+</script>
