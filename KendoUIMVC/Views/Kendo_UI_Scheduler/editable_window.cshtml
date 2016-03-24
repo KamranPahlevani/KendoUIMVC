@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "editable_window";
+}
+
+<h2>editable_window</h2>
+
+<div id="scheduler"></div>
+<script>
+
+    function myOpenEventHandler(e) {
+        // ...
+    }
+
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6"),
+        editable: {
+            window: {
+                title: "My Custom Title",
+                animation: false,
+                open: myOpenEventHandler
+            }
+        },
+        views: [
+          { type: "day" }
+        ],
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview"
+          }
+        ]
+    });
+</script>

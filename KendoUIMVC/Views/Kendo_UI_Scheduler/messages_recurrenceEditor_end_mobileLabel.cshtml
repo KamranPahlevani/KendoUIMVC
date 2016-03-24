@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "messages_recurrenceEditor_end_mobileLabel";
+}
+
+<h2>messages_recurrenceEditor_end_mobileLabel</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6"),
+        mobile: true,
+        messages: {
+            recurrenceEditor: {
+                end: {
+                    mobileLabel: "ends: "
+                }
+            }
+        },
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview"
+          }
+        ]
+    });
+</script>

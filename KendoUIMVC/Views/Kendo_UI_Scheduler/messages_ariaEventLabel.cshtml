@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "messages_ariaEventLabel";
+}
+
+<h2>messages_ariaEventLabel</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        selectable: true,
+        date: new Date("2013/6/6"),
+        messages: {
+            ariaEventLabel: "Selected event is {0}. It starts on {1:d} {2:t}"
+        },
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview"
+          }
+        ]
+    });
+</script>

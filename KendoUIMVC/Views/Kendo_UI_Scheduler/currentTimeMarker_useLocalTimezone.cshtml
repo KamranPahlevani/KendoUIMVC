@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "currentTimeMarker_useLocalTimezone";
+}
+
+<h2>currentTimeMarker_useLocalTimezone</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date(),
+        timezone: "Europe/London", // Use the London timezone
+        currentTimeMarker: {
+            useLocalTimezone: false
+        },
+        views: [
+          "day", "week", "workWeek"
+        ]
+    });
+</script>

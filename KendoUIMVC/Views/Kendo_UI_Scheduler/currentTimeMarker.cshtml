@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "currentTimeMarker";
+}
+
+<h2>currentTimeMarker</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date(),
+        currentTimeMarker: false,
+        views: [
+          "day", "week", "workWeek"
+        ]
+    });
+</script>

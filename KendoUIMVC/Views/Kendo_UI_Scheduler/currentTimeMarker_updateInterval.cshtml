@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "currentTimeMarker_updateInterval";
+}
+
+<h2>currentTimeMarker_updateInterval</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date(),
+        currentTimeMarker: {
+            updateInterval: 100
+        },
+        views: [
+          "day", "week", "workWeek"
+        ]
+    });
+</script>
