@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "data";
+}
+
+<h2>data</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        views: ["week"]
+    });
+    var scheduler = $("#scheduler").data("kendoScheduler");
+
+    scheduler.addEvent({
+        title: "Example event",
+        start: new Date(),
+        end: new Date(),
+        recurrenceRule: "FREQ=DAILY;COUNT=2"
+    });
+
+    scheduler.saveEvent();
+    //get second occurrence
+    console.log(scheduler.data()[1]);
+</script>

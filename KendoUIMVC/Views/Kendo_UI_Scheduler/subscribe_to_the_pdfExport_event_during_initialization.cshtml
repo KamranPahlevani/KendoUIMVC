@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_pdfExport_event_during_initialization";
+}
+
+<h2>subscribe_to_the_pdfExport_event_during_initialization</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        toolbar: ["pdf"],
+        date: new Date("2013/6/6"),
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview"
+          }
+        ],
+        pdfExport: function (e) {
+            console.log('pdfExport');
+        }
+    });
+</script>

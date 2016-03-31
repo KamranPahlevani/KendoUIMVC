@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "occurrencesInRange";
+}
+
+<h2>occurrencesInRange</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6"),
+        views: ["week"],
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview",
+              recurrenceRule: "FREQ=DAILY"
+          }
+        ]
+    });
+
+    var scheduler = $("#scheduler").data("kendoScheduler");
+
+    var events = scheduler.occurrencesInRange(new Date("2013/6/5"), new Date("2013/6/10"));
+
+    console.log(events);
+</script>

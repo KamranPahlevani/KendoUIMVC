@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "slotByPosition";
+}
+
+<h2>slotByPosition</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6")
+    });
+    var scheduler = $("#scheduler").data("kendoScheduler");
+    var slot = scheduler.slotByPosition(100, 100);
+
+    console.log("slot startDate: " + slot.startDate);
+    console.log("slot endDate: " + slot.endDate);
+</script>

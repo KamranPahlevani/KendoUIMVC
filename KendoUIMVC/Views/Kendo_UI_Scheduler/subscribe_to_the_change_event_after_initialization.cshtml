@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_change_event_after_initialization";
+}
+
+<h2>subscribe_to_the_change_event_after_initialization</h2>
+
+<div id="scheduler"></div>
+<script>
+    function scheduler_change(e) {
+        var start = e.start;
+        var end = e.end;
+
+        console.log(kendo.format("Selection between {0:g} and {1:g}", start, end));
+    }
+
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6"),
+        views: ["day", "month"],
+        selectable: true,
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview"
+          }
+        ]
+    });
+    var scheduler = $("#scheduler").data("kendoScheduler");
+    scheduler.bind("change", scheduler_change);
+</script>

@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "remove_a_data_item_from_the_data_source";
+}
+
+<h2>remove_a_data_item_from_the_data_source</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6"),
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview"
+          }
+        ]
+    });
+    var scheduler = $("#scheduler").data("kendoScheduler");
+    var event = scheduler.dataSource.at(0);
+    scheduler.dataSource.remove(event);
+</script>

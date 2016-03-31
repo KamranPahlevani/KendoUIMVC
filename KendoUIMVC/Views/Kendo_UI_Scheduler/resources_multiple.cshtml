@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "resources_multiple";
+}
+
+<h2>resources_multiple</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6"),
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview",
+              roomId: 1,
+              atendees: [2, 3] // the resource instances with value 2 and 3 (Bob and Charlie)
+          },
+          {
+              id: 2,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Meeting",
+              roomId: 2,
+              atendees: [1, 2] // the resource instances with value 1 and 2 (Alex and Bob)
+          }
+        ],
+        resources: [
+          {
+              field: "roomId",
+              dataSource: [
+                { text: "Small meeting room", value: 1 },
+                { text: "Big meeting room", value: 2 }
+              ]
+          },
+          {
+              field: "atendees",
+              multiple: true,
+              dataSource: [
+                { text: "Alex", value: 1 },
+                { text: "Bob", value: 2 },
+                { text: "Charlie", value: 3 }
+              ]
+          }
+        ]
+    });
+</script>

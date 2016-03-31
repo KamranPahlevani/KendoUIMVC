@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "groupHeaderTemplate";
+}
+
+<h2>groupHeaderTemplate</h2>
+
+<script id="groupHeaderTemplate" type="text/x-kendo-template">
+    <strong style="color: #=color#">#=text#</strong>
+</script>
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6"),
+        groupHeaderTemplate: $("#groupHeaderTemplate").html(),
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              isAllDay: true,
+              title: "Interview",
+              attendees: [1, 2]
+          }
+        ],
+        group: {
+            resources: ["Attendees"],
+            orientation: "horizontal"
+        },
+        resources: [
+          {
+              field: "attendees",
+              name: "Attendees",
+              dataColorField: "key",
+              dataSource: [
+               { value: 1, text: "Alex", key: "#aabbcc" },
+               { value: 2, text: "Bob", key: "green" }
+              ],
+              multiple: true
+          }
+        ]
+    });
+</script>

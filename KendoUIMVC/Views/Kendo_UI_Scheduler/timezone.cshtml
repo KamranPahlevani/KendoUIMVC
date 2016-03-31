@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "timezone";
+}
+
+<h2>timezone</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/13"),
+        timezone: "Europe/London", // Use the London timezone
+        dataSource: {
+            batch: true,
+            transport: {
+                read: {
+                    url: "http://demos.telerik.com/kendo-ui/service/tasks",
+                    dataType: "jsonp"
+                },
+                update: {
+                    url: "http://demos.telerik.com/kendo-ui/service/tasks/update",
+                    dataType: "jsonp"
+                },
+                create: {
+                    url: "http://demos.telerik.com/kendo-ui/service/tasks/create",
+                    dataType: "jsonp"
+                },
+                destroy: {
+                    url: "http://demos.telerik.com/kendo-ui/service/tasks/destroy",
+                    dataType: "jsonp"
+                },
+                parameterMap: function (options, operation) {
+                    if (operation !== "read" && options.models) {
+                        return { models: kendo.stringify(options.models) };
+                    }
+                }
+            },
+            schema: {
+                model: {
+                    id: "ID",
+                    fields: {
+                        ID: { type: "number" },
+                        title: { from: "Title", defaultValue: "No title", validation: { required: true } },
+                        start: { type: "date", from: "Start" },
+                        end: { type: "date", from: "End" },
+                        description: { from: "Description" },
+                        recurrenceId: { from: "RecurrenceID" },
+                        recurrenceRule: { from: "RecurrenceRule" },
+                        recurrenceException: { from: "RecurrenceException" },
+                        ownerId: { from: "OwnerID", defaultValue: 1 },
+                        isAllDay: { type: "boolean", from: "IsAllDay" }
+                    }
+                }
+            }
+        }
+    });
+</script>

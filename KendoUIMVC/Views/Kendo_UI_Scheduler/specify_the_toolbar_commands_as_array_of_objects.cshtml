@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "specify_the_toolbar_commands_as_array_of_objects";
+}
+
+<h2>specify_the_toolbar_commands_as_array_of_objects</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        toolbar: [{ name: "pdf" }],
+        date: new Date("2013/6/6"),
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview"
+          }
+        ]
+    });
+</script>
