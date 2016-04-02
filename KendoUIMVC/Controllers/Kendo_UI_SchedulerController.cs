@@ -2726,6 +2726,150 @@ namespace KendoUIMVC.Controllers
             return View();
         }
 
+        /// <summary>
+        /// The example below demonstrates how to hide header and footer when Scheduler is used in adaptive rendering
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Hide_header_and_footer_adaptive_rendering()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// The example below demonstrates how to hide the time headers of a ungrouped scheduler view.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Hide_times_header_of_a_ungrouped_view()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// The example below demonstrates how to hide the time headers of a grouped scheduler view.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Hide_times_header_of_a_grouped_view()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// The example below demonstrates how to extract Scheduler events to .ical file
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult iCal_export()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// The example below demonstrates how to use the databound event to modify the event styling.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Modify_event_styling_on_databound()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// The example below demonstrates how to setup widget to work offline. For more details refer to the "Work offline" help topic.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Work_offline_with_the_Kendo_UI_Scheduler()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// The example below demonstrates how to persist the event resouces on move.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Persist_the_resource_values_on_event_move()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// The example below demonstrates how create a recurrence editor using mobile editor approach.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Recurrence_editor_using_mobile_editor()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// The example below demonstrates how to use remote validation during event editing.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Use_remote_validation()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// The example below demonstrates how to set different start week day
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Set_different_start_week_day()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// The example below demonstrates how to set the event color in the template.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Set_event_color_in_the_template()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// The example below demonstrates how to increase the height of the cells to show more events
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Show_more_events_in_the_view_cells()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// The example below demonstrates how to show only all day events in the Scheduler.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Show_only_all_day_events()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// The example below demonstrates how to update the opposite start/end picker value on model change
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Update_the_opposite_picker_value_on_model_change()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// The example below demonstrates how to use different date formats for the Scheduler events.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Using_different_date_formats()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// The example below demonstrates how to bind the widget to a local observableObject and change properties at run time.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Using_local_observable_data_object()
+        {
+            return View();
+        }
+
 
 
              

@@ -2618,6 +2618,22 @@
     <Content Include="Views\Kendo_UI_Scheduler\Get_next_occurance.cshtml" />
     <Content Include="Views\Kendo_UI_Scheduler\Getting_reference_to_the_built_in_Validator.cshtml" />
     <Content Include="Views\Kendo_UI_Scheduler\Hide_edit_buttons.cshtml" />
+    <Content Include="Views\Kendo_UI_Scheduler\Hide_header_and_footer_adaptive_rendering.cshtml" />
+    <Content Include="Views\Kendo_UI_Scheduler\Hide_times_header_of_a_ungrouped_view.cshtml" />
+    <Content Include="Views\Kendo_UI_Scheduler\Hide_times_header_of_a_grouped_view.cshtml" />
+    <Content Include="Views\Kendo_UI_Scheduler\iCal_export.cshtml" />
+    <Content Include="Views\Kendo_UI_Scheduler\Modify_event_styling_on_databound.cshtml" />
+    <Content Include="Views\Kendo_UI_Scheduler\Work_offline_with_the_Kendo_UI_Scheduler.cshtml" />
+    <Content Include="Views\Kendo_UI_Scheduler\Persist_the_resource_values_on_event_move.cshtml" />
+    <Content Include="Views\Kendo_UI_Scheduler\Recurrence_editor_using_mobile_editor.cshtml" />
+    <Content Include="Views\Kendo_UI_Scheduler\Use_remote_validation.cshtml" />
+    <Content Include="Views\Kendo_UI_Scheduler\Set_different_start_week_day.cshtml" />
+    <Content Include="Views\Kendo_UI_Scheduler\Set_event_color_in_the_template.cshtml" />
+    <Content Include="Views\Kendo_UI_Scheduler\Show_more_events_in_the_view_cells.cshtml" />
+    <Content Include="Views\Kendo_UI_Scheduler\Show_only_all_day_events.cshtml" />
+    <Content Include="Views\Kendo_UI_Scheduler\Update_the_opposite_picker_value_on_model_change.cshtml" />
+    <Content Include="Views\Kendo_UI_Scheduler\Using_different_date_formats.cshtml" />
+    <Content Include="Views\Kendo_UI_Scheduler\Using_local_observable_data_object.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
