@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "value";
+}
+
+<h2>value</h2>
+
+<input id="slider" style="width: 200px;" />
+
+<input id="btnSliderValue" type="button" value="SliderValue" />
+
+<script>
+
+    $("#slider").kendoSlider();
+
+    $('#btnSliderValue').click(function () {
+        var slider = $("#slider").data("kendoSlider");
+        var sliderValue = slider.value();
+        alert('current slider value is: ' + sliderValue + '');
+    })
+
+</script>

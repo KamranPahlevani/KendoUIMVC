@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "destroy";
+}
+
+<h2>destroy</h2>
+
+<input id="slider" style="width: 200px;" />
+
+<script>
+
+    $("#slider").kendoSlider();
+
+    // deatach events
+    $("#slider").data("kendoSlider").destroy();
+
+    // remove slider html from DOM
+    $("#slider").closest(".k-slider").remove();
+</script>
