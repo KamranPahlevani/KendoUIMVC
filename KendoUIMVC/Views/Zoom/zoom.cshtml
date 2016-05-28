@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "zoom";
+}
+
+
+<h2>zoom</h2>
+
+<div id="foo">
+    I will be animated
+</div>
+
+<script>
+    kendo.fx($("#foo")).zoom("in").play();
+    // or
+    //kendo.fx($("#foo")).zoomOut().play();
+</script>
