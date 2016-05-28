@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "views_eventDateTemplate";
+}
+
+<h2>views_eventDateTemplate</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6"),
+        views: [
+          {
+              type: "agenda",
+              eventDateTemplate: kendo.template("<strong>#= kendo.toString(date, 'dd-MM-yyyy')#</strong>")
+          }
+        ],
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview"
+          }
+        ]
+    });
+</script>

@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "parseFloat";
+}
+
+<h2>parseFloat</h2>
+
+<script src="~/Scripts/kendo/2013.3.1213/cultures/kendo.culture.de-DE.min.js"></script>
+<script>
+    var float1 = kendo.parseFloat("12.22"); //12.22
+    alert(float1);
+
+    kendo.culture("de-DE");
+    var float2 = kendo.parseFloat("1.212,22 €"); //1212.22
+    alert(float2);
+</script>

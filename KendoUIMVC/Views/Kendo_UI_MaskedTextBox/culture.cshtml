@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "culture";
+}
+
+<h2>specify_German_culture_internationalization</h2>
+
+<input id="maskedtextbox" />
+<script>
+    $("#maskedtextbox").kendoMaskedTextBox({
+        mask: "0,000.00 $",
+        culture: "de-DE"
+    });
+</script>
+

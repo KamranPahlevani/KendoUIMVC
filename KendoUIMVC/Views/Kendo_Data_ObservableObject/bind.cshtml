@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "bind";
+}
+
+<h2>bind</h2>
+
+<script>
+    var observable = new kendo.data.ObservableObject({ name: "John Doe" });
+
+    observable.bind("change", function (e) {
+        alert(e.field); // will output the changed field once the event is raised
+    });
+
+    observable.set("name", "Jane Doe"); // raises the "change" event and the handler outputs "name"
+</script>

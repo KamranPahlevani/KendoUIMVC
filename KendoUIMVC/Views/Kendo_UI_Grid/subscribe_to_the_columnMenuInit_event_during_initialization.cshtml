@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_columnMenuInit_event_during_initialization";
+}
+
+<h2>subscribe_to_the_columnMenuInit_event_during_initialization</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" },
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ],
+        columnMenu: true,
+        columnMenuInit: function (e) {
+            ///e.container jQuery : The jQuery object representing column menu form element.            
+            ///e.field String : The field of the column for which the column menu is initialized.
+            ///e.sender kendo.ui.Grid : The widget instance which fired the event.            
+            var menu = e.container.find(".k-menu").data("kendoMenu");
+            var field = e.field;
+            menu.append({ text: "Custom" });
+            menu.bind("select", function (e) {
+                if ($(e.item).text() == "Custom") {
+                    alert("Custom button for " + field);
+                }
+            });
+        }
+    });
+</script>

@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "workDayStart";
+}
+
+<h2>workDayStart</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6"),
+        workDayStart: new Date("2013/1/1 09:00 AM"),
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview"
+          }
+        ]
+    });
+</script>

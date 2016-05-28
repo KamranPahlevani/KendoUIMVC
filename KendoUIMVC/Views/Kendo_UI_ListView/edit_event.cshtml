@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "edit_event";
+}
+
+<h2>edit_event</h2>
+
+<script type="text/x-kendo-tmpl" id="template">
+    <div> #:name# </div>
+</script>
+
+<script type="text/x-kendo-tmpl" id="editTemplate">
+    <div>
+        Name: <input type="text" data-bind="value:name" name="name" required="required" />
+        <div>
+            <a class="k-button k-update-button" href="\\#"><span class="k-icon k-update"></span></a>
+            <a class="k-button k-cancel-button" href="\\#"><span class="k-icon k-cancel"></span></a>
+        </div>
+    </div>
+</script>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        template: kendo.template($("#template").html()),
+        editTemplate: kendo.template($("#editTemplate").html()),
+        dataSource: {
+            data: [
+                { id: 1, name: "Jane Doe", age: 47 },
+                { id: 2, name: "John Doe", age: 50 }
+            ],
+            schema: {
+                model: {
+                    id: "id",
+                    fields: {
+                        id: { type: "number" },
+                        name: { type: "string" },
+                        age: { type: "number" }
+                    }
+                }
+            }
+        },
+        edit: function (e) {
+            alert('edit event fired!')
+        }
+    });
+    var listView = $('#listView').data('kendoListView');
+    listView.edit(listView.element.children().first());
+</script>

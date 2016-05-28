@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "tagName";
+}
+
+<h2>tagName</h2>
+
+<div id="app"></div>
+
+<script>
+    $(document).ready(function () {
+        var view = new kendo.View("Hi!", { tagName: "span" });
+        view.render($("#app"));
+    })
+</script>
+

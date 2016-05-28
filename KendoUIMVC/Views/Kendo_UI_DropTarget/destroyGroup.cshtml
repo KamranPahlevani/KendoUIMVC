@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "destroyGroup";
+}
+
+<h2>destroyGroup</h2>
+
+<div class="orange"></div>
+<div class="orangeArea"></div>
+<div class="orangeArea"></div>
+
+<script>
+    $(".orange").kendoDraggable({
+        group: "orangeGroup",
+        hint: function (element) {
+            return element.clone();
+        }
+    });
+
+    $(".orangeArea").kendoDropTarget({ group: "orangeGroup", drop: onDrop });
+
+    function onDrop(e) {
+        e.draggable.destroy();
+        e.draggable.element.remove();
+    }
+
+    //destroy components and detach events
+    kendo.ui.DropTarget.destroyGroup("orangeGroup");
+</script>
+<style>
+    .orange {
+        width: 50px;
+        height: 50px;
+        border: 2px solid green;
+        margin: 5px;
+    }
+
+    .orangeArea {
+        width: 200px;
+        height: 200px;
+        border: 2px solid green;
+        margin: 5px;
+    }
+
+    .orange, .orangeArea {
+        background-color: orange;
+    }
+</style>

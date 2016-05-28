@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "parent";
+}
+
+<h2>parent</h2>
+
+<script>
+    var observable = new kendo.data.ObservableObject({ person: { name: "John Doe" } });
+
+    var person = observable.get("person");
+
+    alert(observable.parent()); // outputs "undefined"
+
+    alert(person.parent() === observable); // outputs "true"
+</script>

@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Add_title_attribute";
+}
+
+<h2>Add_title_attribute</h2>
+
+<input id="numerictextbox" value="10" title="this is the numerictextbox title" />
+<script>
+    $(function () {
+        var widget = $("#numerictextbox").kendoNumericTextBox().data("kendoNumericTextBox");
+
+        widget.wrapper
+              .find(".k-formatted-value")
+              .attr("title", widget.element.attr("title"));
+    });
+</script>

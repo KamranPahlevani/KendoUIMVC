@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "set_column_aggregates";
+}
+
+<h2>set_column_aggregates</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "ProductID", groupable: false },
+          { field: "ProductName" }, /* group by this column to see the footer template */
+          {
+              field: "UnitPrice",
+              groupable: false,
+              aggregates: ["count", "min", "max"],
+              groupFooterTemplate: "age total: #: count #, min: #: min #, max: #: max #"
+          },
+          { field: "UnitsInStock", groupable: false },
+          { field: "Discontinued", groupable: true }
+        ],
+        groupable: true,
+        dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                    dataType: "json"
+                },
+            }
+        }),
+    });
+</script>

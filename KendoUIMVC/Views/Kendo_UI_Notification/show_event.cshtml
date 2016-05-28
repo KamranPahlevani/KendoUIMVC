@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "show_event";
+}
+
+<h2>show_event</h2>
+
+<span id="notification"></span>
+<script>
+
+    function onShow(e) {
+        var elementBeingShown = e.element;
+        alert('show event is fired!')
+    }
+
+    $("#notification").kendoNotification({
+        show: onShow
+    });
+
+    $('#notification').data('kendoNotification').show('Test notification');
+
+</script>

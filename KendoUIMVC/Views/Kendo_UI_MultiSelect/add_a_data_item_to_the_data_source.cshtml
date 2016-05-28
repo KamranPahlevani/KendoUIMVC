@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "add_a_data_item_to_the_data_source";
+}
+
+<h2>add_a_data_item_to_the_data_source</h2>
+
+<select id="multiselect" multiple="multiple"></select>
+<script>
+$("#multiselect").kendoMultiSelect({
+  dataSource: [
+    { name: "Apples" },
+    { name: "Oranges" }
+  ],
+  dataTextField: "name",
+  dataValueField: "name"
+});
+var multiselect = $("#multiselect").data("kendoMultiSelect");
+multiselect.dataSource.add({ name: "Appricot" });
+multiselect.search("A");
+</script>
+

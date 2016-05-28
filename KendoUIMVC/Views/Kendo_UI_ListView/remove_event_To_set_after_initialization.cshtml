@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "remove_event_To_set_after_initialization";
+}
+
+<h2>remove_event_To_set_after_initialization</h2>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        template: "<div>#: name#</div>",
+        dataSource: {
+            data: [
+                { id: 1, name: "Jane Doe", age: 47 },
+                { id: 2, name: "John Doe", age: 50 }
+            ],
+            schema: {
+                model: {
+                    id: "id",
+                    fields: {
+                        id: { type: "number" },
+                        name: { type: "string" },
+                        age: { type: "number" }
+                    }
+                }
+            }
+        }
+    });
+    // get a reference to the list view
+    var listView = $("#listView").data("kendoListView");
+    // bind to the remove event
+    listView.bind("remove", function (e) {
+        // handle event
+        e.preventDefault();
+    });
+    listView.remove(listView.element.children().first());
+</script>
+

@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "pdf_creator";
+}
+
+<h2>pdf_creator</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        toolbar: ["pdf"],
+        pdf: {
+            creator: "John Doe"
+        },
+        date: new Date("2013/6/6"),
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview"
+          }
+        ]
+    });
+</script>

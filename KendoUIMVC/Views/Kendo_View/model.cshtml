@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "model";
+}
+
+<h2>mode</h2>
+
+<div id="app"></div>
+<script>
+    var foo = { foo: "foo1" }
+    var view = new kendo.View('<span data-bind="text:foo"></span>', { model: foo });
+ view.render($("#app"));
+</script>

@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "button";
+}
+
+<h2>button</h2>
+
+<span id="notification"></span>
+<script>
+    $("#notification").kendoNotification({
+        button: true
+    });
+    $('#notification').data('kendoNotification').show('Test notification');
+</script>

@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Add_dimension_to_column_axis";
+}
+
+<h2>Add_dimension_to_column_axis</h2>
+
+<button id="add">Add "ProductName"</button>
+<div id="pivotgrid"></div>
+
+9379747110
+
+<script>
+    $(document).ready(function () {
+        var pivotgrid = $("#pivotgrid").kendoPivotGrid({
+            columnWidth: 120,
+            height: 570,
+            dataSource: {
+                data: JSON.parse('@Html.Raw(ViewBag.Products)'),
+                schema: {
+                    model: {
+                        fields: {
+                            ProductName: { type: "string" },
+                            UnitPrice: { type: "number" },
+                            UnitsInStock: { type: "number" },
+                            Discontinued: { type: "boolean" },
+                            CategoryName: { field: "Category.CategoryName" }
+                        }
+                    },
+                    cube: {
+                        dimensions: {
+                            ProductName: { caption: "All Products" },
+                            CategoryName: { caption: "All Categories" },
+                            Discontinued: { caption: "Discontinued" }
+                        },
+                        measures: {
+                            "Sum": { field: "UnitPrice", format: "{0:c}", aggregate: "sum" }
+                        }
+                    }
+                },
+                columns: [{ name: "CategoryName", expand: true }],
+                rows: [{ name: "Discontinued", expand: true }],
+                measures: ["Sum"]
+            }
+        }).data("kendoPivotGrid");
+
+        $("#add").click(function () {
+            var ds = pivotgrid.dataSource;
+            var columns = ds.columns();
+
+            columns.push("ProductName");
+
+            ds.columns(columns);
+        });
+    });
+</script>

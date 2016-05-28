@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "enable_method";
+}
+
+<h2>enable_method</h2>
+
+<button id="button" type="button">Edit</button>
+<script>
+    $("#button").kendoButton();
+    var button = $("#button").data("kendoButton");
+    // disable button
+    button.enable(false);
+    // enable button
+    button.enable(true);
+</script>

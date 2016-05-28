@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "kpiTrendTemplate";
+}
+
+<h2>kpiTrendTemplate</h2>
+
+<div id="pivotgrid"></div>
+
+<script id="kpiTrendTemplate" type="text/x-kendo-template">
+    # if (dataItem.value !== 0) { #
+    <em>Increase/Decrease</em>
+    # } else { #
+    <strong>Equal</strong>
+    # } #
+</script>
+
+<script>
+    $("#pivotgrid").kendoPivotGrid({
+        kpiTrendTemplate: $("#kpiTrendTemplate").html(),
+        dataSource: {
+            type: "xmla",
+            columns: [{ name: "[Date].[Calendar]", expand: true }],
+            measures: ["[Measures].[Internet Revenue Trend]"],
+            transport: {
+                connection: {
+                    catalog: "Adventure Works DW 2008R2",
+                    cube: "Adventure Works"
+                },
+                read: {
+                    url: "http://demos.telerik.com/olap/msmdpump.dll",
+                    dataType: "text",
+                    contentType: "text/xml",
+                    type: "POST"
+                }
+            },
+            schema: {
+                type: "xmla"
+            }
+        }
+    });
+</script>

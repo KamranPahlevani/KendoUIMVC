@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Attach_expand_event_handler_during_initialization_detach_via_unbind";
+}
+
+<h2>Attach_expand_event_handler_during_initialization_detach_via_unbind</h2>
+
+<ul id="panelbar">
+    <li>
+        Item 1
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+    <li>
+        Item 2
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    // event handler for expand
+    var onExpand = function (e) {
+        // access the expanded item via e.item (HTMLElement)
+        alert('expand event is fired!');
+        // detach expand event handler via unbind()
+        panelBar.data("kendoPanelBar").unbind("expand", onExpand);
+    };
+
+    // attach expand event handler during initialization
+    var panelBar = $("#panelbar").kendoPanelBar({
+        expand: onExpand
+    });
+</script>

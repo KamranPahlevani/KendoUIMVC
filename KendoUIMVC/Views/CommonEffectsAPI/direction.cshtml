@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "direction";
+}
+
+<h2>direction</h2>
+
+<div id="foo">
+    I will be faded in
+</div>
+
+<script>
+    kendo.fx($("#foo")).fadeOut().direction("in").play();
+</script>

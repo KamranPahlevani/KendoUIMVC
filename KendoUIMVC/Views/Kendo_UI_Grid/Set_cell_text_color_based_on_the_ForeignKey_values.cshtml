@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Set_cell_text_color_based_on_the_ForeignKey_values";
+}
+
+<h2>Set_cell_text_color_based_on_the_ForeignKey_values</h2>
+
+<style>
+    .red {
+        color: red;
+    }
+
+    .green {
+        color: green;
+    }
+</style>
+<div id="example">
+    <div id="grid"></div>
+    <script src="~/Scripts/api/products.js"></script>
+    <script>
+        var categories = [{
+            "value": 1,
+            "text": "Beverages"
+        }, {
+            "value": 2,
+            "text": "Condiments"
+        }, {
+            "value": 3,
+            "text": "Confections"
+        }, {
+            "value": 4,
+            "text": "Dairy Products"
+        }, {
+            "value": 5,
+            "text": "Grains/Cereals"
+        }, {
+            "value": 6,
+            "text": "Meat/Poultry"
+        }, {
+            "value": 7,
+            "text": "Produce"
+        }, {
+            "value": 8,
+            "text": "Seafood"
+        }];
+
+        $(document).ready(function () {
+            var dataSource = new kendo.data.DataSource({
+                pageSize: 20,
+                data: products,
+                autoSync: true,
+                schema: {
+                    model: {
+                        id: "ProductID",
+                        fields: {
+                            ProductID: { editable: false, nullable: true },
+                            ProductName: { validation: { required: true } },
+                            CategoryID: { field: "CategoryID", type: "number", defaultValue: 1 },
+                            UnitPrice: { type: "number", validation: { required: true, min: 1 } }
+                        }
+                    }
+                }
+            });
+
+            $("#grid").kendoGrid({
+                dataSource: dataSource,
+                filterable: true,
+                groupable: true,
+                pageable: true,
+                height: 540,
+                toolbar: ["create"],
+                columns: [
+                  { field: "ProductName", title: "Product Name" },
+                  {
+                      field: "CategoryID", width: "200px", values: categories, title: "Category", attributes: {
+                          class: "#=ProductID % 2 ? 'red' : 'green' #"
+                      },
+                      template: function (dataItem) {
+                          var value = dataItem.CategoryID;
+
+                          var text = $.grep(categories, function (item) {
+                              return item.value == value;
+                          })[0].text;
+
+                          return text;
+                      }
+                  },
+                  { field: "UnitPrice", title: "Unit Price", format: "{0:c}", width: "200px" },
+                  { command: "destroy", title: " ", width: "150px" }],
+                editable: true
+            });
+        });
+    </script>
+</div>

@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "specify_template_as_a_function";
+}
+
+<h2>specify_template_as_a_function</h2>
+
+<select id="multiselect" multiple="multiple"></select>
+<script id="itemTemplate" type="text/x-kendo-template">
+    <span>
+        <img src="/Images/#: name #.png" alt="#: name #" />
+        #: name #
+    </span>
+</script>
+<script>
+$("#multiselect").kendoMultiSelect({
+  dataSource: [
+    { id: 1, name: "Apples" },
+    { id: 2, name: "Oranges" }
+  ],
+  dataTextField: "name",
+  dataValueField: "id",
+  itemTemplate: kendo.template($("#itemTemplate").html())
+});
+</script>
+

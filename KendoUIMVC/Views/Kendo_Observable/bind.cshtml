@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "bind";
+}
+
+<h2>bind</h2>
+
+<script>
+    var obj = new kendo.Observable();
+
+    obj.bind("myevent", function (e) {
+        alert(e.sender == obj); // outputs "true"
+        alert(this == obj); // also outputs "true"
+    });
+
+    obj.trigger("myevent"); // causes the handler to be executed
+</script>

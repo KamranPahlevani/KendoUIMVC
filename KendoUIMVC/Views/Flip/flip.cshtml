@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "flip";
+}
+
+<h2>flip</h2>
+
+<style>
+    #container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+    }
+
+    #foo {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: blue;
+    }
+
+    #bar {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: red;
+    }
+
+</style>
+
+<div id="container">
+    <div id="bar"> Page 2</div>
+    <div id="foo"> Page 1</div>
+</div>
+
+<script>
+    kendo.fx($("#container")).flip("horizontal", $("#foo"), $("#bar")).play();
+    //kendo.fx($("#container")).flipHorizontal($("#foo"), $("#bar")).play();
+</script>

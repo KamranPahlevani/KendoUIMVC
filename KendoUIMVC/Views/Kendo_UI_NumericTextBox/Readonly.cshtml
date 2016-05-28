@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Readonly";
+}
+
+<h2>Readonly</h2>
+
+<input id="numerictextbox" />
+<script>
+    $("#numerictextbox").kendoNumericTextBox();
+
+    var numerictextbox = $("#numerictextbox").data("kendoNumericTextBox");
+    numerictextbox.readonly();
+</script>

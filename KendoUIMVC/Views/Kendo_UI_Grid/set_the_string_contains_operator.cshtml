@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "set_the_string_contains_operator";
+}
+
+<h2>set_the_string_contains_operator</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" }
+        ],
+        dataSource: [
+          { name: "Jane Doe" },
+          { name: "John Doe" }
+        ],
+        filterable: {
+            operators: {
+                string: {
+                    contains: "Contains"
+                }
+            }
+        }
+    });
+</script>

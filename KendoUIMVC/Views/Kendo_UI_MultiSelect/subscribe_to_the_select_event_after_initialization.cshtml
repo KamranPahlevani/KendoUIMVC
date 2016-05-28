@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_select_event_after_initialization";
+}
+
+<h2>subscribe_to_the_select_event_after_initialization</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Item1</option>
+    <option>Item2</option>
+</select>
+<script>
+    function multiselect_select(e) {
+        var item = e.item;
+        var text = item.text();
+        alert('selected Item is ' + text + '')
+    }
+    $("#multiselect").kendoMultiSelect();
+    var multiselect = $("#multiselect").data("kendoMultiSelect");
+    multiselect.bind("select", multiselect_select);
+</script>

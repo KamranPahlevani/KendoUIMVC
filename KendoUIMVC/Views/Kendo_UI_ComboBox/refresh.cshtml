@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "refresh";
+}
+
+<h2>refresh</h2>
+
+<input type="text" id="comboBox" name="comboBox" />
+<input type="button" id="btnRefresh" value="Refresh"/>
+
+<script>
+    $("#comboBox").kendoComboBox({
+        dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                    dataType: "json"
+                },
+            }
+        }),
+        dataTextField: "ProductName",
+    });
+
+    var comboBox = $('#comboBox').data('kendoComboBox');
+    comboBox.open();
+
+    $('btnRefresh').click(function () {
+        var comboBox = $('#comboBox').data('kendoComboBox');
+        comboBox.refresh();
+    })
+</script>
+
+

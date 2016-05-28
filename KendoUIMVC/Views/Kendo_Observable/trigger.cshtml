@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "trigger";
+}
+
+<h2>trigger</h2>
+
+<script>
+    var obj = new kendo.Observable();
+
+    obj.bind("myevent", function (e) {
+        alert(e.data); // outputs "data"
+    });
+
+    obj.trigger("myevent", { data: "data" });
+</script>

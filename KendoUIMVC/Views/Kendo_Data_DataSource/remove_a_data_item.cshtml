@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "remove_a_data_item";
+}
+
+<h2>remove_a_data_item</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { id: 1, name: "Jane Doe" },
+              { id: 2, name: "John Doe" }
+            ],
+            schema: {
+                model: { id: "id" }
+            }
+        });
+        dataSource.fetch(function () {
+            var dataItem = dataSource.at(0);
+            dataSource.remove(dataItem);
+            var data = dataSource.data();
+            alert(data.length);  // displays "1"
+            alert(data[0].name); // displays "John Doe"
+        });
+    })
+</script>

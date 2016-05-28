@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "unshift";
+}
+
+<h2>unshift</h2>
+
+<script>
+    var array = new kendo.data.ObservableArray([2, 3]);
+
+    var result = array.unshift(0, 1);
+
+    alert(result); // outputs "4"
+</script>

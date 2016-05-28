@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "select";
+}
+
+<h2>select</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6"),
+        selectable: true,
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview"
+          }
+        ]
+    });
+
+    var scheduler = $("#scheduler").data("kendoScheduler");
+
+    //find event for selection:
+    var event = scheduler.data()[0];
+    scheduler.select([event.uid]);
+</script>

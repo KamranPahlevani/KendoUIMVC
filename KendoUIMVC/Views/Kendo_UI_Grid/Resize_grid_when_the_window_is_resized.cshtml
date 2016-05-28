@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Resize_grid_when_the_window_is_resized";
+}
+
+<h2>Resize_grid_when_the_window_is_resized</h2>
+
+<style>
+    html,
+    body,
+    #parent,
+    #grid {
+        margin: 0;
+        padding: 0;
+        border-width: 0;
+        height: 100%;
+    }
+
+    html {
+        overflow: hidden;
+        font: 13px sans-serif;
+    }
+</style>
+<div id="parent">
+    <div id="grid"></div>
+</div>
+<script>
+    var gridElement = $("#grid");
+
+    function resizeGrid() {
+        gridElement.data("kendoGrid").resize();
+    }
+
+    $(window).resize(function () {
+        resizeGrid();
+    });
+
+    $("#grid").kendoGrid({
+        dataSource: {
+            type: "odata",
+            transport: {
+                read: "http://demos.telerik.com/kendo-ui/service/Northwind.svc/Orders"
+            },
+            schema: {
+                model: {
+                    fields: {
+                        OrderID: { type: "number" },
+                        ShipName: { type: "string" },
+                        ShipCity: { type: "string" }
+                    }
+                }
+            },
+            pageSize: 25,
+            serverPaging: true,
+            serverFiltering: true,
+            serverSorting: true
+        },
+        filterable: true,
+        sortable: true,
+        resizable: true,
+        pageable: true,
+        columns: [{
+            field: "OrderID",
+            filterable: false,
+            width: 200
+        },
+                  "ShipName",
+                  "ShipCity"
+        ]
+    });
+</script>

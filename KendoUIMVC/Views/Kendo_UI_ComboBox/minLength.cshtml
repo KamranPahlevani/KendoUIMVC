@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "minLength";
+}
+
+<h2>minLength</h2>
+
+<input type="text" id="comboBox" name="comboBox" />
+
+<script>
+    $("#comboBox").kendoComboBox({
+        dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetFruits", "Kendo_UI_AutoComplete")",
+                    dataType: "json"
+                },
+            }
+        }),
+        dataTextField: "Name",
+        dataValueField: "ID",
+        minLength: 2
+    })
+</script>
+
+

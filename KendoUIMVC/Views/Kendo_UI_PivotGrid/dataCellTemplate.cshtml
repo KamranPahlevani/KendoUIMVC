@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "dataCellTemplate";
+}
+
+<h2>dataCellTemplate</h2>
+
+<div id="pivotgrid"></div>
+
+<script id="datacelltemplate" type="text/x-kendo-template">
+    # if (columnTuple.members[0].name === "[Date].[Calendar].[Calendar Year].&[2005]") { #
+    <em>#: kendo.toString(kendo.parseFloat(dataItem.value), "c2") #</em>
+    # } else { #
+    #: kendo.toString(kendo.parseFloat(dataItem.value), "c2") #
+    # } #
+</script>
+
+<script>
+    $("#pivotgrid").kendoPivotGrid({
+        dataCellTemplate: $("#dataCellTemplate").html(),
+        dataSource: {
+            type: "xmla",
+            columns: [{ name: "[Date].[Calendar]", expand: true }],
+            measures: ["[Measures].[Internet Sales Amount]"],
+            transport: {
+                connection: {
+                    catalog: "Adventure Works DW 2008R2",
+                    cube: "Adventure Works"
+                },
+                read: {
+                    url: "http://demos.telerik.com/olap/msmdpump.dll",
+                    dataType: "text",
+                    contentType: "text/xml",
+                    type: "POST"
+                }
+            },
+            schema: {
+                type: "xmla"
+            }
+        }
+    });
+
+</script>

@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "play";
+}
+
+<h2>play</h2>
+
+<div id="foo">
+    I will be faded out
+</div>
+
+<script>
+    kendo.fx($("#foo")).fadeOut().play().then(function () {
+        alert("Foo faded out");
+    });
+</script>

@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "get_the_min_value_of_the_NumericTextBox";
+}
+
+<h2>get_the_min_value_of_the_NumericTextBox</h2>
+
+<input id="numerictextbox" />
+<script>
+    $("#numerictextbox").kendoNumericTextBox({
+        min:14
+    });
+
+    var numerictextbox = $("#numerictextbox").data("kendoNumericTextBox");
+
+    var min = numerictextbox.min();
+
+    alert(min);
+</script>

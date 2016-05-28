@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "orientation";
+}
+
+<h2>orientation</h2>
+
+<header>
+    <button class="k-rpanel-toggle"><span class="k-icon k-i-hbars"></span></button>
+    Logo
+</header>
+
+<nav id="navigation">
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+</nav>
+
+<article>
+    Content
+</article>
+
+<script>
+    $("#navigation").kendoResponsivePanel({
+        orientation: "top"
+    });
+</script>

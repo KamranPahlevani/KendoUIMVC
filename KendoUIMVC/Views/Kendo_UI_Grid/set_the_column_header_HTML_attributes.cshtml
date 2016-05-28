@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "set_the_column_header_HTML_attributes";
+}
+
+<h2>set_the_column_header_HTML_attributes</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [{
+            field: "name",
+            headerAttributes: {
+                "class": "table-header-cell",
+                style: "font-size: 14px; color:red"
+            }
+        }],
+        dataSource: [{ name: "Jane Doe" }, { name: "John Doe" }]
+    });
+</script>

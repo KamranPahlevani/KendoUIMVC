@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Submit_form_on_ENTER";
+}
+
+<h2>Submit_form_on_ENTER</h2>
+
+<form id="form1" style="border: 1px solid red">
+    <input id="datepicker" />
+    <button>Submit</button>
+</form>
+
+<script>
+    $(function () {
+        var form = $("#form1");
+
+        $("#datepicker").kendoDatePicker();
+
+        form.on("submit", function (e) {
+            e.preventDefault();
+            alert("submit!");
+        });
+    });
+</script>

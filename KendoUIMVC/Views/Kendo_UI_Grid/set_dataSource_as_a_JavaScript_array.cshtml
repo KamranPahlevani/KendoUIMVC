@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "set_dataSource_as_a_JavaScript_array";
+}
+
+<h2>set_dataSource_as_a_JavaScript_array</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ]
+    });
+</script>

@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "resources_valuePrimitive";
+}
+
+<h2>resources_valuePrimitive</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6"),
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview",
+              room: { value: 1 } // the resource field is an object instead of a primitive value
+          },
+          {
+              id: 2,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Meeting",
+              room: { value: 2 } // the resource field is an object instead of a primitive value
+          }
+        ],
+        resources: [
+          {
+              field: "room",
+              valuePrimitive: false,
+              dataSource: [
+                { text: "Small meeting room", value: 1 },
+                { text: "Big meeting room", value: 2 }
+              ]
+          }
+        ]
+    });
+</script>

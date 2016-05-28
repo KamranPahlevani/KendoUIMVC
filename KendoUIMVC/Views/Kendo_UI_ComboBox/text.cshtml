@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "text";
+}
+
+<h2>text</h2>
+
+<input type="text" id="comboBox" name="comboBox" />
+<input type="button" id="cmbGetText" value="get text" />
+<input type="button" id="cmbSetText" value="set text" />
+
+
+<script>
+    $("#comboBox").kendoComboBox({
+        dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                    dataType: "json"
+                },
+            }
+        }),
+        dataTextField: "ProductName",
+    });
+
+    var combobox = $("#comboBox").data("kendoComboBox");
+
+    $('#cmbGetText').click(function () {
+        alert(combobox.text());
+    })
+
+    $('#cmbSetText').click(function () {
+        combobox.text("K");
+        alert(combobox.text());
+    })
+
+
+</script>
+

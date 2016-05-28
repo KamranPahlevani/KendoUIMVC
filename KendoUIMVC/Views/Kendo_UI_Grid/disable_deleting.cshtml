@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "disable_deleting";
+}
+
+<h2>disable_deleting</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" },
+          { command: "destroy" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ],
+        editable: {
+            destroy: false
+        },
+        toolbar: ["create"]
+    });
+</script>

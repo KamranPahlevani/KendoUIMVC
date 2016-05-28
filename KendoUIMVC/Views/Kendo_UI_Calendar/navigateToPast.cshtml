@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "navigateToPast";
+}
+
+<h2>navigateToPast</h2>
+
+<div class="k-widget k-calendar" id="calendar"></div>
+
+<script>
+    $("#calendar").kendoCalendar({
+    });
+
+    var calendar = $("#calendar").data("kendoCalendar");
+
+    // navigate to past
+    calendar.navigateToPast();
+</script>
+
+

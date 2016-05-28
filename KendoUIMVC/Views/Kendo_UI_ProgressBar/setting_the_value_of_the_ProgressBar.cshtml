@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "setting_the_value_of_the_ProgressBar";
+}
+
+<h2>setting_the_value_of_the_ProgressBar</h2>
+
+<div id="progressbar"></div>
+<script>
+    $("#progressbar").kendoProgressBar({
+        min: 10,
+        max: 20,
+        value: 15
+    });
+
+    $(function () {
+        var pb = $("#progressbar").data("kendoProgressBar");
+        pb.value(20);
+    });
+</script>

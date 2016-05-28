@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "subscribe_tothe_change_event_after_initialization";
+}
+
+<h2>subscribe_tothe_change_event_after_initialization</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Item1</option>
+    <option>Item2</option>
+</select>
+<script>
+function multiselect_change(e) {
+  alert(this.value());
+  // Use the value of the widget
+}
+$("#multiselect").kendoMultiSelect();
+var multiselect = $("#multiselect").data("kendoMultiSelect");
+multiselect.bind("change", multiselect_change);
+</script>
+

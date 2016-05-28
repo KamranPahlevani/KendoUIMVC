@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_cancel_event_during_initialization";
+}
+
+<h2>subscribe_to_the_cancel_event_during_initialization</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: {
+            data: [
+              { id: 1, name: "Jane Doe", age: 30 },
+              { id: 2, name: "John Doe", age: 33 }
+            ],
+            schema: {
+                model: { id: "id" }
+            }
+        },
+        editable: "popup",
+        cancel: function (e) {
+            /// e.container jQuery : The jQuery object that represents the edit form container element.
+            /// e.model kendo.data.Model : The data item to which the table row is bound.
+            /// e.preventDefault Function : If invoked prevents the cancel action. The table row remains in edit mode.
+            /// e.sender kendo.ui.Grid : The widget instance which fired the event.
+            e.preventDefault();
+        }
+    });
+    var grid = $("#grid").data("kendoGrid");
+    grid.editRow($("#grid tr:eq(1)"));
+</script>

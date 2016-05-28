@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "set_the_filter";
+}
+
+<h2>set_the_filter</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Item1</option>
+    <option>Item2</option>
+</select>
+<script>
+    $("#multiselect").kendoMultiSelect({
+        filter: "contains"
+    });
+</script>

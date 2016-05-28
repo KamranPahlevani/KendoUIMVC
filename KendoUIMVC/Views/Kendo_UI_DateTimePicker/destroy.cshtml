@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "destroy";
+}
+
+<h2>destroy</h2>
+
+<input id="dateTimePicker" name="dateTimePicker" style="width: 150px" type="date" />
+
+<script src="~/Scripts/kendo/2013.3.1213/cultures/kendo.culture.en-US.min.js"></script>
+<script>
+    $("#dateTimePicker").kendoDateTimePicker({
+    });
+
+    var dateTimePicker = $('#dateTimePicker').data('kendoDateTimePicker');
+    dateTimePicker.destroy();
+</script>
+

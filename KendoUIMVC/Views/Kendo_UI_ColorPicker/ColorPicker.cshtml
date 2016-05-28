@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "ColorPicker";
+}
+
+<h2>ColorPicker</h2>
+<input id="btnClose" type="button" value="close" />
+<input id="btnOpen" type="button" value="open" />
+<input id="btnToggle" type="button" value="toggle" />
+
+
+<div>
+    <input id="test" name="test" type="color" />
+</div>
+
+<script>
+    @*palette
+      1-"basic" -- displays 20 basic colors
+      2-"websafe" -- display the "web-safe" color palette
+      3-otherwise, pass a string with colors in HEX representation separated with commas, 
+        or an array of colors, and it will display that palette instead. 
+        If you pass an array it can contain strings supported by parseColor or Color objects
+    *@
+
+    $("#test").kendoColorPicker({
+        palette: "websafe",
+        close: function (e) {
+            alert('ColorPicker is Closed');
+        },
+        open: function (e) {
+            alert('ColorPicker is Opened');
+        },
+        change: function (e) {
+            alert('ColorPicker Color is Changed');
+        }
+    });
+
+    $('#btnClose').click(function () {
+        colorPicker = $('#test').data('kendoColorPicker');
+        colorPicker.close();
+    })
+
+    $('#btnOpen').click(function () {
+        colorPicker = $('#test').data('kendoColorPicker');
+        colorPicker.open();
+    })
+
+    $('#btnToggle').click(function () {
+        colorPicker = $('#test').data('kendoColorPicker');
+        colorPicker.toggle();
+    })
+
+</script>

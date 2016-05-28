@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "specify_grid_columns_as_array_of_objects";
+}
+
+<h2>specify_grid_columns_as_array_of_objects</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [{
+            field: "name",// create a column bound to the "name" field
+            title: "Name" // set its title to "Name"
+        }, {
+            field: "age",// create a column bound to the "age" field
+            title: "Age" // set its title to "Age"
+        }],
+        dataSource: [{ name: "Jane", age: 30 }, { name: "John", age: 33 }]
+    });
+</script>

@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "addEvent";
+}
+
+<h2>addEvent</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6")
+    });
+    var scheduler = $("#scheduler").data("kendoScheduler");
+    scheduler.addEvent({ title: "(No title)" });
+</script>

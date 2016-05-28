@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "set_views_as_array_of_strings";
+}
+
+<h2>set_views_as_array_of_strings</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6"),
+        views: ["day", "month"], // day and month views
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview"
+          },
+          {
+              id: 2,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Meeting"
+          }
+        ]
+    });
+</script>

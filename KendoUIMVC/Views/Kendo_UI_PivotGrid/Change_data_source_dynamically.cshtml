@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Change_data_source_dynamically";
+}
+
+<h2>Change_data_source_dynamically</h2>
+
+<button id="change">Change DS</button>
+<div id="pivotgrid"></div>
+
+<script>
+    $(document).ready(function () {
+        $("#pivotgrid").kendoPivotGrid({
+            columnWidth: 120,
+            height: 570,
+            dataSource: {
+                data: JSON.parse('@Html.Raw(ViewBag.Products)'),
+                schema: {
+                    model: {
+                        fields: {
+                            ProductName: { type: "string" },
+                            UnitPrice: { type: "number" },
+                            UnitsInStock: { type: "number" },
+                            Discontinued: { type: "boolean" },
+                            CategoryName: { field: "Category.CategoryName" }
+                        }
+                    },
+                    cube: {
+                        dimensions: {
+                            ProductName: { caption: "All Products" },
+                            CategoryName: { caption: "All Categories" },
+                            Discontinued: { caption: "Discontinued" }
+                        },
+                        measures: {
+                            "Sum": { field: "UnitPrice", format: "{0:c}", aggregate: "sum" }
+                        }
+                    }
+                },
+                columns: [{ name: "CategoryName", expand: true }, { name: "ProductName" }],
+                rows: [{ name: "Discontinued", expand: true }],
+                measures: ["Sum"]
+            }
+        });
+
+        $("#change").click(function () {
+            var newDS = new kendo.data.PivotDataSource({
+                data: JSON.parse('@Html.Raw(ViewBag.Products)'),
+                schema: {
+                    model: {
+                        fields: {
+                            ProductName: { type: "string" },
+                            UnitPrice: { type: "number" },
+                            UnitsInStock: { type: "number" },
+                            Discontinued: { type: "boolean" },
+                            CategoryName: { field: "Category.CategoryName" }
+                        }
+                    },
+                    cube: {
+                        dimensions: {
+                            ProductName: { caption: "All Products" },
+                            CategoryName: { caption: "All Categories" },
+                            Discontinued: { caption: "Discontinued" }
+                        },
+                        measures: {
+                            "Sum": { field: "UnitPrice", format: "{0:c}", aggregate: "sum" }
+                        }
+                    }
+                },
+                columns: [{ name: "Discontinued", expand: true }],
+                rows: [{ name: "CategoryName", expand: true }, { name: "ProductName" }],
+                measures: ["Sum"]
+            });
+
+            $("#pivotgrid").data("kendoPivotGrid").setDataSource(newDS);
+        });
+    });
+</script>

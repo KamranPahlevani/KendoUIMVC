@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Custom_number_editor_using_Kendo_UI_NumericTextBox";
+}
+
+<h2>Custom_number_editor_using_Kendo_UI_NumericTextBox</h2>
+
+<div>I want to change 11.11% discount to 22.22% via editing. But 22.00% is thrown back at input of 0.2222</div>
+<div id="grid" />
+<script>
+    $(document).ready(function () {
+        $("#grid").kendoGrid({
+            columns: [
+              {
+                  field: "FirstName",
+                  title: "First Name"
+              },
+              {
+                  field: "LastName",
+                  title: "Last Name"
+              },
+              {
+                  field: "MyDiscount",
+                  title: "My Discount",
+                  format: "{0:p5}",
+                  editor: discountEditor,
+              }
+            ],
+            dataSource: {
+                data: [
+                  {
+                      FirstName: "Joe",
+                      LastName: "Smith",
+                      MyDiscount: 0.1111
+                  },
+                  {
+                      FirstName: "Jane",
+                      LastName: "Smith",
+                      MyDiscount: 0.1
+                  }
+                ]
+            },
+            editable: true
+        });
+
+        function discountEditor(container, options) {
+            $('<input data-bind="value:' + options.field + '"/>')
+                .appendTo(container)
+                .kendoNumericTextBox({
+                    decimals: 7,
+                    format: "p5"
+                });
+        }
+    });
+</script>

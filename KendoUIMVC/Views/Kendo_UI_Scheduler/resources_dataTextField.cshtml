@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "resources_dataTextField";
+}
+
+<h2>resources_dataTextField</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6"),
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview",
+              roomId: 1 // the event is held in "Small meeting room" whose value is 1
+          },
+          {
+              id: 2,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Meeting",
+              roomId: 2 // the event is held in "Big meeting room" whose value is 2
+          }
+        ],
+        resources: [
+          {
+              field: "roomId",
+              dataTextField: "room",
+              dataSource: [
+                { room: "Small meeting room", value: 1 },
+                { room: "Big meeting room", value: 2 }
+              ]
+          }
+        ]
+    });
+</script>

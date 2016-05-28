@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "enable";
+}
+
+<h2>enable</h2>
+
+<input id="dateTimePicker" name="dateTimePicker" style="width: 150px" type="date" />
+<input type="button" id="btnEnable" value="Enable"/> 
+<input type="button" id="btnDisable" value="Disable"/> 
+
+<script src="~/Scripts/kendo/2013.3.1213/cultures/kendo.culture.en-US.min.js"></script>
+<script>
+    $("#dateTimePicker").kendoDateTimePicker({
+    });
+
+    var dateTimePicker = $('#dateTimePicker').data('kendoDateTimePicker');
+
+    $('#btnEnable').click(function () {
+        dateTimePicker.enable(true);
+    })
+
+    $('#btnDisable').click(function () {
+        dateTimePicker.enable(false);
+    })
+
+</script>
+

@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_detailInit_event_during_initialization";
+}
+
+<h2>subscribe_to_the_detailInit_event_during_initialization</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" }
+        ],
+        dataSource: [
+          {
+              name: "Beverages",
+              products: [
+                { name: "Tea" },
+                { name: "Coffee" }
+              ]
+          },
+          {
+              name: "Food",
+              products: [
+                { name: "Ham" },
+                { name: "Bread" }
+              ]
+          }
+        ],
+        detailTemplate: 'Products: <div class="grid"></div>',
+        detailInit: function (e) {
+            //e.data kendo.data.ObservableObject : The data item to which the master table row is bound.            
+            //e.detailCell jQuery : The jQuery object which represents the detail table cell.            
+            //e.detailRow jQuery : The jQuery object which represents the detail table row.            
+            //e.masterRow jQuery : The jQuery object which represents the master table row.            
+            //e.sender kendo.ui.Grid : The widget instance which fired the event.            
+            e.detailRow.find(".grid").kendoGrid({
+                dataSource: e.data.products
+            });
+        }
+    });
+</script>

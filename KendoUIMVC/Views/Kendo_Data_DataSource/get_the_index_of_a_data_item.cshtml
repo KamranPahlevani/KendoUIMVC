@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "get_the_index_of_a_data_item";
+}
+
+<h2>get_the_index_of_a_data_item</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { name: "Jane Doe", age: 30 },
+              { name: "John Doe", age: 33 }
+            ]
+        });
+        dataSource.fetch(function () {
+            var dataItem = dataSource.at(0);
+            var index = dataSource.indexOf(dataItem);
+            alert(index); // displays "0"
+        });
+    })
+</script>

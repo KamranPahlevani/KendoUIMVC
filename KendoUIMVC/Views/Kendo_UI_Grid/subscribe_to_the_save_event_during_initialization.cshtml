@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_save_event_during_initialization";
+}
+
+<h2>subscribe_to_the_save_event_during_initialization</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" },
+          { command: "destroy" }
+        ],
+        dataSource: {
+            data: [
+              { id: 1, name: "Jane Doe", age: 30 },
+              { id: 2, name: "John Doe", age: 33 }
+            ],
+            schema: {
+                model: { id: "id" }
+            }
+        },
+        editable: true,
+        save: function (e) {
+            //e.model kendo.data.Model : The data item to which the table row is bound.            
+            //e.row jQuery : The jQuery object representing the current table row.            
+            //e.sender kendo.ui.Grid : The widget instance which fired the event.            
+            //e.values Object : The values entered by the user. Availabe only when the editable.mode option is set to "incell".            
+            if (e.values.name) {
+                // the user changed the name field
+                if (e.values.name != e.model.name) {
+                    alert("name is modified");
+                }
+            }
+        }
+    });
+</script>

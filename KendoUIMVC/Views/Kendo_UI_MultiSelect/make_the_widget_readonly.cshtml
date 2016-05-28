@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "make_the_widget_readonly";
+}
+
+<h2>make_the_widget_readonly</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Item1</option>
+    <option>Item2</option>
+</select>
+<script>
+$("#multiselect").kendoMultiSelect();
+var multiselect = $("#multiselect").data("kendoMultiSelect");
+multiselect.readonly(true);
+</script>
+

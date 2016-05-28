@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "expand_the_first_master_table_row";
+}
+
+<h2>expand_the_first_master_table_row</h2>
+
+<div id="grid"></div>
+<input type="button" id="btnExpandRow" value="Expand Row"/>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+            { name: "Jane Doe", age: 30 },
+            { name: "John Doe", age: 33 }
+        ],
+        detailTemplate: "<div>Name: #: name #</div><div>Age: #: age #</div>"
+    });
+
+    $('#btnExpandRow').click(function () {
+        var grid = $("#grid").data("kendoGrid");
+        grid.expandRow(".k-master-row:first");
+    })
+</script>

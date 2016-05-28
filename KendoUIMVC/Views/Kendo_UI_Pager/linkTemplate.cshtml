@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "linkTemplate";
+}
+
+<h2>linkTemplate</h2>
+
+<div id="pager"></div>
+
+<script>
+    var dataSource = new kendo.data.DataSource({
+        data: [
+          { productName: "Tea", category: "Beverages" },
+          { productName: "Coffee", category: "Beverages" },
+          { productName: "Ham", category: "Food" },
+          { productName: "Bread", category: "Food" }
+        ],
+        pageSize: 2
+    });
+
+    $("#pager").kendoPager({
+        dataSource: dataSource,
+        linkTemplate: '<li><a href="\\#" class="k-link" data-#=ns#page="#=idx#"><strong>#=text#</strong></a></li>'
+    });
+
+    dataSource.read();
+</script>

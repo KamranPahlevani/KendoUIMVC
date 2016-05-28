@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Attach_collapse_event_handler_via_bind_detach_via_unbind";
+}
+
+<h2>Attach_collapse_event_handler_via_bind_detach_via_unbind</h2>
+
+<ul id="panelbar">
+    <li>
+        Item 1
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+    <li>
+        Item 2
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    $("#panelbar").kendoPanelBar();
+
+    // event handler for collapse
+    var onCollapse = function (e) {
+        // access the collapsed item via e.item (HTMLElement)
+        alert('collapse event is fired!');
+        // detach collapse event handler via unbind()
+        $("#panelbar").data("kendoPanelBar").unbind("collapse", onCollapse);
+    };
+
+    // attach collapse event handler via bind()
+    $("#panelbar").data("kendoPanelBar").bind("collapse", onCollapse);
+</script>

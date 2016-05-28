@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "show_the_page_size_DropDownList";
+}
+
+<h2>show_the_page_size_DropDownList</h2>
+
+<div id="pager"></div>
+
+<script>
+    var dataSource = new kendo.data.DataSource({
+        data: [
+          { productName: "Tea", category: "Beverages" },
+          { productName: "Coffee", category: "Beverages" },
+          { productName: "Ham", category: "Food" },
+          { productName: "Bread", category: "Food" }
+        ],
+        pageSize: 2
+    });
+
+    $("#pager").kendoPager({
+        dataSource: dataSource,
+        pageSizes: true
+    });
+
+    dataSource.read();
+</script>

@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "FormattingNumbersAndDates";
+}
+
+<h2>FormattingNumbersAndDates</h2>
+
+
+<script>
+    /*
+    Format Specifiers
+    d - the day of the month, from 1 to 31
+    dd - the zero-padded day of the month - from 01 to 31
+    ddd - the abbreviated name of the day of the week
+    dddd - the full name of the day of the week
+    f - the tenths of a second
+    ff - the hundreds of a second
+    fff - the milliseconds
+    M - the month, from 1 to 12
+    MM - the zero-padded month, from 01 to 12
+    MMM - the abbreviated name of the month
+    MMMM - the full name of the month
+    h - the hour, using 12-hour clock - from 1 to 12
+    hh - the zero-padded hour, using 12-hour clock - from 01 to 12
+    H - the hour, using 24-hour clock - from 0 to 23
+    HH - the zero-padded hour, using 24-hour clock - from 00 to 23
+    m - the minute, from 0 to 59
+    mm - the zero-padded minute, from 00 to 59
+    s - the second, from 00 to 59
+    ss - the zero-padded second, from 00 to 59
+    tt - the AM/PM designator
+    */
+
+    //format a number using standard number formats and default culture en-US
+    alert(kendo.toString(10.12, "n")); //10.12
+    alert(kendo.toString(10.12, "n0")); //10
+    alert(kendo.toString(10.12, "n5")); //10.12000
+    alert(kendo.toString(10.12, "c")); //$10.12
+    alert(kendo.toString(0.12, "p")); //12.00 %
+    //format a number using custom number formats
+    alert(kendo.toString(19.12, "00##")); //0019
+    //format a date
+    alert(kendo.toString(new Date(2010, 9, 5), "yyyy/MM/dd")); // "2010/10/05"
+    alert(kendo.toString(new Date(2010, 9, 5), "dddd MMMM dd, yyyy")); // "Tuesday October 5, 2010"
+    alert(kendo.toString(new Date(2010, 10, 10, 22, 12), "hh:mm tt")); // "10:12 PM"
+    //d - short date pattern
+    alert(kendo.toString(new Date(2000, 10, 6), "d")); // 11/6/2000
+    //D - long date pattern
+    alert(kendo.toString(new Date(2000, 10, 6), "D")); // Monday, November 06, 2000
+    //F - full date/time pattern
+    alert(kendo.toString(new Date(2000, 10, 6), "F")); // Monday, November 06, 2000 12:00:00 AM
+    //g - general date/time pattern (short time)
+    alert(kendo.toString(new Date(2000, 10, 6), "g")) // 11/6/2000 12:00 AM
+    //G - general date/time pattern (long time)
+    alert(kendo.toString(new Date(2000, 10, 6), "G")); // 11/6/2000 12:00:00 AM
+    //m|M - month/day pattern
+    alert(kendo.toString(new Date(2000, 10, 6), "m")); // November 06
+    //u - universal sortable date/time pattern
+    alert(kendo.toString(new Date(2000, 10, 6), "u")); // 2000-11-06 00:00:00Z
+    //y|Y - month/year pattern
+    alert(kendo.toString(new Date(2000, 10, 6), "y")); // November, 2000
+</script>

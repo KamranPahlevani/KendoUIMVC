@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "save";
+}
+
+<h2>save</h2>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        dataSource: {
+            data: [
+                { id: 1, name: "Jane Doe", age: 47 },
+                { id: 2, name: "John Doe", age: 50 }
+            ],
+            schema: {
+                model: {
+                    id: "id",
+                    fields: {
+                        id: { type: "number" },
+                        name: { type: "string" },
+                        age: { type: "number" }
+                    }
+                }
+            }
+        },
+        template: "<div>#:name#</div>",
+        editTemplate: '<div><input type="text" name="name" data-bind="value:name" /></div>'
+    });
+    // get a reference to the list view widget
+    var listView = $("#listView").data("kendoListView");
+    // edit first list view item
+    listView.edit(listView.element.children().first());
+    // save edited item
+    listView.save();
+</script>
+

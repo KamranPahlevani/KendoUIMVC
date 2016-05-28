@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Perform_validation_by_preventing_the_set_event";
+}
+
+<h2>Perform_validation_by_preventing_the_set_event</h2>
+
+<script>
+    var observable = new kendo.data.ObservableObject({ name: "John Doe" });
+
+    observable.bind("set", function (e) {
+        if (e.field == "name") {
+            if (e.value == "") {
+                // avoid emtpy value for the "name" field
+                e.preventDefault();
+            }
+        }
+    });
+
+    observable.set("name", "Jane Doe");
+    alert(observable.get('name'));
+
+    observable.set("name", "");
+    alert(observable.get('name'));
+
+</script>

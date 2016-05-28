@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "enable";
+}
+
+<h2>enable</h2>
+
+<input id="slider" style="width: 200px;" />
+
+<script>
+
+    $("#slider").kendoSlider();
+
+    // get a reference to the slider widget
+    var slider = $("#slider").data("kendoSlider");
+
+    // disables the slider
+    slider.enable(false);
+
+    // enables the slider
+    slider.enable(true);
+
+</script>

@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "set_appendTo_as_a_jQuery_object";
+}
+
+<h2>set_appendTo_as_a_jQuery_object</h2>
+
+<div id="notification"></div>
+<script>
+    var element = $("#notification");
+    element.kendoNotification({
+        appendTo: element
+    });
+    $('#notification').data('kendoNotification').show('Test notification');
+</script>

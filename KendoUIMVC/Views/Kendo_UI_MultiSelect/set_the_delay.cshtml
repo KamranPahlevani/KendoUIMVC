@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "set_the_delay";
+}
+
+<h2>set_the_delay</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Item1</option>
+    <option>Item2</option>
+</select>
+<script>
+
+    $("#multiselect").kendoMultiSelect({
+        delay: 1000 // wait 1 second before clearing the user input
+    });
+
+</script>
+

@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "destroy";
+}
+
+<h2>destroy</h2>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        dataSource: {
+            data: [
+                { name: "Jane Doe" },
+                { name: "John Doe" }
+            ]
+        },
+        template: "<div>#:name#</div>"
+    });
+    // get a reference to the list view widget
+    var listView = $("#listView").data("kendoListView");
+    listView.destroy();
+</script>
+

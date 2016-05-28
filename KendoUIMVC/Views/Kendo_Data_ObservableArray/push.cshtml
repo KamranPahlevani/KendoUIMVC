@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "push";
+}
+
+<h2>push</h2>
+
+<script>
+    var array = new kendo.data.ObservableArray([{ name: "John Doe" }]);
+
+    var length = array.push({ name: "Jane Doe" });
+
+    alert(length); // outputs "2"
+
+    alert(array[1] instanceof kendo.data.ObservableObject); // outputs "true"
+    alert(array[1].get("name")); // outputs "Jane Doe"
+</script>

@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Focus_widget_on_label_click";
+}
+
+<h2>Focus_widget_on_label_click</h2>
+
+<label for="numerictextbox">Number: </label>
+<input id="numerictextbox" />
+<script>
+    $(function () {
+        $("#numerictextbox").kendoNumericTextBox();
+
+        //global click handler for all label elements
+        $("label").click(function (e) {
+            var label = $(this);
+            var id = label.attr("for");
+            var widget;
+
+            if (id) {
+                widget = kendo.widgetInstance($("#" + id), kendo.ui);
+
+                if (widget) {
+                    e.preventDefault();
+                    widget.focus();
+                }
+            }
+        });
+    });
+</script>

@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "get_the_value_of_the_maskedtextbox";
+}
+
+<h2>get_the_value_of_the_maskedtextbox</h2>
+
+<input id="maskedtextbox" />
+<script>
+    $("#maskedtextbox").kendoMaskedTextBox({
+        mask: "000000",
+        value: "123456"
+    });
+
+    var maskedtextbox = $("#maskedtextbox").data("kendoMaskedTextBox");
+
+    var value = maskedtextbox.value();
+
+    alert(value);
+</script>
+

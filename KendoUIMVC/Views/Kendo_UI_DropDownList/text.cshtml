@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "text";
+}
+
+<h2>text</h2>
+
+<input type="text" id="dropdownlist" name="dropdownlist" />
+<input type="button" id="btnGetText" value="Get Text"/>
+<input type="button" id="btnSetText" value="Set Text"/>
+
+
+ <script>
+     $("#dropdownlist").kendoDropDownList({
+         dataSource: new kendo.data.DataSource({
+             transport: {
+                 read: {
+                     url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                     dataType: "json"
+                 },
+             }
+         }),
+         dataTextField: "ProductName",
+     });
+
+     var dropdownlist = $('#dropdownlist').data('kendoDropDownList');
+
+     $('#btnGetText').click(function () {
+         alert(dropdownlist.text());
+     })
+
+     $('#btnSetText').click(function () {
+         dropdownlist.text('Test');
+     })
+
+ </script>
+

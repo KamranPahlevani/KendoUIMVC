@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "add_a_data_item_to_the_data_source";
+}
+
+<h2>add_a_data_item_to_the_data_source</h2>
+
+<style scoped="scoped">
+    .info {
+        display: block;
+        line-height: 22px;
+        padding: 0 5px 5px 0;
+        color: #36558e;
+    }
+
+    #shipping {
+        width: 482px;
+        height: 500px;
+        padding: 110px 0 0 30px;
+        background: url('/Content/web/autocomplete/shipping.png') transparent no-repeat 0 0;
+        margin: 30px auto;
+    }
+
+    .k-autocomplete {
+        width: 250px;
+        vertical-align: middle;
+    }
+
+    .hint {
+        line-height: 22px;
+        color: #aaa;
+        font-style: italic;
+        font-size: .9em;
+        color: #7496d4;
+    }
+</style>
+
+<div id="shipping">
+    <label class="info">By JavaScript:</label>
+    <input id="autocomplete" />
+</div>
+
+<script>
+    var dataSource = new kendo.data.DataSource({
+        transport: {
+            read: {
+                url: "@Url.Action("GetFruits","Kendo_UI_AutoComplete")",
+                dataType: "json"
+            }
+        }
+    });
+
+    $("#autocomplete").kendoAutoComplete({
+        dataSource: dataSource,
+        dataTextField: "Name",
+        filter: "startswith",
+        separator: ", "
+    });
+
+    dataSource.fetch(function () {
+        var autocomplete = $("#autocomplete").data("kendoAutoComplete");
+        dataSource.add({ ID: 5, Name: "BlueBerry" });
+        autocomplete.setDataSource(dataSource);
+        autocomplete.search("B");
+    })
+
+</script>
+
+
+
+
+
+
+

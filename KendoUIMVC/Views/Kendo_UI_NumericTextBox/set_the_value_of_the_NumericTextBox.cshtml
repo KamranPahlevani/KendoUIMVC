@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "set_the_value_of_the_NumericTextBox";
+}
+
+<h2>set_the_value_of_the_NumericTextBox</h2>
+
+<input id="numerictextbox" />
+<script>
+    $("#numerictextbox").kendoNumericTextBox();
+
+    var numerictextbox = $("#numerictextbox").data("kendoNumericTextBox");
+
+    var value = numerictextbox.value();
+
+    numerictextbox.value(0.5);
+</script>

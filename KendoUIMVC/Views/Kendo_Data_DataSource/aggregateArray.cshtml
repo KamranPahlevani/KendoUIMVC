@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "aggregateArray";
+}
+
+<h2>aggregateArray</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { name: "Jane Doe", age: 30 },
+              { name: "John Doe", age: 33 }
+            ],
+            aggregate: [
+              { field: "age", aggregate: "sum" },
+              { field: "age", aggregate: "min" },
+              { field: "age", aggregate: "max" }
+            ]
+        });
+        dataSource.fetch(function () {
+            var results = dataSource.aggregates().age;
+            alert("sum:" + results.sum + " min:" +  results.min + " max:" + results.max); // displays "63 30 33"
+        });
+    })
+</script>

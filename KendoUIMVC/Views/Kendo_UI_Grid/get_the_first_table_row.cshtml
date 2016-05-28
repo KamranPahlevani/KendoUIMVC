@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "get_the_first_table_row";
+}
+
+<h2>get_the_first_table_row</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 },
+        ]
+    });
+    var grid = $("#grid").data("kendoGrid");
+    var row = grid.tbody.find("tr:eq(0)");
+    var data = grid.dataItem(row);
+    alert(data.name); // displays "Jane Doe"
+</script>

@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "specify_grid_columns_as_array_of_strings";
+}
+
+<h2>specify_grid_columns_as_array_of_strings</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: ["name", "age"], // two columns bound to the "name" and "age" fields
+        dataSource: [{ name: "Jane", age: 31 }, { name: "John", age: 33 }]
+    });
+</script>

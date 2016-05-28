@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "set_the_isFalse_message";
+}
+
+<h2>set_the_isFalse_message</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "active" }
+        ],
+        dataSource: {
+            data: [
+              { active: true },
+              { active: false }
+            ],
+            schema: {
+                model: {
+                    fields: {
+                        active: { type: "boolean" }
+                    }
+                }
+            }
+        },
+        filterable: {
+            messages: {
+                isFalse: "False"
+            }
+        }
+    });
+</script>

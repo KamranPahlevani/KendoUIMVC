@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "disable_column_selection";
+}
+
+<h2>disable_column_selection</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        columnMenu: {
+            columns: false
+        },
+        sortable: true,
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ]
+    });
+</script>

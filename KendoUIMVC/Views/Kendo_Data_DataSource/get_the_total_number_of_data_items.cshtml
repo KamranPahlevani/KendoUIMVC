@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "get_the_total_number_of_data_items";
+}
+
+<h2>get_the_total_number_of_data_items</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { name: "Jane Doe", age: 30 },
+              { name: "John Doe", age: 33 }
+            ]
+        });
+        dataSource.fetch(function () {
+            alert(dataSource.total()); // displays "2"
+        });
+    })
+</script>

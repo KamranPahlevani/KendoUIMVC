@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "shift";
+}
+
+<h2>shift</h2>
+
+<script>
+    var array = new kendo.data.ObservableArray([1, 2, 3]);
+
+    var removed = array.shift();
+
+    alert(removed); // outputs "1"
+
+    alert(array.length); // outputs "2"
+</script>

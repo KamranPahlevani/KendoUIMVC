@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "set_the_data_source";
+}
+
+<h2>set_the_data_source</h2>
+
+<div id="grid"></div>
+<input type="button" id="btnSetDataSource" value="Set Data Source" />
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+            { name: "Jane Doe", age: 30 }
+        ]
+    });
+
+    $('#btnSetDataSource').click(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { name: "John Doe", age: 33 },
+              { name: "Jane Doe", age: 40 }
+            ]
+        });
+        var grid = $("#grid").data("kendoGrid");
+        grid.setDataSource(dataSource);
+    })
+</script>

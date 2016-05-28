@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_filterMenuInit_event_after_initialization";
+}
+
+<h2>subscribe_to_the_filterMenuInit_event_after_initialization</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" }
+        ],
+        dataSource: [
+          { name: "Jane Doe" },
+          { name: "John Doe" }
+        ],
+        filterable: true
+    });
+    var grid = $("#grid").data("kendoGrid");
+    grid.bind("filterMenuInit", grid_filterMenuInit);
+
+    function grid_filterMenuInit(e) {
+        if (e.field == "name") {
+            var firstValueDropDown = e.container.find("select:eq(0)").data("kendoDropDownList");
+            firstValueDropDown.value("contains");
+            var logicDropDown = e.container.find("select:eq(1)").data("kendoDropDownList");
+            logicDropDown.value("or");
+            var secondValueDropDown = e.container.find("select:eq(2)").data("kendoDropDownList");
+            secondValueDropDown.value("contains");
+        }
+    }
+</script>

@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "set_pager_button_count";
+}
+
+<h2>set_pager_button_count</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "productName" },
+          { field: "category" }
+        ],
+        dataSource: [
+          { productName: "Tea", category: "Beverages" },
+          { productName: "Coffee", category: "Beverages" },
+          { productName: "Ham", category: "Food" },
+          { productName: "Bread", category: "Food" }
+        ],
+        pageable: {
+            pageSize: 2,
+            buttonCount: 1
+        }
+    });
+</script>

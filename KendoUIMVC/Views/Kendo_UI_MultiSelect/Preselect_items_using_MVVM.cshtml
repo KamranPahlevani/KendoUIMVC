@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Preselect_items_using_MVVM";
+}
+
+<h2>Preselect_items_using_MVVM</h2>
+
+<div id="example">
+    <div class="demo-section k-header">
+        <h4>Products</h4>
+        <button id="set">Set Source</button>
+        <select data-role="multiselect"
+                data-text-field="ProductName"
+                data-value-field="ProductID"
+                data-bind="{source: source, value: products}"></select>
+    </div>
+    <script>
+        $(document).ready(function() {
+            var model = kendo.observable({
+                products: [
+                  { ProductName: "Chang", ProductID: 2 },
+                  { ProductName: "Uncle Bob's Organic Dried Pears", ProductID: 7 }
+                ],
+                source: []
+            });
+
+            kendo.bind(document.body, model);
+
+            $("#set").click(function() {
+                var source = new kendo.data.DataSource({
+                    type: "json",
+                    serverFiltering: true,
+                    transport: {
+                        read: {
+                            url: '@Url.Action("GetProducts","Kendo_Data_DataSource")'
+                        }
+                    }
+                });
+
+                source.one("change", function() {
+                    debugger;
+                    var products = model.products;
+
+                    model.set("products", []);
+                    model.set("products", products);
+                });
+
+                model.set("source", source);
+            })
+        });
+    </script>
+    <style scoped>
+        .demo-section {
+            width: 400px;
+        }
+    </style>
+</div>

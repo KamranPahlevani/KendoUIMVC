@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_complete_event_after_initialization";
+}
+
+<h2>subscribe_to_the_complete_event_after_initialization</h2>
+
+<div id="progressbar"></div>
+<script>
+    function onComplete(e) {
+        console.log("Value is " + e.value);
+    }
+
+    $("#progressbar").kendoProgressBar();
+
+    var progressbar = $("#progressbar").data("kendoProgressBar");
+    progressbar.bind("complete", onComplete);
+</script>

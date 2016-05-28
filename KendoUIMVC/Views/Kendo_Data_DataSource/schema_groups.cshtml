@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "schema_groups";
+}
+
+<h2>schema_groups</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "http://demos.kendoui.com/service/twitter/search",
+                    dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: { q: "html5" } // search for tweets that contain "html5"
+                }
+            },
+            serverGrouping: true,
+            schema: {
+                groups: function (response) {
+                    return response.groups;
+                }
+            }
+        });
+        dataSource.fetch(function () {
+        });
+    })
+</script>

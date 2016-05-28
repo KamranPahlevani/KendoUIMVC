@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "hide_columns";
+}
+
+<h2>hide_columns</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { hidden: true, field: "id" },
+          { field: "name" }
+        ],
+        dataSource: [{ id: 1, name: "Jane Doe" }, { id: 2, name: "John Doe" }]
+    });
+</script>

@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "set_dataSource_as_a_JavaScript_object";
+}
+
+<h2>set_dataSource_as_a_JavaScript_object</h2>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        dataSource: {
+            data: [
+                { name: "Jane Doe" },
+                { name: "John Doe" }
+            ]
+        },
+        template: "<div>#:name#</div>"
+    });
+</script>
+

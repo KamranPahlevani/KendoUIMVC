@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "stylesheets";
+}
+
+<h2>stylesheets</h2>
+
+<textarea cols="20" id="editor" name="editor" rows="5" style="width: 740px;height:440px"></textarea>
+
+<script>
+    $("#editor").kendoEditor({
+        stylesheets: [
+            "common-styles.css",
+            "green-theme.css",
+        ]
+    });
+</script>
+

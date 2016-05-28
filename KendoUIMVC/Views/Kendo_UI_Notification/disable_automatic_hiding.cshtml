@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "disable_automatic_hiding";
+}
+
+<h2>disable_automatic_hiding</h2>
+
+<span id="notification"></span>
+<script>
+    $("#notification").kendoNotification({
+        autoHideAfter: 0
+    });
+    $('#notification').data('kendoNotification').show('Test notification');
+</script>

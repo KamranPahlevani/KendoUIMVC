@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "resize";
+}
+
+<h2>resize</h2>
+
+<div id="rangeslider" style="width: 200px;">
+    <input />
+    <input />
+</div>
+<script>
+    $(document).ready(function () {
+        $("#rangeslider").kendoRangeSlider();
+        var rangeSlider = $("#rangeslider").getKendoRangeSlider();
+        rangeSlider.wrapper.css("width", "400px");
+        rangeSlider.resize();
+    });
+</script>

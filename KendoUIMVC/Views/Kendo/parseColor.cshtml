@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "parseColor";
+}
+
+<h2>parseColor</h2>
+
+<span id="redSpan" style="width:50px; height:50px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span id="greenSpan">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span id="blueSpan">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span id="redRgbSpan">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span id="halfblueRgbaSpan">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+
+<script>
+    $('#redSpan').css('background-color', kendo.parseColor("#ff0000").toCss());
+    $('#greenSpan').css('background-color', kendo.parseColor("#0f0").toCss());
+    $('#blueSpan').css('background-color', kendo.parseColor("0000ff").toCss());
+    $('#redRgbSpan').css('background-color', kendo.parseColor("rgb(255, 0, 0)").toCss());
+    $('#halfblueRgbaSpan').css('background-color', kendo.parseColor("rgba(0, 0, 255, 0.5)").toCss());
+</script>

@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "group_dir";
+}
+
+<h2>group_dir</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { name: "Tea", category: "Beverages" },
+              { name: "Ham", category: "Food" },
+            ],
+            // group by "category" in descending order
+            group: { field: "category", dir: "desc" }
+        });
+        dataSource.fetch(function () {
+            var view = dataSource.view();       
+            var food = view[0];
+            alert(food.value); // displays "Food"
+            var beverages = view[1];
+            alert(beverages.value); // displays "Beverages"
+        });
+    })
+</script>

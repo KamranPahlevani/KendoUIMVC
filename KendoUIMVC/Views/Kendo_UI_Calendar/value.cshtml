@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "value";
+}
+
+<h2>value</h2>
+
+<div class="k-widget k-calendar" id="calendar1"></div>
+
+<div class="k-widget k-calendar" id="calendar2"></div>
+
+<script>
+    $("#calendar1").kendoCalendar({
+        value: new Date(2012, 0, 1)
+    });
+
+    $("#calendar2").kendoCalendar({
+    });
+
+    // get a reference to the Kendo UI calendar widget
+    var calendar = $("#calendar2").data("kendoCalendar");
+    // set the selected date on the calendar to Jan 1st, 2012
+    calendar.value(new Date(2012, 0, 1));
+</script>
+

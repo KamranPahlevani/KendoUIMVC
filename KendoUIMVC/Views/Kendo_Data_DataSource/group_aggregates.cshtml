@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "group_aggregates";
+}
+
+<h2>group_aggregates</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { name: "Tea", category: "Beverages", price: 1 },
+              { name: "Coffee", category: "Beverages", price: 2 },
+              { name: "Ham", category: "Food", price: 3 },
+            ],
+            group: {
+                field: "category",
+                aggregates: [
+                  { field: "price", aggregate: "max" },
+                  { field: "price", aggregate: "min" }
+                ]
+            }
+        });
+        dataSource.fetch(function () {
+            var view = dataSource.view();
+            var beverages = view[0];
+            alert(beverages.aggregates.price.max); // displays "2"
+            alert(beverages.aggregates.price.min); // displays "1"
+            var food = view[1];
+            alert(food.aggregates.price.max); // displays "3"
+            alert(food.aggregates.price.min); // displays "3"
+        });
+    })
+</script>

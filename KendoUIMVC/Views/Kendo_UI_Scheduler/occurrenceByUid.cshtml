@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "occurrenceByUid";
+}
+
+<h2>occurrenceByUid</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6"),
+        views: ["week"],
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview",
+              recurrenceRule: "FREQ=DAILY"
+          }
+        ]
+    });
+
+    var scheduler = $("#scheduler").data("kendoScheduler");
+    var uid = scheduler.wrapper.find(".k-event:last").data("uid");
+    var event = scheduler.occurrenceByUid(uid);
+
+    console.log(event);
+</script>

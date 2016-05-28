@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "remove_applied_filter_before_set_the_value";
+}
+
+<h2>remove_applied_filter_before_set_the_value</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option value="1">Item1</option>
+    <option value="2">Item2</option>
+</select>
+<script>
+$("#multiselect").kendoMultiSelect();
+
+var multiselect = $("#multiselect").data("kendoMultiSelect");
+
+//clear filter
+multiselect.dataSource.filter({});
+
+//set value
+multiselect.value(["1", "2"]);
+
+</script>
+

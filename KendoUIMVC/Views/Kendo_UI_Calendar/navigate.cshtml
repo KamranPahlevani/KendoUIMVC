@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "navigate";
+}
+
+<h2>navigate</h2>
+
+<div class="k-widget k-calendar" id="calendar"></div>
+
+<script>
+    $("#calendar").kendoCalendar({
+    });
+
+    var calendar = $("#calendar").data("kendoCalendar");
+
+    // navigate to the desired date
+    calendar.navigate(new Date(2012, 11, 14), calendar.view());
+</script>
+

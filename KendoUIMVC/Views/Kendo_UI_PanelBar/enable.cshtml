@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "enable";
+}
+
+<h2>enable</h2>
+
+<ul id="panelbar">
+    <li id="item1">
+        Item 1
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+    <li id="item2">
+        Item 2
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    $("#panelbar").kendoPanelBar();
+    // access an existing PanelBar instance
+    var panelBar = $("#panelbar").data("kendoPanelBar");
+    // enable the item of the PanelBar with ID, "item1"
+    panelBar.enable($("#item1"), true);
+    // disable the currently selected item of the PanelBar
+    var item = panelBar.select();
+    panelBar.enable($("#item2"), false);
+    // disable all list items that start with ID, "item"
+    panelBar.enable($('[id^="item"]'), false);
+</script>

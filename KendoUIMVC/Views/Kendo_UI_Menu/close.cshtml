@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "close";
+}
+
+<h2>close</h2>
+
+
+<ul id="menu">
+    <li id="Item1">
+        Item 1
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+    <li>
+        Item 2
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    $("#menu").kendoMenu({
+    });
+
+    // get a reference to the menu widget
+    var menu = $("#menu").data("kendoMenu");
+    // close the sub menu of "Item1"
+    menu.close("#Item1");
+</script>
+

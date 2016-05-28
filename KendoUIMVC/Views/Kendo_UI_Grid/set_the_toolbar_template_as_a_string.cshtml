@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "set_the_toolbar_template_as_a_string";
+}
+
+<h2>set_the_toolbar_template_as_a_string</h2>
+
+<div id="grid"></div>
+<script>
+    function toolbar_click() {
+        alert("Toolbar command is clicked!");
+        return false;
+    }
+    $("#grid").kendoGrid({
+        toolbar: [
+          {
+              template: '<a class="k-button" href="\\#" onclick="return toolbar_click()">Command</a>'
+          }
+        ],
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+            { name: "Jane Doe", age: 30 },
+            { name: "John Doe", age: 33 }
+        ]
+    });
+</script>

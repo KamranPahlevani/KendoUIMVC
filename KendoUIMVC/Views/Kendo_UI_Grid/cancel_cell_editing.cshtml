@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "cancel_cell_editing";
+}
+
+<h2>cancel_cell_editing</h2>
+
+<div id="grid"></div>
+<input type="button" id="btnCancelCellEditing" value="Cancel Cell Editing" />
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 },
+        ],
+        editable: "incell"
+    });
+    $('#btnCancelCellEditing').click(function () {
+        var grid = $("#grid").data("kendoGrid");
+        grid.closeCell();
+    })
+</script>

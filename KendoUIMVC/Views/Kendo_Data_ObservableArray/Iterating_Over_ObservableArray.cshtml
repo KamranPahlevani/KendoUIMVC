@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Iterating_Over_ObservableArray";
+}
+
+<h2>Iterating_Over_ObservableArray</h2>
+
+<script>
+    var array = new kendo.data.ObservableArray([1, 2, 3]);
+
+    for (var i = 0; i < array.length; i++) {
+        alert(array[i]); // outputs the current item
+    }
+</script>

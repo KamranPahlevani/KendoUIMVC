@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "ColorPalette";
+}
+
+<h2>ColorPalette</h2>
+
+<div id="container"></div>
+
+<script>
+    $("#container").kendoColorPalette({
+        columns: "websafe",
+        tileSize: 20,
+
+        change: function (e) {
+            alert(this.color().toCss());
+        }
+    })
+</script>

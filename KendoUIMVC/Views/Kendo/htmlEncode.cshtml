@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "htmlEncode";
+}
+
+<h2>htmlEncode</h2>
+
+<script>
+    var html = kendo.htmlEncode("<span>Hello</span>");
+    alert(html); // outputs "&lt;span&gt;Hello&lt;/span&gt;"
+</script>

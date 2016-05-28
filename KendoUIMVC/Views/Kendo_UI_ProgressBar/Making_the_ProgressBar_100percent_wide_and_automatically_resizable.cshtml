@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Making_the_ProgressBar_100percent_wide_and_automatically_resizable";
+}
+
+<h2>Making_the_ProgressBar_100percent_wide_and_automatically_resizable</h2>
+
+<style>
+    #progressbar {
+        width: auto;
+        display: block;
+    }
+</style>
+
+<div id="progressbar"></div>
+
+<script>
+
+    $(function () {
+        $("#progressbar").kendoProgressBar();
+    });
+
+</script>

@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "observableHierarchy";
+}
+
+<h2>observableHierarchy</h2>
+
+<script>
+    $(document).ready(function () {
+        var viewModel = kendo.observable({
+            /*Creates an ObservableArray instance that is bound to a HierarchicalDataSource. 
+              Required to bind a HierarchicalDataSource-enabled widget (such as the Kendo TreeView) to an observable array*/
+            products: kendo.observableHierarchy([
+                {
+                    text: "foo", items: [
+                      { text: "bar" }
+                    ]
+                },
+                { text: "baz" }
+            ])
+        });
+        alert(viewModel.products[0].text);
+        alert(viewModel.products[0].items[0].text);
+        alert(viewModel.products[1].text);
+    })
+</script>

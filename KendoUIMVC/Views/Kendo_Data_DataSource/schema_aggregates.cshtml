@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "schema_aggregates";
+}
+
+<h2>schema_aggregates</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "http://demos.kendoui.com/service/twitter/search",
+                    dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                }
+            },
+            serverAggregates: true,
+            schema: {
+                aggregates: function (response) {
+                    return response.aggregates;
+                }
+            }
+        });
+        dataSource.fetch(function () {
+        });
+    })
+</script>

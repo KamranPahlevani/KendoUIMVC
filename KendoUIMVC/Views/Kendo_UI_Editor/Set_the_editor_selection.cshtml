@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Set_the_editor_selection";
+}
+
+<h2>Set_the_editor_selection</h2>
+
+<textarea id="editor"></textarea>
+<script>
+    var editor = $("#editor").kendoEditor().data("kendoEditor");
+
+    editor.value("<strong>foo</strong><em>bar</em>");
+
+    var strong = $("strong", editor.body)[0];
+    var em = $("em", editor.body)[0]
+
+    // get a Range object within the editor document
+    var range = editor.createRange();
+
+    // set range start after "f"
+    range.setStart(strong.firstChild, 1);
+
+    // set range end before "r"
+    range.setEnd(em.firstChild, 2);
+
+    // set editor selection to given range
+    editor.selectRange(range);
+</script>

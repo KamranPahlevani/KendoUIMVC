@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "open";
+}
+
+<h2>open</h2>
+
+<input id="datePicker" name="datePicker" style="width: 150px" type="date"  />
+<input type="button"  id="btnOpen" value="Open"/> 
+
+<script src="~/Scripts/kendo/2013.3.1213/cultures/kendo.culture.en-US.min.js"></script>
+<script>
+    $("#datePicker").kendoDatePicker({
+    });
+
+    $('#btnOpen').click(function () {
+        var datePicker = $('#datePicker').data('kendoDatePicker');
+        datePicker.open();
+    })
+</script>
+

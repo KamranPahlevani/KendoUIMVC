@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "set_the_selectValue_message";
+}
+
+<h2>set_the_selectValue_message</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "productName" },
+
+          {
+              field: "category", values: [
+                { text: "Beverages", value: "1" },
+                { text: "Food", value: "2" },
+              ]
+          }
+        ],
+        dataSource: {
+            data: [
+                   { productName: "Tea", category: "1" },
+                   { productName: "Ham", category: "2" }
+            ],
+            model: {
+                fields: {
+                    productName: { type: "string" },
+                    category: { type: "string" }
+                }
+            },
+        },
+        filterable: {
+            extra: false,
+            messages: {
+                selectValue: "Select category"
+            }
+        }
+    });
+</script>
+
+
+
+
+

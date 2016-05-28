@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Using_the_kendo_observable_Method";
+}
+
+<h2>Using_the_kendo_observable_Method</h2>
+
+<script>
+    var observable = kendo.observable({ people: [{ name: "John Doe" }, { name: "Jane Doe" }] });
+    alert(observable.people instanceof kendo.data.ObservableArray); // outputs "true"
+</script>

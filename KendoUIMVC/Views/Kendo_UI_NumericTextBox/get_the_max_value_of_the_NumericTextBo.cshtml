@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "get_the_max_value_of_the_NumericTextBo";
+}
+
+<h2>get_the_max_value_of_the_NumericTextBo</h2>
+
+<input id="numerictextbox" />
+<script>
+    $("#numerictextbox").kendoNumericTextBox({
+        max: 14
+    });
+
+    var numerictextbox = $("#numerictextbox").data("kendoNumericTextBox");
+
+    var max = numerictextbox.max();
+
+    alert(max);
+</script>

@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "column_header_template_as_a_string";
+}
+
+<h2>column_header_template_as_a_string</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [{
+            field: "name",
+            headerTemplate: '<input type="checkbox" id="check-all" /><label for="check-all">Check All</label>'
+        }],
+        dataSource: [{ name: "Jane Doe" }, { name: "John Doe" }]
+    });
+</script>

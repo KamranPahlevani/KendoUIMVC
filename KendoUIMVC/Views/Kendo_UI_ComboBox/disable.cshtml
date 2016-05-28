@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "disable";
+}
+
+<h2>disable</h2>
+
+<input type="text" id="comboBox" name="comboBox" />
+
+<script>
+    $("#comboBox").kendoComboBox({
+        dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                    dataType: "json"
+                },
+            }
+        }),
+        dataTextField: "ProductName",
+    });
+
+    var combobox = $("#comboBox").data("kendoComboBox");
+    combobox.enable(false);
+</script>
+
+
+

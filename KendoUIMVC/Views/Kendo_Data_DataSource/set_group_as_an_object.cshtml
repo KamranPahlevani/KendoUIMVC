@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "set_group_as_an_object";
+}
+
+<h2>set_group_as_an_object</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { name: "Tea", category: "Beverages" },
+              { name: "Coffee", category: "Beverages" },
+              { name: "Ham", category: "Food" }
+            ],
+            // group by the "category" field
+            group: { field: "category" }
+        });                             
+        dataSource.fetch(function () {                              
+            var view = dataSource.view();
+            alert(view.length); // displays "2"
+            var beverages = view[0];
+            alert(beverages.value); // displays "Beverages"
+            alert(beverages.items[0].name); // displays "Tea"
+            alert(beverages.items[1].name); // displays "Coffee"
+            var food = view[1];
+            alert(food.value); // displays "Food"
+            alert(food.items[0].name); // displays "Ham"
+        });
+    })
+</script>

@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "set_dataSource_as_an_existing_kendo_data_DataSource_instance";
+}
+
+<h2>set_dataSource_as_an_existing_kendo_data_DataSource_instance</h2>
+
+<style scoped="scoped">
+    #shipping {
+        width: 482px;
+        height: 152px;
+        padding: 110px 0 0 30px;
+        background: url('/Content/web/autocomplete/shipping.png') transparent no-repeat 0 0;
+        margin: 30px auto;
+    }
+
+    .k-autocomplete {
+        width: 250px;
+        vertical-align: middle;
+    }
+</style>
+
+<div id="shipping">
+    <label class="info">By JavaScript:</label>
+    <input id="autocomplete" />
+</div>
+
+<script>
+    var dataSource = new kendo.data.DataSource({
+        transport: {
+            read: {
+                url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                dataType: "json"
+            }
+        }
+    });
+    $("#autocomplete").kendoAutoComplete({
+        dataSource: dataSource,
+        dataTextField: "ProductName",
+        filter: "startswith",
+        separator: "! "
+    });
+</script>

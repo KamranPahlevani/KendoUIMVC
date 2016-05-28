@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "value";
+}
+
+<h2>value</h2>
+
+<input type="text" id="comboBox" name="comboBox" />
+<input type="button" id="cmbGetValue" value="get value" />
+<input type="button" id="cmbSetValue" value="set value" />
+
+
+<script>
+    $("#comboBox").kendoComboBox({
+        dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                    dataType: "json"
+                },
+            }
+        }),
+        dataTextField: "ProductName",
+        dataValueField: "ProductID"
+    });
+
+    var combobox = $("#comboBox").data("kendoComboBox");
+
+    $('#cmbGetValue').click(function () {
+        alert(combobox.value());
+    })
+
+    $('#cmbSetValue').click(function () {
+        combobox.value("3"); //looks for item which has value "3"
+        alert(combobox.text()); 
+    })
+
+
+</script>

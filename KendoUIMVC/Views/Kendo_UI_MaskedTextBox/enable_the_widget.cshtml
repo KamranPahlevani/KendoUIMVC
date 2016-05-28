@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "enable_the_widget";
+}
+
+<h2>enable</h2>
+
+<input id="maskedtextbox" disabled="disabled" />
+<script>
+    $("#maskedtextbox").kendoMaskedTextBox();
+
+    var maskedtextbox = $("#maskedtextbox").data("kendoMaskedTextBox");
+    maskedtextbox.enable(true);
+</script>
+

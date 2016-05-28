@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_filtering_event_during_initialization";
+}
+
+<h2>subscribe_to_the_filtering_event_during_initialization</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Item1</option>
+    <option>Item2</option>
+</select>
+<script>
+    $("#multiselect").kendoMultiSelect({
+        filter: "startswith",
+        filtering: function (e) {
+            //get filter descriptor
+            if (e.filter != undefined) {
+                var filter = e.filter.value;
+                // handle the event
+                alert('the filtering event is fired with ' + filter + ' descriptor')
+            }
+        }
+    });
+</script>

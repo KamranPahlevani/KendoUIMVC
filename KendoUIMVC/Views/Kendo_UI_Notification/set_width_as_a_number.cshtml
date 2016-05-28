@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "set_width_as_a_number";
+}
+
+<h2>set_width_as_a_number</h2>
+
+<span id="notification"></span>
+<script>
+    $("#notification").kendoNotification({
+        width: 300
+    });
+    $('#notification').data('kendoNotification').show('Test notification');
+</script>

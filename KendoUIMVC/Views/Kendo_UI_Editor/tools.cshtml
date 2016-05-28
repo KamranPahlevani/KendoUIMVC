@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "tools";
+}
+
+<h2>tools</h2>
+
+<textarea cols="20" id="editor" name="editor" rows="5" style="width: 740px;height:440px"></textarea>
+
+<script>
+    $("#editor").kendoEditor({
+        tools: [
+            "bold",
+            "italic",
+            "underline",
+            "separator",
+            "strikethrough",
+            "fontName",
+            "fontSize",
+            "foreColor",
+            "backColor",
+            "justifyLeft",
+            "justifyCenter",
+            "justifyRight",
+            "justifyFull",
+            "insertUnorderedList",
+            "insertOrderedList",
+            "indent",
+            "outdent",
+            "formatBlock",
+            "createLink",
+            "unlink",
+            "insertImage",
+            "insertHtml",
+            "subscript",
+            "superscript",
+            "viewHtml",
+            {
+                name: "customTool",
+                tooltip: "Custom Tool",
+                exec: function (e) {
+                    var editor = $(this).data("kendoEditor");
+                    // ...
+                }
+            }
+        ],
+        insertHtml: [
+            { text: "label 1", value: "<p>snippet 1</p>" },
+            { text: "label 2", value: "<p>snippet 2</p>" }
+        ]
+    });
+</script>
+

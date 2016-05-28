@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Hide_button_with_CSS";
+}
+
+<h2>Hide_button_with_CSS</h2>
+
+<input id="datepicker" value="10/10/2011" style="width:150px;" />
+<script>
+    $(document).ready(function () {
+        $("#datepicker").kendoDatePicker();
+    });
+</script>
+<style>
+    .k-datepicker .k-select {
+        display: none;
+    }
+
+    .k-datepicker .k-picker-wrap {
+        padding: 0;
+    }
+
+    .k-datepicker .k-input {
+        border-radius: 3px;
+    }
+</style>

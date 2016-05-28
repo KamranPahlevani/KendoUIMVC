@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Configuration";
+}
+
+<h2>Configuration</h2>
+
+<div id="rangeslider" style="width: 200px;">
+    <input />
+    <input />
+</div>
+
+<script>
+    $("#rangeslider").kendoRangeSlider({
+        animation: {
+            duration: 500,
+            max: 10,
+            min: 0,
+            orientation: 'horizontal',
+            selectionEnd: 10,
+            smallStep: 1,
+            tickPlacement: 'both',
+            tooltip: {
+                enabled: true,
+                format: '{0}',
+            }
+        }
+    });
+</script>

@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "expand_the_first_group";
+}
+
+<h2>expand_the_first_group</h2>
+
+<div id="grid"></div>
+<input type="button" id="btnExpandGroup" value="Expand Group"/>
+<input type="button" id="btnCollapseGroup" value="Collapse Group"/>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "productName" },
+          { field: "category" }
+        ],
+        dataSource: {
+            data: [
+              { productName: "Tea", category: "Beverages" },
+              { productName: "Coffee", category: "Beverages" },
+              { productName: "Ham", category: "Food" },
+              { productName: "Bread", category: "Food" }
+            ],
+            group: { field: "category" }
+        },
+        groupable: true
+    });
+
+    var grid = $("#grid").data("kendoGrid");
+    $('#btnCollapseGroup').click(function () {
+        // first collapse the group
+        grid.collapseGroup(".k-grouping-row:eq(0)");
+    })
+    $('#btnExpandGroup').click(function () {
+        grid.expandGroup(".k-grouping-row:eq(0)");
+    })
+</script>

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "specify_a_custom_rule_as_a_RegExp_instance";
+}
+
+<h2>specify_a_custom_rule_as_a_RegExp_instance</h2>
+
+<input id="maskedtextbox" />
+<script>
+    $("#maskedtextbox").kendoMaskedTextBox({
+        mask: "~000",
+        rules: {
+            "~": /[+-]/
+        }
+    });
+</script>
+

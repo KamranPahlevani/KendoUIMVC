@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "add_a_data_item_to_the_data_source";
+}
+
+<h2>add_a_data_item_to_the_data_source</h2>
+
+<div id="grid"></div>
+<input id="btnAddDataItem" type="button" value="Add Data Item"/>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 }
+        ]
+    });
+
+    $('#btnAddDataItem').click(function () {
+        var grid = $("#grid").data("kendoGrid");
+        grid.dataSource.add({ name: "John Doe", age: 33 });
+    })
+</script>

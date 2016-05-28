@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "set_the_data_source";
+}
+
+<h2>set_the_data_source</h2>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        template: "<div>#: name#</div>",
+        dataSource: [
+            { name: "Jane Doe", age: 30 }
+        ]
+    });
+    var dataSource = new kendo.data.DataSource({
+        data: [
+          { name: "John Doe", age: 33 }
+        ]
+    });
+    var listView = $("#listView").data("kendoListView");
+    listView.setDataSource(dataSource);
+</script>
+

@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "How_to_add_a_new_root_ContextMenu_item";
+}
+
+<h2>How_to_add_a_new_root_ContextMenu_item</h2>
+
+<ul id="context-menu">
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ul>
+<script>
+    var contextMenu = $("#context-menu").kendoContextMenu().data("kendoContextMenu");
+    contextMenu.insertAfter(
+        { text: "New ContextMenu Item" },
+        contextMenu.element.children("li:last")
+    );
+</script>

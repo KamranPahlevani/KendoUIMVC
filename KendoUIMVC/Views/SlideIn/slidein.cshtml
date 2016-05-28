@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "slidein";
+}
+
+<h2>slidein</h2>
+
+<div id="foo">
+    I will be animated
+</div>
+
+<script>
+    kendo.fx($("#foo")).slideIn("down").play();
+    // or
+    //kendo.fx($("#foo")).slideInLeft().play();
+</script>

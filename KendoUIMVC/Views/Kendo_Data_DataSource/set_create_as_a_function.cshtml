@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "set_create_as_a_function";
+}
+
+<h2>set_create_as_a_function</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: function (options) {
+                    /* implementation omitted for brevity */
+                },
+                create: function (options) {
+                    // make JSONP request to /Kendo_Data_DataSource/CreateProducts
+                    $.ajax({
+                        url: "/Kendo_Data_DataSource/CreateProducts",
+                        dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                        // send the created data items as the "models" service parameter encoded in JSON
+                        data: {
+                            models: kendo.stringify(options.data.models)
+                        },
+                        success: function (result) {
+                            // notify the data source that the request succeeded
+                            options.success(result);
+                        },
+                        error: function (result) {
+                            // notify the data source that the request failed
+                            options.error(result);
+                        }
+                    });
+                }
+            },
+            batch: true,
+            schema: {
+                model: { id: "ProductID" }
+            }
+        });
+        dataSource.add({ ProductName: "A", UnitPrice: 1000, UnitsInStock: 10, Discontinued: true });
+        dataSource.add({ ProductName: "B", UnitPrice: 2000, UnitsInStock: 20, Discontinued: false });
+        dataSource.sync();
+    })
+</script>

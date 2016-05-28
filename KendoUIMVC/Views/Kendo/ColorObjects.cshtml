@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "ColorObjects";
+}
+
+<h2>ColorObjects</h2>
+
+<script>
+    $(document).ready(function () {
+        var red = kendo.Color.fromRGB(1, 0, 0, 1);
+        var blue = kendo.Color.fromBytes(0, 0, 255, 1);
+        var green = kendo.Color.fromHSV(120, 1, 1, 1);
+
+        color = kendo.parseColor("rgba(255, 0, 0, 1)");
+
+        color = color.toHSV();
+        alert('h:' + color.h + ' s:' + color.s + ' v:' + color.v + ' a:' + color.a);
+
+        color = color.toRGB(); // floating point values 0..1
+        alert('r:' + color.r + ' g:' +  color.g + ' b:' + color.b + ' a:' + color.a);
+
+        color = color.toBytes(); // bytes (0..255)
+        alert('r:' + color.r + ' g:' + color.g + ' b:' + color.b + ' a:' + color.a);
+
+        alert(color.equals("#f00")); // true
+        alert(color.equals("rgb(255, 0, 0)")); // true
+        alert(color.equals(kendo.Color.fromHSV(0, 1, 1))); // true
+
+        color.g = 255; // current representation is Bytes
+        alert(color.equals("#ff0")); // true
+    })
+</script>

@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "set_the_title_of_the_column";
+}
+
+<h2>set_the_title_of_the_column</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [{ field: "name", title: "Name" }],
+        dataSource: [{ name: "Jane Doe" }, { name: "John Doe" }]
+    });
+</script>

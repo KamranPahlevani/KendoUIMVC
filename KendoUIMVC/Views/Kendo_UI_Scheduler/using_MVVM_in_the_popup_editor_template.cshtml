@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "using_MVVM_in_the_popup_editor_template";
+}
+
+<h2>using_MVVM_in_the_popup_editor_template</h2>
+
+<script id="editor" type="text/x-kendo-template">
+    <h3>Edit meeting</h3>
+    <p>
+        <label>Title: <input data-bind="value: title" /></label>
+    </p>
+    <p>
+        <label>Start: <input data-role="datetimepicker" data-bind="value: start" /></label>
+    </p>
+    <p>
+        <label>End: <input data-role="datetimepicker" data-bind="value: end" /></label>
+    </p>
+</script>
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6"),
+        editable: {
+            template: $("#editor").html()
+        },
+        views: [
+          { type: "day" }
+        ],
+        dataSource: [
+          {
+              id: 1,
+              start: new Date("2013/6/6 08:00 AM"),
+              end: new Date("2013/6/6 09:00 AM"),
+              title: "Interview"
+          }
+        ]
+    });
+</script>

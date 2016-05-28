@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "How_to_detect_wrapper_focus_event";
+}
+
+<h2>How_to_detect_wrapper_focus_event</h2>
+
+<input id="ddl1" class="ddl" />
+<input id="ddl2" class="ddl" />
+<input id="ddl3" class="ddl" />
+<input id="ddl4" class="ddl" />
+
+<script>
+    $(function () {
+        $(".ddl").kendoDropDownList();
+
+        $(".ddl").on("focus", function () {
+            alert("focus");
+        });
+    });
+</script>

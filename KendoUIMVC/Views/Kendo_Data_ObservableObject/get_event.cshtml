@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "get_event";
+}
+
+<h2>get_event</h2>
+
+<script>
+    var observable = new kendo.data.ObservableObject({ name: "John Doe" });
+
+    observable.bind("get", function (e) {
+        alert(e.field); // will output the field name when the event is raised
+    });
+
+    observable.get("name"); // raises the "get" event and the handler outputs "name"
+</script>

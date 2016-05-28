@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "set_the_empty_pager_message";
+}
+
+<h2>set_the_empty_pager_message</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "productName" },
+          { field: "category" }
+        ],
+        dataSource: [
+        ],
+        pageable: {
+            pageSize: 2,
+            messages: {
+                empty: "No data"
+            }
+        }
+    });
+</script>

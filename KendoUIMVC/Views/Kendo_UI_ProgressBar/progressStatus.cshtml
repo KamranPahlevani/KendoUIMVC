@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "progressStatus";
+}
+
+<h2>progressStatus</h2>
+
+<div id="progressbar"></div>
+<script>
+    $("#progressbar").kendoProgressBar({
+        change: function (e) {
+            this.progressStatus.text("Custom status");
+        }
+    });
+
+    $("#progressbar").data("kendoProgressBar").value(10);
+</script>

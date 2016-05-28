@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_detailCollapse_event_after_initialization";
+}
+
+<h2>subscribe_to_the_detailCollapse_event_after_initialization</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ],
+        detailTemplate: "<div>Name: #: name #</div><div>Age: #: age #</div>"
+    });
+    var grid = $("#grid").data("kendoGrid");
+    grid.bind("detailCollapse", grid_detailCollapse);
+
+    function grid_detailCollapse(e) {
+        var grid = $('#grid').data('kendoGrid');
+        var masterRow = e.masterRow;
+        var masterRowDataItem = grid.dataItem(masterRow);
+        var detailRow = e.detailRow;
+    }
+
+</script>

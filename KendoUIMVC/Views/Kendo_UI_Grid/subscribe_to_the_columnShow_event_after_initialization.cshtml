@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_columnShow_event_after_initialization";
+}
+
+<h2>subscribe_to_the_columnShow_event_after_initialization</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ],
+        columnMenu: true
+    });
+    var grid = $("#grid").data("kendoGrid");
+    grid.bind("columnShow", grid_columnShow);
+
+    function grid_columnShow(e) {
+        alert(e.column.field); // displays the field of the hidden column
+    }
+</script>

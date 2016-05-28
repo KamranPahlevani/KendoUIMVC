@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "max";
+}
+
+<h2>max_Date</h2>
+
+<div class="k-widget k-calendar" id="calendar1"></div>
+
+<div class="k-widget k-calendar" id="calendar2"></div>
+
+<script>
+    $("#calendar1").kendoCalendar({
+        max : new Date(2013, 0, 1)
+    });
+
+    $("#calendar2").kendoCalendar({
+    });
+
+    var calendar = $("#calendar2").data("kendoCalendar");
+    var date = new Date(2013, 0, 1);
+    calendar.max(date);
+    calendar.value(date);
+</script>

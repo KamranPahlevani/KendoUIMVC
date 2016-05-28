@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "remove_a_data_item_from_the_data_source";
+}
+
+<h2>remove_a_data_item_from_the_data_source</h2>
+
+<div id="grid"></div>
+<input id="btnRemoveDataItem" type="button" value="Remove Data Item" />
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 },
+        ]
+    });
+    $('#btnRemoveDataItem').click(function () {
+        var grid = $("#grid").data("kendoGrid");
+        var data = grid.dataSource.at(1);
+        grid.dataSource.remove(data);
+    })
+</script>

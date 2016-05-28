@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "dataBinding_event_To_set_after_initialization";
+}
+
+<h2>dataBinding_event_To_set_after_initialization</h2>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        template: "<div>#: name#</div>",
+        dataSource: [
+            { name: "John Doe", age: 30 }
+        ]
+    });
+    // get a reference to the ListView
+    var listview = $("#listView").data("kendoListView");
+    // bind to the dataBinding event
+    listview.bind("dataBinding", function (e) {
+        alert('dataBinding event is fired!');
+    });
+</script>
+

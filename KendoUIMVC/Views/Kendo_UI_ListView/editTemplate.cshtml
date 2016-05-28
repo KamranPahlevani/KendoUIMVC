@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "editTemplate";
+}
+
+<h2>editTemplate</h2>
+
+<script type="text/x-kendo-tmpl" id="template">
+    <div>
+        <dl>
+            <dt>Name</dt>
+            <dd>#:name#</dd>
+            <dt>Age</dt>
+            <dd>#:age#</dd>
+        </dl>
+        <div>
+            <a class="k-button k-edit-button" href="\\#"><span class="k-icon k-edit"></span></a>
+            <a class="k-button k-delete-button" href="\\#"><span class="k-icon k-delete"></span></a>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-kendo-tmpl" id="editTemplate">
+    <div>
+        <dl>
+            <dt>Name</dt>
+            <dd><input type="text" data-bind="value:name" name="name" required="required" /></dd>
+            <dt>Age</dt>
+            <dd><input type="text" data-bind="value:age" data-role="numerictextbox" data-type="number" name="age" required="required" /></dd>
+        </dl>
+        <div>
+            <a class="k-button k-update-button" href="\\#"><span class="k-icon k-update"></span></a>
+            <a class="k-button k-cancel-button" href="\\#"><span class="k-icon k-cancel"></span></a>
+        </div>
+    </div>
+</script>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        template: kendo.template($("#template").html()),
+        editTemplate: kendo.template($("#editTemplate").html()),
+        dataSource: {
+            data: [
+                { id: 1, name: "Jane Doe", age: 47 },
+                { id: 2, name: "John Doe", age: 50 }
+            ],
+            schema: {
+                model: {
+                    id: "id",
+                    fields: {
+                        id: { type: "number" },
+                        name: { type: "string" },
+                        age: { type: "number" }
+                    }
+                }
+            }
+        }
+    });
+</script>
+

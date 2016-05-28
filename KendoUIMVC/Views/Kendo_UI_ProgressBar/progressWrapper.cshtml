@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "progressWrapper";
+}
+
+<h2>progressWrapper</h2>
+
+<div id="progressbar"></div>
+<script>
+    $("#progressbar").kendoProgressBar({
+        change: function (e) {
+            this.progressWrapper.css({
+                "background-color": "#EE9F05",
+                "border-color": "#EE9F05"
+            });
+        }
+    });
+
+    $("#progressbar").data("kendoProgressBar").value(10);
+</script>

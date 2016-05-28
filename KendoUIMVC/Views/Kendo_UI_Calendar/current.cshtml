@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "current";
+}
+
+<h2>current</h2>
+
+<div class="k-widget k-calendar" id="calendar"></div>
+
+<script>
+    $("#calendar").kendoCalendar({
+    });
+
+    var calendar = $("#calendar").data("kendoCalendar");
+
+    // get the current focused date
+    var current = calendar.current(); //will be today, because value is `null`
+    alert(current);
+</script>
+

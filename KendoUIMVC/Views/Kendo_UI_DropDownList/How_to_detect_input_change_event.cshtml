@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "How_to_detect_input_change_event";
+}
+
+<h2>How_to_detect_input_change_event</h2>
+
+<div id="example">
+    <div class="demo-section k-header">
+        <h4 class="title">DropDownList</h4>
+        <input id="dropdownlist" style="width: 400px;" />
+    </div>
+    <div class="box">
+        <h4>Console log</h4>
+        <div class="console"></div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            function widgetChange() {
+                alert("event: change (widget)");
+            };
+
+            function inputChange() {
+                alert("event: change (input)");
+            };
+
+            var data = [
+              { text: "Item1", value: "1" },
+              { text: "Item2", value: "2" },
+              { text: "Item3", value: "3" }
+            ];
+
+            $("#dropdownlist").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: data,
+                change: widgetChange
+            });
+
+            $("#dropdownlist").change(inputChange);
+        });
+    </script>
+    <style scoped>
+        .demo-section {
+            width: 400px;
+        }
+    </style>
+</div>

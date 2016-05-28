@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "collapse";
+}
+
+<h2>collapse</h2>
+
+<ul id="panelbar">
+    <li id="item1">
+        Item 1
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+    <li id="item2">
+        Item 2
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    $("#panelbar").kendoPanelBar();
+    // access an existing PanelBar instance
+    var panelBar = $("#panelbar").data("kendoPanelBar");
+    // collapse the element with ID, "item1"
+    panelBar.collapse($("#item1"));
+    // collapse the element with ID, "item2" without visual animations
+    panelBar.collapse($("#item2"), false);
+    // collapse all list items that start with ID, "item"
+    panelBar.collapse($('[id^="item"]'));
+</script>

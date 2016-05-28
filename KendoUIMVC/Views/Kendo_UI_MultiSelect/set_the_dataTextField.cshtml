@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "set_the_dataTextField";
+}
+
+<h2>set_the_dataTextField</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Item1</option>
+    <option>Item2</option>
+</select>
+<script>
+    $("#multiselect").kendoMultiSelect({
+        dataSource: [
+            { Name: "Parent1", Id: 1 },
+            { Name: "Parent2", Id: 2 }
+        ],
+        dataTextField: "Name",
+        dataValueField: "Id"
+    });
+</script>
+

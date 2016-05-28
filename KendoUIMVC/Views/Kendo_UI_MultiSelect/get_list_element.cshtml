@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "get_list_element";
+}
+
+<h2>get_list_element</h2>
+
+<select id="multiselect" multiple="multiple"></select>
+<script>
+    $("#multiselect").kendoMultiSelect({
+        dataSource: [
+          { name: "Apples" },
+          { name: "Oranges" }
+        ],
+        dataTextField: "name",
+        dataValueField: "name"
+    });
+
+    var multiselect = $("#multiselect").data("kendoMultiSelect");
+
+    var list = multiselect.list;
+</script>

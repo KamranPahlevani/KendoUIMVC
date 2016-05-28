@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "enable_keyboard_navigation";
+}
+
+<h2>enable_keyboard_navigation</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ],
+        navigatable: true,
+        selectable: true
+    });
+    var grid = $("#grid").data("kendoGrid");
+    grid.table.on("keydown", function (e) {
+        var arrowKeyCodes = [38, 40];
+        if (arrowKeyCodes.indexOf(e.keyCode) >= 0) 
+            grid.select($("#grid_active_cell").closest("tr"));
+    })
+</script>

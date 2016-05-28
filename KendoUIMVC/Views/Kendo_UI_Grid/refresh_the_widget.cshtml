@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "refresh_the_widget";
+}
+
+<h2>refresh_the_widget</h2>
+
+<div id="grid"></div>
+<input type="button" id="btnRefreshGrid" value="Refresh Grid"/>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+            { name: "Jane Doe", age: 30 },
+            { name: "John Doe", age: 33 }
+        ]
+    });
+
+    $('#btnRefreshGrid').click(function () {
+        var grid = $("#grid").data("kendoGrid");
+        grid.refresh();
+    })
+</script>

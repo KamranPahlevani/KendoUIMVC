@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "use_the_show_method_with_a_function_argument";
+}
+
+<h2>use_the_show_method_with_a_function_argument</h2>
+
+<span id="notification"></span>
+<script>
+    function getNotificationMessage() {
+        return {
+            myMessage: "foo text"
+        }
+    }
+
+    var notificationWidget = $("#notification").kendoNotification({
+        templates: [{
+            type: "myAlert",
+            template: "<div>System alert: #= myMessage #</div>"
+        }]
+    }).data("kendoNotification");
+
+    notificationWidget.show(getNotificationMessage, "myAlert");
+</script>

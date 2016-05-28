@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "autoSync";
+}
+
+<h2>autoSync</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            autoSync: true,
+            transport: {
+                read: {
+                    url:"/Kendo_Data_DataSource/GetProducts",
+                    dataType: "json" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                },
+                change: function () {
+                    alert();
+                },
+                update: {
+                    url:"/Kendo_Data_DataSource/UpdateProduct",
+                    dataType: "json" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                }
+            },
+            schema: {
+                model: { id: "ProductID" }
+            }
+        });
+        dataSource.fetch(function () {
+            var product = dataSource.at(0);
+            product.set("UnitPrice", 20); // auto-syncs and makes request to /Kendo_Data_DataSource/UpdateProduct
+        });
+    })
+</script>

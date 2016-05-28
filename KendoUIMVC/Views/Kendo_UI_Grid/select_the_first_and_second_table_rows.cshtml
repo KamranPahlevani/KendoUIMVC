@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "select_the_first_and_second_table_rows";
+}
+
+<h2>select_the_first_and_second_table_rows</h2>
+
+<div id="grid"></div>
+<input type="button" id="btnSelectRows" value="Select Rows"/>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+            { name: "Jane Doe", age: 30 },
+            { name: "John Doe", age: 33 }
+        ],
+        selectable: "multiple, row"
+    });
+
+    $('#btnSelectRows').click(function () {
+        var grid = $("#grid").data("kendoGrid");
+        grid.select("tr:eq(1), tr:eq(2)");
+    })
+</script>

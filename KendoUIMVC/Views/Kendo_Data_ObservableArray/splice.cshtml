@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "splice";
+}
+
+<h2>splice</h2>
+
+<script>
+    var sports = new kendo.data.ObservableArray(["football", "basketball", "volleyball"]);
+
+    var removed = sports.splice(1, 1, "tennis", "hockey");
+
+    alert(removed); // outputs ["basketball"]
+
+    alert(sports); // outputs ["football", "tennis", "hockey", "volleyball"]
+</script>

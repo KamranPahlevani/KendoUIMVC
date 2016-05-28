@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "specify_the_name_of_the_command";
+}
+
+<h2>specify_the_name_of_the_command</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        toolbar: [
+          { name: "create"},
+          { name: "save"}
+        ],
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: {
+            data: [
+              { id: 1, name: "Jane Doe", age: 30 },
+              { id: 2, name: "John Doe", age: 33 }
+            ],
+            schema: {
+                model: { id: "id" }
+            }
+        },
+        editable: true
+    });
+</script>

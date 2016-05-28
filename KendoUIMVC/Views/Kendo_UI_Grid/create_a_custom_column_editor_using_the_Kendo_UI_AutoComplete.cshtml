@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "create_a_custom_column_editor_using_the_Kendo_UI_AutoComplete";
+}
+
+<h2>create_a_custom_column_editor_using_the_Kendo_UI_AutoComplete</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "ProductID" },
+          {
+              field: "ProductName",
+              editor: function (container, options) {
+                  // create an input element
+                  var input = $("<input/>");
+                  // set its name to the field to which the column is bound ('name' in this case)
+                  input.attr("name", options.field);
+                  // append it to the container
+                  input.appendTo(container);
+                  // initialize a Kendo UI AutoComplete
+                  input.kendoAutoComplete({
+                      dataTextField: "ProductName",
+                      dataSource: new kendo.data.DataSource({
+                          transport: {
+                              read: {
+                                  url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                                  dataType: "json"
+                              },
+                          }
+                      }),
+                  });
+              }
+          },
+          {
+              field: "UnitPrice",
+          },
+          { field: "UnitsInStock", groupable: false },
+          { field: "Discontinued", groupable: true }
+        ],
+        editable: true,
+        dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                    dataType: "json"
+                },
+            }
+        }),
+    });
+</script>
+

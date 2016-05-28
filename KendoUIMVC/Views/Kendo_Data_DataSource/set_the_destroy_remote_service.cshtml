@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "set_the_destroy_remote_service";
+}
+
+<h2>set_the_destroy_remote_service</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "/Kendo_Data_DataSource/GetProducts",
+                    dataType: "json"
+                },
+                // make JSON request to /Kendo_Data_DataSource/DestroyProducts
+                destroy: {
+                    url: "/Kendo_Data_DataSource/DestroyProducts",
+                    dataType: "json" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                },
+                parameterMap: function (data, type) {
+                    if (type == "destroy") {
+                        // send the destroyed data items as the "models" service parameter encoded in JSON
+                        return { models: kendo.stringify(data.models) }
+                    }
+                }
+            },
+            batch: true,
+            schema: {
+                model: { id: "ProductID" }
+            }
+        });
+        dataSource.fetch(function () {
+            var products = dataSource.data();   
+            dataSource.remove(products[0]);
+            dataSource.remove(products[0]);
+            // send the destroyed data item to the remote service
+            dataSource.sync();
+        });
+    })
+</script>

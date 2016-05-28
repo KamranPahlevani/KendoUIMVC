@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "route";
+}
+
+<h2>route</h2>
+
+<script>
+    var router = new kendo.Router();
+
+    router.route("/items/:category/:id", function(category, id) {
+        alert(category + " item with identifier " +  id + " was requested");
+    });
+
+    $(function() {
+        router.start();
+
+        // ...
+
+        router.navigate("/items/books/59");
+    });
+</script>

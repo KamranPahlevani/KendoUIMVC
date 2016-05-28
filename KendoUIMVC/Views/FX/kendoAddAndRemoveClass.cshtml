@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "kendoAddAndRemoveClass";
+}
+
+<h2>kendoAddClass</h2>
+
+<style>
+    .BoxStyle {
+        width:200px;
+        height:200px;
+        background-color:green
+    }
+
+    .BorderStyle {
+        border:double;       
+    }
+
+    .Default {
+        width:400px;
+        height:400px;
+        background-color:yellow;
+    }
+</style>
+
+<div id="box" class="Default">
+</div>
+
+<script>
+    $(document).ready(function () {
+        var options = new Object({
+            duration: 400,
+            //exclusive String (default: "all") The property on which to apply the animation.
+            exclusive: 'all',
+            //ease String (default: "ease-out") The animation easing.
+            ease:'ease-in'
+        })
+
+        /*kendoAddClass
+        Adds a CSS class to the element, while doing a transition to the new state. 
+        If the browser doesn't support transitions, the method falls back to jQuery addClass();*/
+
+        /*kendoRemoveClass
+        Removes a CSS class from the element, while doing a transition to the new state.
+        If the browser doesn't support transitions, the method falls back to jQuery removeClass();*/
+
+        //Important: kendoAddClass & kendoRemoveClass doesn't add the animation to the animation effect queue and can't be stopped with kendoStop.
+        $('#box').kendoRemoveClass('Default', options)
+                 .kendoAddClass('BoxStyle BorderStyle', options);
+    })
+</script>

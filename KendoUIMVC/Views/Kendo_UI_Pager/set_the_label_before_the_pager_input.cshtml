@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "set_the_label_before_the_pager_input";
+}
+
+<h2>set_the_label_before_the_pager_input</h2>
+
+<div id="pager"></div>
+
+<script>
+    var dataSource = new kendo.data.DataSource({
+        data: [
+          { productName: "Tea", category: "Beverages" },
+          { productName: "Coffee", category: "Beverages" },
+          { productName: "Ham", category: "Food" },
+          { productName: "Bread", category: "Food" }
+        ],
+        pageSize: 2
+    });
+
+    $("#pager").kendoPager({
+        dataSource: dataSource,
+        input: true,
+        messages: {
+            page: "Enter page"
+        }
+    });
+
+    dataSource.read();
+</script>

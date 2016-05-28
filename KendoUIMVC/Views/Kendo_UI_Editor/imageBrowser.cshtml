@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "imageBrowser";
+}
+
+<h2>imageBrowser</h2>
+
+<textarea cols="20" id="editor" name="editor" rows="5" style="width: 740px; height: 440px"></textarea>
+
+<script>
+    $("#editor").kendoEditor({
+        imageBrowser: {
+            transport: {
+                read: "imagebrowser/read",
+                destroy: "imagebrowser/destroy",
+                create: "imagebrowser/createDirectory",
+                uploadUrl: "imagebrowser/upload",
+                thumbnailUrl: "imagebrowser/thumbnail",
+                imageUrl: "/content/images/{0}",
+            },
+            path: "/myInitialPath/"
+        }
+    });
+</script>

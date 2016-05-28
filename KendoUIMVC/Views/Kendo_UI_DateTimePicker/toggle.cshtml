@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "toggle";
+}
+
+<h2>toggle</h2>
+
+<input id="dateTimePicker" name="dateTimePicker" style="width: 150px" type="date"  />
+<input type="button"  id="btnToggleDatePicker" value="Toggle DatePicker"/> 
+<input type="button"  id="btnToggleTimePicker" value="Toggle TimePicker"/> 
+
+
+<script src="~/Scripts/kendo/2013.3.1213/cultures/kendo.culture.en-US.min.js"></script>
+<script>
+    $("#dateTimePicker").kendoDateTimePicker({
+    });
+
+    var dateTimePicker = $('#dateTimePicker').data('kendoDateTimePicker');
+
+    $('#btnToggleDatePicker').click(function () {
+        dateTimePicker.toggle('date');
+    })
+
+    $('#btnToggleTimePicker').click(function () {
+        dateTimePicker.toggle('time');
+    })
+
+</script>
+

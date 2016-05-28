@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Example_of_ListView_with_multiple_selection_enabled";
+}
+
+<h2>Example_of_ListView_with_multiple_selection_enabled</h2>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        dataSource: {
+            data: [
+                { name: "Jane Doe" },
+                { name: "John Doe" }
+            ]
+        },
+        template: "<div>#:name#</div>",
+        selectable: "multiple"
+    });
+</script>
+

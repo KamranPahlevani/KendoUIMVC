@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "template";
+}
+
+<h2>template</h2>
+
+<span><input type="button" value="Basic template" onclick="Basictemplate();"/></span>
+<span><input type="button" value="Encode HTML" onclick="EncodeHTML();"/></span>
+<span><input type="button" value="Use JavaScript in templates" onclick="UseJavaScriptInTemplates();"/></span>
+<span><input type="button" value="Escape sharp symbols in JavaScript strings" onclick="EscapeSharpSymbolsInJavaScriptStrings();"/></span>
+<span><input type="button" value="Escape sharp symbols in script templates" onclick="EscapeSharpSymbolsInScriptTemplates();"/></span>
+
+<span id="inline"></span>
+
+
+<script>
+    function Basictemplate() {
+        var inlineTemplate = kendo.template("Hello, #: firstName # #: lastName #");
+        var inlineData = { firstName: "John", lastName: "Doe" };
+        $("#inline").html(inlineTemplate(inlineData));
+    }
+
+    function EncodeHTML() {
+        var encodingTemplate = kendo.template("HTML tags are encoded as follows: #:html#");
+        var encodingData = { html: "<strong>lorem ipsum</strong>" };
+        $("#inline").html(encodingTemplate(encodingData));
+    }
+
+    function UseJavaScriptInTemplates() {
+        var encodingTemplate = kendo.template("#if (foo) {# bar #}#");
+        var data = { foo: true };
+        $("#inline").html(encodingTemplate(data)); // outputs bar
+    }
+
+    function EscapeSharpSymbolsInJavaScriptStrings() {
+        var encodingTemplate = kendo.template("<a href='\\#' onclick=alert(#:foo#)>Link1</a>");
+        var data = { foo: true };
+        $("#inline").html(encodingTemplate(data)); // outputs true
+    }
+</script>
+<script type="text/x-kendo-template" id="template">
+ <a href='\#' onclick="alert(#:foo#)">Link2</a>
+</script>
+<script>
+    function EscapeSharpSymbolsInScriptTemplates() {
+        var encodingTemplate = kendo.template($("#template").html());
+        var data = { foo: false };
+        $("#inline").html(encodingTemplate(data)); // outputs false
+    }
+</script>

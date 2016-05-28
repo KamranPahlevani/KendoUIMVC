@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "prevent_HTML_encoding";
+}
+
+<h2>prevent_HTML_encoding</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name", encoded: false }
+        ],
+        dataSource: [{ name: "<strong>Jane Doe</strong>" }]
+    });
+</script>

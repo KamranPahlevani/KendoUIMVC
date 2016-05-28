@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "autoClose";
+}
+
+<h2>autoClose</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Item1</option>
+    <option>Item2</option>
+</select>
+<script>
+    $("#multiselect").kendoMultiSelect({
+        autoClose: false
+    });
+</script>
+

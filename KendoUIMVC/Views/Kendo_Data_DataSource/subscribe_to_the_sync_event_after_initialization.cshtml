@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_sync_event_after_initialization";
+}
+
+<h2>subscribe_to_the_sync_event_after_initialization</h2>
+
+<script>
+    $(document).ready(function () {
+        function dataSource_sync(e) {
+            console.log("sync complete");
+        }
+        var dataSource = new kendo.data.DataSource({
+            batch: true,
+            transport: {
+                create: {
+                    url: "/Kendo_Data_DataSource/CreateProducts",
+                    dataType: "jsonp" //"jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                },
+                parameterMap: function (data) {
+                    return { models: kendo.stringify(data.models) };
+                }
+            },
+            schema: {
+                model: { id: "ProductID" }
+            }
+        });
+        dataSource.bind("sync", dataSource_sync);
+        dataSource.add({ ProductName: "Ham" });
+        dataSource.sync();
+    })
+</script>

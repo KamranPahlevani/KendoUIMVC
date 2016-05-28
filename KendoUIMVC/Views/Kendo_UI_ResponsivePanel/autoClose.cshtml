@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "autoClose";
+}
+
+
+
+<h2>autoClose</h2>
+
+
+<nav id="navigation">
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+</nav>
+
+<article>
+    <button class="k-rpanel-toggle"><span class="k-icon k-i-hbars"></span></button>
+
+    Content
+</article>
+
+<script>
+    $("#navigation").kendoResponsivePanel({
+        orientation: 'top',
+        autoClose: false
+    });
+</script>

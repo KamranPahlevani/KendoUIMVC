@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Attach_close_event_handler_via_bind_detach_via_unbind";
+}
+
+<h2>Attach_close_event_handler_via_bind_detach_via_unbind</h2>
+
+<nav id="navigation">
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+</nav>
+
+<article>
+    <button class="k-rpanel-toggle"><span class="k-icon k-i-hbars"></span></button>
+
+    Content
+</article>
+
+<script>
+    $("#navigation").kendoResponsivePanel({
+        orientation:'top'
+    });
+
+    // event handler for close event
+    var onClose = function () {
+        // the responsive panel is closing
+        console.log("closing");
+    };
+
+    // attach close event handler via bind()
+    $("#navigation").data("kendoResponsivePanel").bind("close", onClose);
+</script>

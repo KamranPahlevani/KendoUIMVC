@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "set_the_display_message";
+}
+
+<h2>set_the_display_message</h2>
+
+<div id="pager"></div>
+
+<script>
+    var dataSource = new kendo.data.DataSource({
+        data: [
+          { productName: "Tea", category: "Beverages" },
+          { productName: "Coffee", category: "Beverages" },
+          { productName: "Ham", category: "Food" },
+          { productName: "Bread", category: "Food" }
+        ],
+        pageSize: 2
+    });
+
+    $("#pager").kendoPager({
+        dataSource: dataSource,
+        messages: {
+            display: "Showing {0}-{1} from {2} data items"
+        }
+    });
+
+    dataSource.read();
+</script>

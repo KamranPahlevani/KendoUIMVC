@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "one";
+}
+
+<h2>one</h2>
+
+<script>
+    var obj = new kendo.Observable();
+
+    var numberOfCalls = 0;
+
+    obj.one("myevent", function () {
+        numberOfCalls++;
+    });
+
+    obj.trigger("myevent");
+
+    obj.trigger("myevent");
+
+    alert(numberOfCalls); // outputs "1"
+</script>

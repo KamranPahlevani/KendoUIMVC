@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "footer";
+}
+
+<h2>footer</h2>
+
+<div class="k-widget k-calendar" id="calendar"></div>
+
+<script>
+    $("#calendar").kendoCalendar({
+        footer: "Today - #=kendo.toString(data, 'd') #"
+    });
+</script>
+

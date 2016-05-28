@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_save_event_after_initialization";
+}
+
+<h2>subscribe_to_the_save_event_after_initialization</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" },
+          { command: "destroy" }
+        ],
+        dataSource: {
+            data: [
+              { id: 1, name: "Jane Doe", age: 30 },
+              { id: 2, name: "John Doe", age: 33 }
+            ],
+            schema: {
+                model: { id: "id" }
+            }
+        },
+        editable: true
+    });
+    var grid = $("#grid").data("kendoGrid");
+    grid.bind("save", grid_save);
+
+    function grid_save(e) {
+        if (e.values.name) {
+            // the user changed the name field
+            if (e.values.name != e.model.name) {
+                alert("name is modified");
+            }
+        }
+    }
+</script>

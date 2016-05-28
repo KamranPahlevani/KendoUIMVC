@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "focus";
+}
+
+<h2>focus</h2>
+
+<input id="numerictextbox" />
+<script>
+    $("#numerictextbox").kendoNumericTextBox();
+
+    var numerictextbox = $("#numerictextbox").data("kendoNumericTextBox");
+    numerictextbox.focus();
+</script>

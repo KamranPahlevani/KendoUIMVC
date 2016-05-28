@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "set_filter_as_conjunction_and";
+}
+
+<h2>set_filter_as_conjunction_and</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { name: "Tea", category: "Beverages" },
+              { name: "Coffee", category: "Beverages" },
+              { name: "Ham", category: "Food" }
+            ],
+            filter: [
+              // leave data items which are "Beverage" and not "Coffee"
+              { field: "category", operator: "eq", value: "Beverages" },
+              { field: "name", operator: "neq", value: "Coffee" }
+            ]
+        });
+        dataSource.fetch(function () {
+            var view = dataSource.view();
+            alert(view.length); // displays "1"
+            alert(view[0].name); // displays "Tea"
+        });
+    })
+</script>

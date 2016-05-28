@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Select_all_text_on_focus";
+}
+
+<h2>Select_all_text_on_focus</h2>
+
+<input id="numeric" type="number" value="17" min="0" max="100" step="1" />
+<script>
+    $(document).ready(function () {
+        $("#numeric").kendoNumericTextBox();
+
+        //wire focus of all numerictextbox widgets on the page
+        $("[data-role=numerictextbox]").on("focus", function () {
+            var element = this;
+            setTimeout(function () {
+                $(element).select();
+            });
+        });
+    });
+</script>

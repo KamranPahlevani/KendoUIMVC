@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "clearSelection";
+}
+
+<h2>clearSelection</h2>
+
+<ul id="panelbar">
+    <li id="item1">Item 1</li>
+    <li id="item2">Item 2</li>
+</ul>
+<script>
+    // create a PanelBar instance and get it.
+    var panelBar = $("#panelbar").kendoPanelBar().data("kendoPanelBar");
+
+    // select the element with ID "item1"
+    panelBar.select($("#item1"));
+
+    // select the element with ID "item2"
+    panelBar.select($("#item2"));
+
+    // clear all selection
+    setTimeout(function () {
+        panelBar.clearSelection();
+    }, 2000);
+</script>

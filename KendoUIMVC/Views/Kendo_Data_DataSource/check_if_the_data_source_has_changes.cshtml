@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "check_if_the_data_source_has_changes";
+}
+
+<h2>check_if_the_data_source_has_changes</h2>
+
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            data: [
+              { id: 1, name: "Jane Doe" }
+            ],
+            schema: {
+                model: { id: "id" }
+            }
+        });
+        dataSource.fetch(function () {
+            alert(dataSource.hasChanges()); // displays "false"
+            dataSource.add({ name: "John Doe" });
+            alert(dataSource.hasChanges()); // displays "true"
+        });
+    })
+</script>

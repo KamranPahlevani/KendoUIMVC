@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "parseInt";
+}
+
+<h2>parseInt</h2>
+
+<script src="~/Scripts/kendo/2013.3.1213/cultures/kendo.culture.de-DE.min.js"></script>
+<script>
+    var int1 = kendo.parseInt("12.22"); //12
+    alert(int1);
+
+    kendo.culture("de-DE");
+    var int2 = kendo.parseInt("1.212,22 €"); //1212
+    alert(int2);
+</script>

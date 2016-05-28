@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "set_the_command_name";
+}
+
+<h2>set_the_command_name</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "ProductID" },
+          { field: "ProductName" },
+          {
+              field: "UnitPrice",
+          },
+          { field: "UnitsInStock", groupable: false },
+          { field: "Discontinued", groupable: true },
+          { command: [{ name: "edit" }] }
+        ],
+        editable: "popup",
+        dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                    dataType: "json"
+                },
+            }
+        }),
+    });
+</script>
+
+

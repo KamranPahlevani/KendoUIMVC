@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "configure_the_animation";
+}
+
+<h2>configure_the_animation</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Item1</option>
+    <option>Item2</option>
+</select>
+<script>
+    $("#multiselect").kendoMultiSelect({
+        animation: {
+            close: {
+                effects: "fadeOut zoom:out",
+                duration: 300
+            },
+            open: {
+                effects: "fadeIn zoom:in",
+                duration: 300
+            }
+        }
+    });
+</script>
+

@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "resourcesBySlot";
+}
+
+<h2>resourcesBySlot</h2>
+
+<div id="scheduler"></div>
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2013/6/6"),
+        group: {
+            resources: ["Rooms"]
+        },
+        resources: [
+          {
+              field: "roomId",
+              name: "Rooms",
+              dataSource: [
+                  { text: "Meeting Room 101", value: 1, color: "#6eb3fa" },
+                  { text: "Meeting Room 201", value: 2, color: "#f58a8a" }
+              ]
+          }
+        ]
+    });
+    var scheduler = $("#scheduler").data("kendoScheduler");
+
+    var element = scheduler.view().content.find("tr:first td:first");
+
+    var slot = scheduler.slotByElement(element);
+
+    var resource = scheduler.resourcesBySlot(slot);
+
+    for (var key in resource) {
+        console.log("resource - {" + key + ": " + resource[key] + " }");
+    }
+
+</script>

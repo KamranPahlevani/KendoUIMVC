@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "chunkCount";
+}
+
+<h2>chunkCount</h2>
+
+<div id="progressbar"></div>
+<script>
+    $("#progressbar").kendoProgressBar({
+        type: "chunk",
+        chunkCount: 10
+    });
+</script>

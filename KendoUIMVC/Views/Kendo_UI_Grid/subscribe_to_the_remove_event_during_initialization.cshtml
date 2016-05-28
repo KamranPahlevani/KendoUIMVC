@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_remove_event_during_initialization";
+}
+
+<h2>subscribe_to_the_remove_event_during_initialization</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" },
+          { command: "destroy" }
+        ],
+        dataSource: {
+            data: [
+              { id: 1, name: "Jane Doe", age: 30 },
+              { id: 2, name: "John Doe", age: 33 }
+            ],
+            schema: {
+                model: { id: "id" }
+            }
+        },
+        editable: true,
+        remove: function (e) {
+            //e.model kendo.data.Model : The data item to which the table row is bound.            
+            //e.row jQuery : The jQuery object representing the current table row.            
+            //e.sender kendo.ui.Grid : The widget instance which fired the event.            
+            alert("Removing:" + e.model.name);
+        }
+    });
+</script>

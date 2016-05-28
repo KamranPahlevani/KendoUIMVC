@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "culture";
+}
+
+<h2>culture</h2>
+<script src="~/Scripts/kendo/cultures/kendo.culture.de-DE.min.js"></script>
+<input id="numerictextbox" />
+<script>
+    $("#numerictextbox").kendoNumericTextBox({
+        culture: "de-DE"
+    });
+</script>

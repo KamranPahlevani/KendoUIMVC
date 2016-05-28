@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "breakpoint";
+}
+
+<h2>breakpoint</h2>
+
+<nav id="navigation">
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+</nav>
+
+<article>
+    <button class="k-rpanel-toggle"><span class="k-icon k-i-hbars"></span></button>
+
+    Content
+</article>
+
+<script>
+    $("#navigation").kendoResponsivePanel({
+        orientation: "top",
+        breakpoint: 1020
+    });
+</script>

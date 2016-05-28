@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Effects";
+}
+
+<h2>Effects</h2>
+
+<div id="box" style="width:200px; height:200px; background-color:blue;">
+</div>
+
+<span><input type="button" value="fade:in" onclick="effect(this.value);"/></span>
+<span><input type="button" value="fade:out" onclick="effect(this.value);"/></span>
+<span><input type="button" value="zoom:in" onclick="effect(this.value);"/></span>
+<span><input type="button" value="zoom:out" onclick="effect(this.value);"/></span>
+<span><input type="button" value="slide:left" onclick="effect(this.value);"/></span>
+<span><input type="button" value="slide:right" onclick="effect(this.value);"/></span>
+<span><input type="button" value="slideIn:left" onclick="effect(this.value);"/></span>
+<span><input type="button" value="slideIn:right" onclick="effect(this.value);"/></span>
+<span><input type="button" value="expand:vertical" onclick="effect(this.value);"/></span>
+<span><input type="button" value="expand:horizontal" onclick="effect(this.value);"/></span>
+
+
+<script>
+    var options = new Object({
+        duration: 4000
+    });
+
+    function effect(effect) {
+        options.effects = effect;
+        $('#box').kendoAnimate(options);
+    }
+
+</script>

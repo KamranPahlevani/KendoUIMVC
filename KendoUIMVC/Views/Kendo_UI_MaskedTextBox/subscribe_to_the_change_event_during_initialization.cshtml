@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "subscribe_to_the_change_event_during_initialization";
+}
+
+<h2>subscribe_to_the_change_event_during_initialization</h2>
+
+<input id="maskedtextbox" />
+<script>
+    $("#maskedtextbox").kendoMaskedTextBox({
+        change: function () {
+            var value = this.value();
+            alert(value); //value is the selected date in the maskedtextbox
+        }
+    });
+</script>
+

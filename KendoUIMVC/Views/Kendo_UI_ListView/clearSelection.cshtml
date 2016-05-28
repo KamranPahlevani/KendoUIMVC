@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "clearSelection";
+}
+
+<h2>clearSelection</h2>
+
+<div id="listView"></div>
+<script>
+    $("#listView").kendoListView({
+        dataSource: {
+            data: [
+                { name: "Jane Doe" },
+                { name: "John Doe" }
+            ]
+        },
+        template: "<div>#:name#</div>",
+        selectable: true
+    });
+    // get a reference to the list view widget
+    var listView = $("#listView").data("kendoListView");
+    listView.clearSelection();
+</script>
+

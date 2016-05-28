@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "bind";
+}
+
+<h2>bind</h2>
+
+<script>
+    var array = new kendo.data.ObservableArray([1, 2]);
+
+    array.bind("change", function (e) {
+        alert("changed");
+    });
+
+    array.push(3); // raises the "change" event and the handler outputs "changed"
+</script>

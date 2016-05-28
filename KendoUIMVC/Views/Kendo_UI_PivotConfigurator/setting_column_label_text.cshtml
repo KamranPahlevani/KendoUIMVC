@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "setting_column_label_text";
+}
+
+<h2>setting_column_label_text</h2>
+
+<div id="configurator"></div>
+<script>
+$("#configurator").kendoPivotConfigurator({
+    messages: {
+        columnsLabel: "Columns"
+    },
+    dataSource: {
+        type: "xmla",
+        columns: [{ name: "[Date].[Calendar]", expand: true }, { name: "[Geography].[City]" } ],
+        rows: [{ name: "[Product].[Product]" }],
+        measures: ["[Measures].[Internet Sales Amount]"],
+        transport: {
+            connection: {
+                catalog: "Adventure Works DW 2008R2",
+                cube: "Adventure Works"
+            },
+            read: {
+                url: "http://demos.telerik.com/olap/msmdpump.dll",
+                dataType: "text",
+                contentType: "text/xml",
+                type: "POST"
+            }
+        },
+        schema: {
+            type: "xmla"
+        }
+    }
+});
+</script>

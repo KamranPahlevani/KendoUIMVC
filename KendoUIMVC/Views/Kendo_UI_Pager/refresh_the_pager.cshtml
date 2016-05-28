@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "refresh_the_pager";
+}
+
+<h2>refresh_the_pager</h2>
+
+<div id="pager"></div>
+
+<script>
+    var dataSource = new kendo.data.DataSource({
+        data: [
+          { productName: "Tea", category: "Beverages" },
+          { productName: "Coffee", category: "Beverages" },
+          { productName: "Ham", category: "Food" },
+          { productName: "Bread", category: "Food" }
+        ],
+        pageSize: 2
+    });
+
+    dataSource.read();
+
+    var pager = $("#pager").kendoPager({
+        dataSource: dataSource
+    }).data("kendoPager");
+
+    pager.refresh();
+</script>

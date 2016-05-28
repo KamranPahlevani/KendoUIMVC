@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "specify_detail_template_as_a_function";
+}
+
+<h2>specify_detail_template_as_a_function</h2>
+
+<script id="detail-template" type="text/x-kendo-template">
+  <div>
+    Name: #: name #
+  </div>
+  <div>
+    Age: #: age #
+  </div>
+</script>
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ],
+        detailTemplate: kendo.template($("#detail-template").html())
+    });
+</script>

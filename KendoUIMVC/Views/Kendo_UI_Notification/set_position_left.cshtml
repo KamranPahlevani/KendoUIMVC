@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "set_position_left";
+}
+
+<h2>set_position_left</h2>
+
+<span id="notification"></span>
+<script>
+    $("#notification").kendoNotification({
+        position: {
+            left: 30
+        }
+    });
+    $('#notification').data('kendoNotification').show('Test notification');
+</script>

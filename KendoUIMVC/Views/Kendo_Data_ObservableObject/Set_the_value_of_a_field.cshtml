@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Set_the_value_of_a_field";
+}
+
+<h2>Set_the_value_of_a_field</h2>
+
+<script>
+    var observable = new kendo.data.ObservableObject({ name: "John Doe" });
+
+    observable.set("name", "Jane Doe"); // set the value
+
+    alert(observable.get("name")); //outputs the new value "Jane Doe"
+</script>

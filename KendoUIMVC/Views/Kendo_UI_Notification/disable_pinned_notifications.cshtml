@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "disable_pinned_notifications";
+}
+
+<h2>disable_pinned_notifications</h2>
+
+<span id="notification"></span>
+<script>
+    $("#notification").kendoNotification({
+        position: {
+            pinned: false
+        }
+    });
+    $('#notification').data('kendoNotification').show('Test notification');
+</script>

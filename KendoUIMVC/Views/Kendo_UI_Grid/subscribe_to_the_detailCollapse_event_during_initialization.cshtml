@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_detailCollapse_event_during_initialization";
+}
+
+<h2>subscribe_to_the_detailCollapse_event_during_initialization</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ],
+        detailTemplate: "<div>Name: #: name #</div><div>Age: #: age #</div>",
+        detailCollapse: function (e) {
+            ///e.detailRow jQuery : The jQuery object which represents the detail table row.            
+            ///e.masterRow jQuery : The jQuery object which represents the master table row.            
+            ///e.sender kendo.ui.Grid : The widget instance which fired the event.            
+            var grid = $('#grid').data('kendoGrid');
+            var masterRow = e.masterRow;
+            var masterRowDataItem = grid.dataItem(masterRow);
+            var detailRow = e.detailRow;
+        }
+    });
+</script>

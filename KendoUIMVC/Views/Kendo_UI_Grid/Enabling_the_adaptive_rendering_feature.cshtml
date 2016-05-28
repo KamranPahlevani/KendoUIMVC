@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Enabling_the_adaptive_rendering_feature";
+}
+
+<h2>Enabling_the_adaptive_rendering_feature</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" },
+          { command: "destroy" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ],
+        filterable: true,
+        columnMenu: true,
+        mobile: true
+    });
+</script>

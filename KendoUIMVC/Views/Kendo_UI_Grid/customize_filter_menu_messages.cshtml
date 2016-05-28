@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "customize_filter_menu_messages";
+}
+
+<h2>customize_filter_menu_messages</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "name" },
+          { field: "age" }
+        ],
+        dataSource: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ],
+        filterable: {
+            messages: {
+                and: "and",
+                or: "or",
+                filter: "Apply filter",
+                clear: "Clear filter",
+                info: "Filter by: "
+            }
+        }
+    });
+</script>

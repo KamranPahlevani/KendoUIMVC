@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "set_minLength";
+}
+
+<h2>set_minLength</h2>
+
+<select id="multiselect" multiple="multiple">
+    <option>Item1</option>
+    <option>Item2</option>
+</select>
+<script>
+$("#multiselect").kendoMultiSelect({
+  minLength: 3
+});
+</script>
+

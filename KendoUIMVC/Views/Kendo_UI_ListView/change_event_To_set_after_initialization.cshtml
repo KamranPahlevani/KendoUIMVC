@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "change_event_To_set_after_initialization";
+}
+
+<h2>change_event_To_set_after_initialization</h2>
+
+<div id="listView"></div>
+<input id="btn" type="button" value="GetSelectedItem"/>
+<script>
+    $("#listView").kendoListView({
+        template: "<div>#: name#</div>",
+        dataSource: [
+            { name: "John Doe", age: 30 }
+        ],
+        selectable: true
+    });
+    // get a reference to the list view
+    var listView = $("#listView").data("kendoListView");
+    // bind to the change event
+    listView.bind("change", function (e) {
+    });
+
+    $('#btn').click(function(){
+        var listView = $('#listView').data('kendoListView');
+        var index = listView.items().index(listView.select());
+        var selectedItem = listView.dataItem(listView.select());
+    });
+
+</script>
+

@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "HierarchicalDataSource";
+}
+
+<h2>HierarchicalDataSource</h2>
+
+<script>
+    $(document).ready(function () {
+        var localDataSource = new kendo.data.HierarchicalDataSource({
+            data: [{
+                categoryName: "SciFi",
+                movies: [
+                  { title: "Star Wars: A New Hope", year: 1977 },
+                  { title: "Star Wars: The Empire Strikes Back", year: 1980 },
+                  { title: "Star Wars: Return of the Jedi", year: 1983 }
+                ]
+            }, {
+                categoryName: "Drama",
+                movies: [
+                  { title: "The Shawshenk Redemption", year: 1994 },
+                  { title: "Fight Club", year: 1999 },
+                  { title: "The Usual Suspects", year: 1995 }
+                ]
+            }
+            ],
+            schema: {
+                model: {
+                    children: "movies"
+                }
+            }
+        });
+
+        localDataSource.fetch(function () {
+            alert(localDataSource.options.schema.model.children);
+            if (localDataSource.data()[0].hasChildren) {
+                alert(localDataSource.data()[0].children.options.data.movies[0].title);
+                alert(localDataSource.data()[0].children.options.data.movies[0].year);
+            }
+        })
+    })
+</script>

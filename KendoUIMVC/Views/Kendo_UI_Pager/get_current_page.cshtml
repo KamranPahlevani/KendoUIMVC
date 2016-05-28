@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "get_current_page";
+}
+
+<h2>get_current_page</h2>
+
+<div id="pager"></div>
+
+<script>
+    var dataSource = new kendo.data.DataSource({
+        data: [
+          { productName: "Tea", category: "Beverages" },
+          { productName: "Coffee", category: "Beverages" },
+          { productName: "Ham", category: "Food" },
+          { productName: "Bread", category: "Food" }
+        ],
+        pageSize: 2
+    });
+
+    dataSource.read();
+
+    var pager = $("#pager").kendoPager({
+        dataSource: dataSource
+    }).data("kendoPager");
+
+    alert(pager.page()); // displays "1"
+</script>

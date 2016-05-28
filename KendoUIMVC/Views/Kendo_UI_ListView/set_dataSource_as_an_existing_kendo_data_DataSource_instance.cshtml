@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "set_dataSource_as_an_existing_kendo_data_DataSource_instance";
+}
+
+<h2>set_dataSource_as_an_existing_kendo_data_DataSource_instance</h2>
+
+<div id="listView"></div>
+<script>
+    var dataSource = new kendo.data.DataSource({
+        data: [{ name: "Jane Doe" }, { name: "John Doe" }]
+    });
+    $("#listView").kendoListView({
+        dataSource: dataSource,
+        template: "<div>#:name#</div>"
+    });
+</script>
+

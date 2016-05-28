@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "dragleave";
+}
+
+<h2>dragleave</h2>
+
+<div class="draggable orange"></div>
+<div class="target orange"></div>
+
+<script>
+  $(".draggable").kendoDraggable({
+    hint: function(element) {
+      return element.clone();
+    }
+  });
+
+  $(".target").kendoDropTarget({
+      dragenter: function(e) {
+          e.draggable.hint.css("opacity", 0.5); //modify the draggable hint
+          e.dropTarget.removeClass("orange").addClass("purple"); //modify dropTarget element
+      },
+      dragleave: function(e) {
+          e.draggable.hint.css("opacity", 1); //modify the draggable hint
+          e.dropTarget.removeClass("purple").addClass("orange"); //modify dropTarget element
+
+      }
+  });
+
+</script>
+<style>
+    .draggable {
+        width: 50px;
+        height: 50px;
+        border: 2px solid green;
+        margin: 5px;
+    }
+
+    .target {
+        width: 200px;
+        height: 200px;
+        border: 2px solid green;
+        margin: 5px;
+    }
+
+    .orange {
+        background-color: orange;
+    }
+
+    .purple {
+        background-color: purple;
+    }
+</style>

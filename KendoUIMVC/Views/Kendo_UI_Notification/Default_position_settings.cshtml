@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Default_position_settings";
+}
+
+<h2>Default_position_settings</h2>
+
+<span id="notification"></span>
+<script>
+    $("#notification").kendoNotification({
+        position: {
+            pinned: true,
+            top: null,
+            left: null,
+            bottom: 100,
+            right: 100
+        }
+    });
+    $('#notification').data('kendoNotification').show('Test notification');
+</script>

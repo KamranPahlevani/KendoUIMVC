@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "How_to_set_DataSource_dynamically";
+}
+
+<h2>How_to_set_DataSource_dynamically</h2>
+
+<div id="example">
+    <div class="demo-section k-header">
+        <h4>View Order Details</h4>
+        <p>
+            <label for="suppliers">Suppliers:</label><input id="suppliers" style="width: 270px" />
+        </p>
+        <p>
+            <label for="products">Products:</label><input id="products" disabled="disabled" style="width: 270px" />
+        </p>
+
+        <button class="k-button" id="set">Set DataSource</button>
+    </div>
+
+    <style scoped>
+        .demo-section {
+            width: 400px;
+        }
+
+            .demo-section p {
+                margin-top: 1em;
+            }
+
+            .demo-section label {
+                display: inline-block;
+                width: 100px;
+                padding-right: 5px;
+                text-align: right;
+            }
+
+            .demo-section .k-button {
+                margin: 1em 0 0 105px;
+            }
+
+        .k-readonly {
+            color: gray;
+        }
+    </style>
+
+    <script>
+    $(document).ready(function () {
+        var suppliers = $("#suppliers").kendoDropDownList({
+            optionLabel: "Select supplier...",
+            dataTextField: "CompanyName",
+            dataValueField: "SupplierID",
+            dataSource: {
+                type: "json",
+                serverFiltering: false,
+                transport: {
+                    read: '@Url.Action("GetSuppliers", "Kendo_Data_DataSource")'
+                }
+            },
+            dataBound: function () {
+                this.search("C5");
+                this.select(this.selectedIndex);
+            }
+        }).data("kendoDropDownList");
+
+        var products = $("#products").kendoDropDownList({
+            autoBind: false,
+            cascadeFrom: "suppliers",
+            optionLabel: "Select product...",
+            dataTextField: "ProductName",
+            dataValueField: "ProductID",
+        }).data("kendoDropDownList");
+
+        $("#set").click(function () {
+            products.setDataSource({
+                type: "json",
+                serverFiltering: false,
+                transport: {
+                    read: '@Url.Action("GetProducts", "Kendo_Data_DataSource")'
+                },
+                filter:[ //filter the dataSource
+                { field: "SupplierID", operator: "eq", value: parseInt(suppliers.value()) }]
+            });
+        });
+    });
+    </script>
+</div>

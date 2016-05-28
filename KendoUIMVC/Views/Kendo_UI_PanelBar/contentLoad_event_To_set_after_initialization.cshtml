@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "contentLoad_event_To_set_after_initialization";
+}
+
+<h2>contentLoad_event_To_set_after_initialization</h2>
+
+<ul id="panelbar">
+    <li>
+        Item 1
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+    </li>
+    <li>
+        Item 2
+        <div></div>
+    </li>
+</ul>
+<script>
+    $("#panelbar").kendoPanelBar(
+        {
+            contentUrls: [
+              null,
+              "/infrastructure/PanelbarContent.html"
+            ],
+        }
+        )
+    // get a reference to the panel bar
+    var panelBar = $("#panelbar").data("kendoPanelBar");
+    // bind the contentLoad event
+    panelBar.bind("contentLoad", function (e) {
+        // handle event
+        alert('contentLoad event is fired!');
+    });
+</script>

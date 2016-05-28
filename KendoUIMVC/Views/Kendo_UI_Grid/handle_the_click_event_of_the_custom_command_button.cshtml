@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "handle_the_click_event_of_the_custom_command_button";
+}
+
+<h2>handle_the_click_event_of_the_custom_command_button</h2>
+
+<div id="grid"></div>
+<script>
+    $("#grid").kendoGrid({
+        columns: [
+          { field: "ProductID" },
+          { field: "ProductName" },
+          {
+              field: "UnitPrice",
+          },
+          { field: "UnitsInStock", groupable: false },
+          { field: "Discontinued", groupable: true },
+           {
+               command: [{
+                   name: "Details",
+                   click: function (e) {
+                       // e.target is the DOM element representing the button
+                       var tr = $(e.target).closest("tr"); // get the current table row (tr)
+                       // get the data bound to the current table row
+                       var data = this.dataItem(tr);
+                       alert("ProductName: " + data.ProductName + " UnitPrice: " + data.UnitPrice );
+                   }
+               }]
+           }
+        ],
+        editable: true,
+        dataSource: new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetProducts", "Kendo_Data_DataSource")",
+                    dataType: "json"
+                },
+            }
+        }),
+    });
+</script>
