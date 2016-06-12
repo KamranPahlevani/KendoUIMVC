@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "set_the_min_value_of_the_TimePicker";
+}
+
+<h2>set_the_min_value_of_the_TimePicker</h2>
+
+<input id="timepicker" />
+<script>
+    $("#timepicker").kendoTimePicker();
+
+    var timepicker = $("#timepicker").data("kendoTimePicker");
+
+    timepicker.min(new Date(2000, 0, 1, 8, 0, 0));
+</script>

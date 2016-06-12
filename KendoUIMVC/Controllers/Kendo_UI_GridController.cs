@@ -1943,6 +1943,31 @@ namespace MvcKendo.Controllers
             return View();
         }
 
+        public ActionResult set_dataSource_as_a_JavaScript_object_byTypeScript()
+        {
+            return View();
+        }
+
+        public ActionResult set_dataSource_as_an_existing_kendo_data_DataSource_instance_byTypeScript()
+        {
+            return View();
+        }
+
+        public ActionResult specify_detail_template_as_a_function_byTypeScript() {
+            return View();
+        }
+
+        public ActionResult specify_alternating_row_template_as_a_string_byTypeScript()
+        {
+            return View();
+        }
+
+        public ActionResult create_a_custom_column_editor_using_the_Kendo_UI_AutoComplete_byTypeScript()
+        {
+            return View();
+        }
+
+
 
 
 

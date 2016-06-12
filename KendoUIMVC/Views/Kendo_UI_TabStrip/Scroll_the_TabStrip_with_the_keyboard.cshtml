@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Scroll_the_TabStrip_with_the_keyboard";
+}
+
+<h2>Scroll_the_TabStrip_with_the_keyboard</h2>
+
+<style>
+    #tabstrip > .k-content {
+        height: 200px;
+        overflow: auto;
+    }
+</style>
+
+<div id="tabstrip">
+    <ul>
+        <li class="k-state-active">
+            One
+        </li>
+        <li>
+            Two
+        </li>
+    </ul>
+    <div>
+        1<br /><br /><br />2<br /><br /><br />3<br /><br /><br />4<br /><br /><br />
+        5<br /><br /><br />6<br /><br /><br />7<br /><br /><br />8<br /><br /><br />
+    </div>
+    <div>
+        1<br /><br /><br />2<br /><br /><br />3<br /><br /><br />4<br /><br /><br />
+        5<br /><br /><br />6<br /><br /><br />7<br /><br /><br />8<br /><br /><br />
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // this handler should be attached before the TabStrip is initialized!
+        $("#tabstrip").on("keydown", function (e) {
+            // kendo.keys is documented at http://docs.telerik.com/kendo-ui/api/javascript/kendo#fields-keys
+            if (e.keyCode == kendo.keys.DOWN || e.keyCode == kendo.keys.UP) {
+                // prevent the built-in TabStrip keyboard navigation
+                e.stopImmediatePropagation();
+                // prevent page scroll
+                e.preventDefault();
+                // get the visible TabStrip container
+                var visibleContainer = $(e.target).data("kendoTabStrip").wrapper.children(".k-content").filter(":visible");
+                if (e.keyCode == kendo.keys.DOWN) {
+                    visibleContainer.scrollTop(visibleContainer.scrollTop() + 50);
+                } else {
+                    visibleContainer.scrollTop(visibleContainer.scrollTop() - 50);
+                }
+            }
+        });
+
+        $("#tabstrip").kendoTabStrip({
+            animation: {
+                open: {
+                    // the default expand animation should be replaced or disabled
+                    // when the TabStrip containers have an explicit height
+                    effects: "fadeIn"
+                }
+            }
+        });
+
+        $("#tabstrip").focus();
+
+    });
+</script>

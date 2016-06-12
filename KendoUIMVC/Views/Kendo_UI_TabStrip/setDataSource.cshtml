@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "setDataSource";
+}
+
+<h2>setDataSource</h2>
+
+<div id="tabstrip">
+</div>
+
+<script>
+    $("#tabstrip").kendoTabStrip({
+        dataContentField: "content",
+        dataTextField: "label"
+    })
+    var dataSource = kendo.data.DataSource.create([
+      { label: "Label", content: "Content" }
+    ])
+
+    $("#tabstrip").data("kendoTabStrip").setDataSource(dataSource);
+</script>

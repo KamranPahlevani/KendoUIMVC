@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "animation_open_duration";
+}
+
+<h2>animation_open_duration</h2>
+
+<div id="tabstrip">
+    <ul>
+        <li>Tab 1</li>
+        <li>Tab 2</li>
+    </ul>
+    <div>Content 1</div>
+    <div>Content 2</div>
+</div>
+
+<script>
+    $("#tabstrip").kendoTabStrip({
+        animation: {
+            open: {
+                duration: 1000
+            }
+        }
+    });
+</script>

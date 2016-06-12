@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "toggle";
+}
+
+<h2>toggle</h2>
+
+<div id="splitter">
+    <div id="pane1">Pane A</div>
+    <div>Pane B</div>
+</div>
+<script>
+    $("#splitter").kendoSplitter({
+        panes: [{ collapsible: true }, { collapsible: true }]
+    });
+    var splitter = $("#splitter").data("kendoSplitter");
+
+    // toggle the pane with id="pane1"
+    splitter.toggle("#pane1");
+
+    // expand the pane with id="pane1"
+    splitter.toggle("#pane1", true);
+
+    // collapse the last pane
+    splitter.toggle(".k-pane:last", false);
+</script>

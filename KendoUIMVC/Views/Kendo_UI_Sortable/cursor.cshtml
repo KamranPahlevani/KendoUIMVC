@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "cursor";
+}
+
+<h2>cursor</h2>
+
+<ul id="sortable">
+    <li>ItemA1</li>
+    <li>ItemA2</li>
+    <li>ItemA3</li>
+</ul>
+
+<script>
+    $("#sortable").kendoSortable({
+        cursor: "move"
+    });
+</script>

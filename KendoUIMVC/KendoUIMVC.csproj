@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -20,6 +21,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -223,6 +225,10 @@
     <Compile Include="Controllers\Kendo_UI_ResponsivePanelController.cs" />
     <Compile Include="Controllers\Kendo_UI_SchedulerController.cs" />
     <Compile Include="Controllers\Kendo_UI_SliderController.cs" />
+    <Compile Include="Controllers\Kendo_UI_SortableController.cs" />
+    <Compile Include="Controllers\Kendo_UI_SplitterController.cs" />
+    <Compile Include="Controllers\Kendo_UI_TabStripController.cs" />
+    <Compile Include="Controllers\Kendo_UI_TimePickerController.cs" />
     <Compile Include="Controllers\Kendo_ViewController.cs" />
     <Compile Include="Controllers\PageTurnController.cs" />
     <Compile Include="Controllers\SlideInController.cs" />
@@ -621,11 +627,11 @@
     <Content Include="Content\kendo\fonts\DejaVu\DejaVuSerif-BoldItalic.ttf" />
     <Content Include="Content\kendo\fonts\DejaVu\DejaVuSerif-Italic.ttf" />
     <Content Include="Content\kendo\fonts\DejaVu\DejaVuSerif.ttf" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <None Include="Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.3.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -2639,6 +2645,144 @@
     <Content Include="Views\Kendo_UI_Slider\enable.cshtml" />
     <Content Include="Views\Kendo_UI_Slider\value.cshtml" />
     <Content Include="Views\Kendo_UI_Slider\resize.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\axis.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\container.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\set_up_a_one_way_connection_from_ListA_to_ListB.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\set_up_a_bidirectional_connection_between_Sortable_widgets.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\cursor.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\cursorOffset.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\disabled.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\filter.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\handler.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\hint.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\holdToDrag.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\ignore.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\placeholder.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\indexOf.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\items.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\start.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\move.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\end.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\change.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\cancel.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\Persist_order_in_localStorage.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\Reorder_rows_in_nested_Grid.cshtml" />
+    <Content Include="Views\Kendo_UI_Sortable\Reorder_Grid_rows.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\orientation.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\panes_collapsed.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\panes_collapsedSize.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\panes_collapsible.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\panes_contentUrl.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\panes_max.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\panes_min.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\panes_resizable.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\panes_scrollable.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\panes_size.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\ajaxRequest.cshtml" />
+    <Content Include="Views\Kendo_UI_Grid\set_dataSource_as_a_JavaScript_object_byTypeScript.cshtml" />
+    <Content Include="Views\Kendo_UI_Grid\set_dataSource_as_an_existing_kendo_data_DataSource_instance_byTypeScript.cshtml" />
+    <Content Include="Views\Kendo_UI_Grid\specify_detail_template_as_a_function_byTypeScript.cshtml" />
+    <Content Include="Views\Kendo_UI_Grid\specify_alternating_row_template_as_a_string_byTypeScript.cshtml" />
+    <Content Include="Views\Kendo_UI_Grid\create_a_custom_column_editor_using_the_Kendo_UI_AutoComplete_byTypeScript.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\append.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\collapse.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\destroy.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\expand.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\insertAfter.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\insertBefore.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\max.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\min.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\remove.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\size.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\toggle.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\subscribe_to_the_collapse_event_during_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\subscribe_to_the_collapse_event_after_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\subscribe_to_the_contentLoad_event_during_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\subscribe_to_the_contentLoad_event_after_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\subscribe_to_the_error_event_during_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\subscribe_to_the_error_event_after_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\subscribe_to_the_expand_event_durin_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\subscribe_to_the_expand_event_after_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\subscribe_to_the_layoutChange_event_during_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\subscribe_to_the_layoutChange_event_after_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\subscribe_to_the_resize_event_during_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\subscribe_to_the_resize_event_after_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_Splitter\Keep_pane_size_in_percentages.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\animation.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\animation_close.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\animation_close_duration.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\animation_close_effects.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\animation_open.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\animation_open_duration.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\animation_open_effects.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\collapsible.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\contentUrls.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\dataContentField.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\dataContentUrlField.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\dataImageUrlField.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\dataSpriteCssClass.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\dataTextField.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\dataUrlField.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\navigatable.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\activateTab.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\append.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\contentElement.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\contentHolder.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\deactivateTab.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\destroy.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\disable.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\enable.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\insertAfter.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\insertBefore.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\items.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\reload.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\remove.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\select.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\setDataSource.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\Attach_activate_event_handler_during_initialization_detach_via_unbind.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\Attach_activate_event_handler_via_bind_detach_via_unbind.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\Attach_contentLoad_event_handler_during_initialization_detach_via_unbind.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\Attach_error_event_handler_during_initialization_detach_via_unbind.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\Attach_select_event_handler_during_initialization_detach_via_unbind.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\Attach_select_event_handler_via_bind_detach_via_unbind.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\Attach_show_event_handler_during_initialization_detach_via_unbind.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\Attach_show_event_handler_via_bind_detach_via_unbind.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\Expand_the_tab_heigh_to_100_percent.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\Display_tab_buttons_at_the_bottom.cshtml" />
+    <Content Include="Views\Kendo_UI_TabStrip\Scroll_the_TabStrip_with_the_keyboard.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\disable_open_and_close_animations.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\configure_the_animation.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\animation_close.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\animation_open.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\culture.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\dates.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\format.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\interval.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\max.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\min.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\parseFormats.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\value.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\options.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\close.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\destroy.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\disable_TimePicker_widget.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\enable_TimePicker_widget.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\make_TimePicker_widget_readonly.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\make_TimePicker_widget_editable.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\get_the_max_value_of_the_TimePicker.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\set_the_max_value_of_the_TimePicker.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\get_the_min_value_of_the_TimePicker.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\set_the_min_value_of_the_TimePicker.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\open.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\setOptions.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\gets_the_value_of_the_widget.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\sets_the_value_of_the_widget.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\subscribe_to_the_change_event_during_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\subscribe_to_the_change_event_after_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\subscribe_to_the_close_event_during_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\subscribe_to_the_close_event_after_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\subscribe_to_the_open_event_during_initialization.cshtml" />
+    <Content Include="Views\Kendo_UI_TimePicker\subscribe_to_the_open_event_after_initialization.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2651,11 +2795,21 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\api\typeScripts\create_a_custom_column_editor_using_the_Kendo_UI_AutoComplete_byTypeScript.ts" />
+    <TypeScriptCompile Include="Scripts\api\typeScripts\set_dataSource_as_an_existing_kendo_data_DataSource_instance_byTypeScript.ts" />
+    <TypeScriptCompile Include="Scripts\api\typeScripts\set_dataSource_as_a_JavaScript_object_byTypeScript.ts" />
+    <TypeScriptCompile Include="Scripts\api\typeScripts\specify_alternating_row_template_as_a_string_byTypeScript.ts" />
+    <TypeScriptCompile Include="Scripts\api\typeScripts\specify_detail_template_as_a_function_byTypeScript.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\kendo-ui\kendo-ui.d.ts" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">

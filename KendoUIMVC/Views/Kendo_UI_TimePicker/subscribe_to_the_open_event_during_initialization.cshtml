@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_open_event_during_initialization";
+}
+
+<h2>subscribe_to_the_open_event_during_initialization</h2>
+
+<input id="timepicker" />
+<script>
+    $("#timepicker").kendoTimePicker({
+        open: function (e) {
+            e.preventDefault(); //prevent popup opening
+        }
+    });
+</script>

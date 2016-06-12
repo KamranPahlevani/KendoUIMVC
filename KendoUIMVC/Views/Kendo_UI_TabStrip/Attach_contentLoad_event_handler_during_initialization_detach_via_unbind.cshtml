@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Attach_contentLoad_event_handler_during_initialization_detach_via_unbind";
+}
+
+<h2>Attach_contentLoad_event_handler_during_initialization_detach_via_unbind</h2>
+
+<div id="tabstrip"></div>
+
+<script>
+    // event handler for select
+    var onContentLoad = function (e) {
+        // access the selected item via e.item (Element)
+
+        // detach contentLoad event handler via unbind()
+        tabStrip.unbind("contentLoad", onContentLoad);
+    };
+
+    // attach select event handler during initialization
+    var tabStrip = $("#tabstrip").kendoTabStrip({
+        dataTextField: "text",
+        dataContentUrlField: "ContentUrl",
+        dataSource: [{
+            text: "Tab 1",
+            ContentUrl: '@Url.Action("set_dataSource_as_an_existing_kendo_data_DataSource_instance_byTypeScript", "Kendo_UI_Grid")'
+        },
+        {
+            text: "Tab 2",
+            ContentUrl: '@Url.Action("animation", "Kendo_UI_DropDownList")'
+        }],
+        contentLoad: onContentLoad
+    }).data("kendoTabStrip");
+</script>

@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "dataSpriteCssClass";
+}
+
+<h2>dataSpriteCssClass</h2>
+
+<div id="tabstrip"></div>
+
+<script>
+    $("#tabstrip").kendoTabStrip({
+        dataTextField: "Name",
+        dataSpriteCssClass: "CssClass",
+        dataSource: [
+          { Name: "Tab1", dataSpriteCssClass: "class1" },
+          { Name: "Tab2", dataSpriteCssClass: "class2" }
+        ]
+    });
+</script>

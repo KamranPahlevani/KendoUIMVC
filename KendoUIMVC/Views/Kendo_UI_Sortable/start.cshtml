@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "start";
+}
+
+<h2>start</h2>
+
+<ul id="sortable">
+    <li id="Item1">Item1</li>
+    <li id="Item2">Item2</li>
+    <li id="Item3">Item3</li>
+</ul>
+
+<script>
+    $("#sortable").kendoSortable({
+        start: function (e) {
+            if (e.item.attr('id') === "Item1") {
+                e.preventDefault();
+            }
+        }
+    });
+</script>

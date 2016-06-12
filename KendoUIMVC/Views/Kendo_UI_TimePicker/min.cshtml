@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "min";
+}
+
+<h2>min</h2>
+
+<input id="timepicker" />
+<script>
+    $("#timepicker").kendoTimePicker({
+        min: new Date(2000, 0, 1, 8, 0, 0) //date part is ignored
+    });
+</script>

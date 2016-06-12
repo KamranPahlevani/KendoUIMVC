@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "end";
+}
+
+<h2>end</h2>
+
+<ul id="sortable">
+    <li>Item1</li>
+    <li>Item2</li>
+    <li>Item3</li>
+</ul>
+
+<script>
+    $("#sortable").kendoSortable({
+        end: function(e) {
+            console.log("from " + e.oldIndex + " to " + e.newIndex);
+
+            //prevent first item to be placed at the end of the list
+            if(e.newIndex == 2 && e.oldIndex == 0) {
+                e.preventDefault();
+            }
+        }
+    });
+</script>

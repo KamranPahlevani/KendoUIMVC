@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "move";
+}
+
+<h2>move</h2>
+
+<ul id="sortable">
+    <li>Item1</li>
+    <li>Item2</li>
+    <li>Item3</li>
+</ul>
+
+<script>
+    $("#sortable").kendoSortable({
+        move: function(e) {
+            console.log("move to index: " + this.indexOf(this.placeholder));
+        }
+    });
+</script>

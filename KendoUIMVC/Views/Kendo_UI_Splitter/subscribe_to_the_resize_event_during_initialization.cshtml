@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_resize_event_during_initialization";
+}
+
+<h2>subscribe_to_the_resize_event_during_initialization</h2>
+
+<div id="splitter">
+    <div>Pane A</div>
+    <div>Pane B</div>
+</div>
+<script>
+    $("#splitter").kendoSplitter({
+        panes: [{ collapsible: true }, {}],
+        resize: function (e) {
+            console.log("Splitter pane has been resized");
+        }
+    });
+</script>

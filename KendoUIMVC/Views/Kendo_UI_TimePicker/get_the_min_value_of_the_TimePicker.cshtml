@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "get_the_min_value_of_the_TimePicker";
+}
+
+<h2>get_the_min_value_of_the_TimePicker</h2>
+
+<input id="timepicker" />
+<script>
+    $("#timepicker").kendoTimePicker();
+
+    var timepicker = $("#timepicker").data("kendoTimePicker");
+
+    var min = timepicker.min();
+
+    console.log(min);
+</script>

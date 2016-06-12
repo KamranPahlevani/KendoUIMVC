@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "dataContentField";
+}
+
+<h2>dataContentField</h2>
+
+<div id="tabstrip"></div>
+
+<script>
+    $("#tabstrip").kendoTabStrip({
+        dataTextField: "Name",
+        dataContentField: "Content",
+        dataSource: [
+          { Name: "Tab1", Content: "Tab1: content" },
+          { Name: "Tab2", Content: "Tab2: content" }
+        ]
+    });
+</script>

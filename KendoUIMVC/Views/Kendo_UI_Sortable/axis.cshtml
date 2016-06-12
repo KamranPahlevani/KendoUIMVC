@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "axis";
+}
+
+<h2>axis</h2>
+
+<div id="sortable">
+    <span>Item1</span>
+    <span>Item2</span>
+    <span>Item3</span>
+</div>
+
+<script>
+    $("#sortable").kendoSortable({
+        axis: "x"
+    });
+</script>

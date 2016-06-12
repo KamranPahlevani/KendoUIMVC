@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "remove";
+}
+
+<h2>remove</h2>
+
+<div id="splitter">
+    <div>Pane A</div>
+    <div>Pane B</div>
+</div>
+<script>
+    $("#splitter").kendoSplitter();
+    var splitter = $("#splitter").data("kendoSplitter");
+    splitter.remove(".k-pane:first");
+</script>

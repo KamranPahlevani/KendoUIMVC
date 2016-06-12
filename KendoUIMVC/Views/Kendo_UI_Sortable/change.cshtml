@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "change";
+}
+
+<h2>change</h2>
+
+<ul id="sortable">
+    <li>Item1</li>
+    <li>Item2</li>
+    <li>Item3</li>
+</ul>
+
+<script>
+    $("#sortable").kendoSortable({
+        change: function (e) {
+            console.log("from " + e.oldIndex + " to " + e.newIndex);
+        }
+    });
+</script>

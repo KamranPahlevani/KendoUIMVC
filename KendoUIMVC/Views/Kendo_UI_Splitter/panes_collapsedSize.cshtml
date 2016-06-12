@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "panes_collapsedSize";
+}
+
+<h2>panes_collapsedSize</h2>
+
+<div id="splitter">
+    <div>Pane A</div>
+    <div>Pane B</div>
+</div>
+<script>
+    $("#splitter").kendoSplitter({
+        panes: [{ collapsible: true, collapsedSize: "10%" }, {}]
+    });
+</script>

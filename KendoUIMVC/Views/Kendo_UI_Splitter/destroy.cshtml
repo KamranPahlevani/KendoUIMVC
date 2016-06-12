@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "destroy";
+}
+
+<h2>destroy</h2>
+
+<div id="splitter">
+    <div>Pane A</div>
+    <div>Pane B</div>
+</div>
+<script>
+    $("#splitter").kendoSplitter();
+    var splitter = $("#splitter").data("kendoSplitter");
+    splitter.destroy();
+</script>

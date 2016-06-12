@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "insertBefore";
+}
+
+<h2>insertBefore</h2>
+
+<div id="splitter">
+    <div>Pane A</div>
+    <div>Pane B</div>
+</div>
+<script>
+    $("#splitter").kendoSplitter();
+    var splitter = $("#splitter").data("kendoSplitter");
+
+    // append a 100px collapsible pane before the last pane
+    var newPane = splitter.insertBefore({ size: "100px" }, ".k-pane:last");
+
+    // set the content of the new pane to "foo"
+    newPane.html("foo");
+</script>

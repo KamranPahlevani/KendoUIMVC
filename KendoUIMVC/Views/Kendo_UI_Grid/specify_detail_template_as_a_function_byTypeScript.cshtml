@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "specify_detail_template_as_a_function_byTypeScript";
+}
+
+<h2>specify_detail_template_as_a_function_byTypeScript</h2>
+
+<script id="detail-template" type="text/x-kendo-template">
+    <div>
+        Name: #: name #
+    </div>
+    <div>
+        Age: #: age #
+    </div>
+</script>
+<div id="grid"></div>
+
+<script src='@Url.Content("~/Scripts/api/typeScripts/specify_detail_template_as_a_function_byTypeScript.js?" + DateTime.Now.Ticks + "")'>
+</script>
+<script>
+    $(document).ready(function(){
+        var gridClass = new specify_detail_template_as_a_function_byTypeScript.specify_detail_template_as_a_function_byTypeScript_Class();
+        gridClass.initializeGrid();
+    })
+</script>

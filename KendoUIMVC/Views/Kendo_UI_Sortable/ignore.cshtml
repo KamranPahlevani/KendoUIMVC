@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "ignore";
+}
+
+<h2>ignore</h2>
+
+<ul id="sortable">
+    <li>ItemA1 <input type="text" /></li>
+    <li>ItemA2 <input type="text" /></li>
+    <li>ItemA3 <input type="text" /></li>
+</ul>
+
+<script>
+    $("#sortable").kendoSortable({
+        ignore: "input"
+    });
+</script>

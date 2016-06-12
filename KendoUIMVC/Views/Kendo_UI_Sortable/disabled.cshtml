@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "disabled";
+}
+
+<h2>disabled</h2>
+
+<ul id="sortable">
+    <li class="disabled">ItemA1</li>
+    <li>ItemA2</li>
+    <li>ItemA3</li>
+    <li>ItemA4</li>
+</ul>
+
+<script>
+    $("#sortable").kendoSortable({
+        disabled: ".disabled"
+    });
+</script>
+
+<style>
+    .disabled {
+        color: #FF0000;
+    }
+</style>

@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "items";
+}
+
+<h2>items</h2>
+
+<div id="sortable">
+    <h4>Sortable List</h4>
+    <div>Item1</div>
+    <div>Item2</div>
+    <div>Item3</div>
+</div>
+
+<script>
+    var sortable = $("#sortable").kendoSortable({
+        filter: ">div"
+    }).data("kendoSortable");
+
+    console.log(sortable.items());
+</script>

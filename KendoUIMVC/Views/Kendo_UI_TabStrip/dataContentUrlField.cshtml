@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "dataContentUrlField";
+}
+
+<h2>dataContentUrlField</h2>
+
+<div id="tabstrip"></div>
+
+<script>
+    $("#tabstrip").kendoTabStrip({
+        dataTextField: "Name",
+        dataContentUrlField: "ContentUrl",
+        dataSource: [
+          { Name: "Tab1", ContentUrl: '@Url.Action("set_dataSource_as_an_existing_kendo_data_DataSource_instance_byTypeScript", "Kendo_UI_Grid")' },
+          { Name: "Tab2", ContentUrl: '@Url.Action("animation", "Kendo_UI_DropDownList")' }
+        ]
+    });
+</script>

@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "panes_collapsed";
+}
+
+<h2>panes_collapsed</h2>
+
+<div id="splitter">
+    <div>Pane A</div>
+    <div>Pane B</div>
+</div>
+<script>
+    $("#splitter").kendoSplitter({
+        panes: [{}, { collapsed: true }]
+    });
+</script>

@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "culture";
+}
+
+<h2>culture</h2>
+
+<!--
+    TODO: Add the kendo.culture.de-DE.min.js file as it is required!
+
+    Here is a sample script tag:
+    <script src="http://cdn.kendostatic.com/{kendo version}/js/cultures/kendo.culture.de-DE.min.js"></script>
+
+    For more information check this help topic:
+    http://docs.telerik.com/kendo-ui/framework/globalization/overview
+-->
+
+<input id="timepicker" />
+
+<script src="~/Scripts/kendo/cultures/kendo.culture.de-DE.min.js"></script>
+<script>
+    $("#timepicker").kendoTimePicker({
+        culture: "de-DE"
+    });
+</script>

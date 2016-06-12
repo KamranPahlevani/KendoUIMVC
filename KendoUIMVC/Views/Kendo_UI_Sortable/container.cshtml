@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "container";
+}
+
+<h2>container</h2>
+
+<div id="wrapper">
+    <ul id="sortable">
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+    </ul>
+</div>
+
+<script>
+    $("#sortable").kendoSortable({
+        container: $("#wrapper")
+    });
+</script>
+
+<style>
+    #wrapper {
+        padding: 10px;
+        width: 100px;
+        border: 1px solid #FF0000;
+    }
+</style>

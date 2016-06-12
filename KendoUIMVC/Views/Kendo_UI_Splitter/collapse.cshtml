@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "collapse";
+}
+
+<h2>collapse</h2>
+
+<div id="splitter">
+    <div>Pane A</div>
+    <div>Pane B</div>
+</div>
+<script>
+    $("#splitter").kendoSplitter({
+        panes: [{ collapsible: true }, {}]
+    });
+    var splitter = $("#splitter").data("kendoSplitter");
+    splitter.collapse(".k-pane:first");
+</script>

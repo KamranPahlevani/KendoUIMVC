@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "panes_max";
+}
+
+<h2>panes_max</h2>
+
+<div id="splitter">
+    <div>Pane A</div>
+    <div>Pane B</div>
+</div>
+<script>
+    $("#splitter").kendoSplitter({
+        panes: [{ max: "200px" }, {}]
+    });
+</script>

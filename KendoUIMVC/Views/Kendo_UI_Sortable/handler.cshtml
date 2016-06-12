@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "handler";
+}
+
+<h2>handler</h2>
+
+<ul id="sortable">
+    <li><span class="handler"></span>ItemA1</li>
+    <li><span class="handler"></span>ItemA2</li>
+    <li><span class="handler"></span>ItemA3</li>
+</ul>
+
+<script>
+    $("#sortable").kendoSortable({
+        handler: ".handler"
+    });
+</script>
+
+<style>
+    .handler {
+        width: 16px;
+        height: 16px;
+        background-color: #FF0000;
+        display: inline-block;
+    }
+</style>

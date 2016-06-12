@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "set_up_a_one_way_connection_from_ListA_to_ListB";
+}
+
+<h2>set_up_a_one_way_connection_from_ListA_to_ListB</h2>
+
+<ul id="listA">
+    <li>ItemA1</li>
+    <li>ItemA2</li>
+    <li>ItemA3</li>
+</ul>
+
+<ul id="listB">
+    <li>ItemB1</li>
+    <li>ItemB2</li>
+    <li>ItemB3</li>
+</ul>
+
+<script>
+    $("#listA").kendoSortable({
+        connectWith: $("#listB")
+    });
+
+    $("#listB").kendoSortable();
+</script>
+
+<style>
+    #listA li {
+        background-color: #FF0000;
+    }
+
+    #listB li {
+        background-color: #0000FF;
+    }
+</style>

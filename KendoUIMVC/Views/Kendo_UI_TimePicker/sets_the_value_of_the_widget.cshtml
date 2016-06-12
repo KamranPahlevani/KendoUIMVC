@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "sets_the_value_of_the_widget";
+}
+
+<h2>sets_the_value_of_the_widget</h2>
+
+<input id="timepicker" />
+<script>
+    $("#timepicker").kendoTimePicker();
+
+    var timepicker = $("#timepicker").data("kendoTimePicker");
+
+    timepicker.value("10:00 AM");
+</script>

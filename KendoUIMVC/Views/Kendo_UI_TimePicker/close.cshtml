@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "close";
+}
+
+<h2>close</h2>
+
+<input id="timepicker" />
+<button id="close" class="btn btn-info">Close</button>
+<script>
+    $("#timepicker").kendoTimePicker();
+
+    var timepicker = $("#timepicker").data("kendoTimePicker");
+
+    $("#close").click(function () {
+        timepicker.close();
+    });
+</script>

@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "set_up_a_bidirectional_connection_between_Sortable_widgets";
+}
+
+<h2>set_up_a_bidirectional_connection_between_Sortable_widgets</h2>
+
+<ul id="listA">
+    <li>ItemA1</li>
+    <li>ItemA2</li>
+    <li>ItemA3</li>
+</ul>
+
+<ul id="listB">
+    <li>ItemB1</li>
+    <li>ItemB2</li>
+    <li>ItemB3</li>
+</ul>
+
+<script>
+    $("#listA").kendoSortable({
+        connectWith: $("#listB")
+    });
+
+    $("#listB").kendoSortable({
+        connectWith: $("#listA")
+    });
+</script>
+
+<style>
+    #listA, #listB {
+        border: 1px solid #000000;
+        min-height: 20px;
+    }
+
+        #listA li {
+            background-color: #FF0000;
+        }
+
+        #listB li {
+            background-color: #0000FF;
+        }
+</style>

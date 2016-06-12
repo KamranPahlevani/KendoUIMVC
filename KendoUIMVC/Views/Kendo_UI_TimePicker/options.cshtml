@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "options";
+}
+
+<h2>options</h2>
+
+<input id="timepicker" />
+<script>
+    $("#timepicker").kendoTimePicker();
+
+    var timepicker = $("#timepicker").data("kendoTimePicker");
+
+    var options = timepicker.options;
+
+    console.log(options);
+</script>

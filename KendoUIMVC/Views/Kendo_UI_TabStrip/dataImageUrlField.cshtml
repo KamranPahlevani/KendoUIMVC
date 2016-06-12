@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "dataImageUrlField";
+}
+
+<h2>dataImageUrlField</h2>
+
+<div id="tabstrip"></div>
+
+<script>
+    $("#tabstrip").kendoTabStrip({
+        dataTextField: "Name",
+        dataImageUrlField: "ImageUrl",
+        dataSource: [
+          { Name: "Tab1", ImageUrl: '@Url.Content("~/Images/Customers/1.png")' },
+          { Name: "Tab2", ImageUrl: '@Url.Content("~/Images/Customers/2.png")' }
+        ]
+    });
+</script>
+

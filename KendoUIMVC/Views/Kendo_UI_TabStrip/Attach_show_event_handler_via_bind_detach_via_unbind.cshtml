@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Attach_show_event_handler_via_bind_detach_via_unbind";
+}
+
+<h2>Attach_show_event_handler_via_bind_detach_via_unbind</h2>
+
+<div id="tabStrip">
+    <ul>
+        <li>Tab 1</li>
+        <li>Tab 2</li>
+    </ul>
+    <div>Content 1</div>
+    <div>Content 2</div>
+</div>
+
+<script>
+    // event handler for show
+    var onShow = function(e) {
+        // access the shown item via e.item (Element)
+
+        // detach show event handler via unbind()
+        tabStrip.unbind("show", onShow);
+    };
+
+    // attach show event handler via bind()
+    var tabStrip = $("#tabStrip").kendoTabStrip().data("kendoTabStrip");
+    tabStrip.bind("show", onShow);
+</script>

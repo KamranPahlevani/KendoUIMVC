@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "make_TimePicker_widget_readonly";
+}
+
+<h2>make_TimePicker_widget_readonly</h2>
+
+<input id="timepicker" />
+<script>
+    $("#timepicker").kendoTimePicker();
+
+    var timepicker = $("#timepicker").data("kendoTimePicker");
+
+    timepicker.readonly();
+</script>

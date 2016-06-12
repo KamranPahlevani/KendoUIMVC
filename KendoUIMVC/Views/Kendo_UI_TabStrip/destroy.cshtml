@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "destroy";
+}
+
+<h2>destroy</h2>
+
+<div id="tabstrip">
+    <ul>
+        <li>Tab 1</li>
+        <li>Tab 2</li>
+    </ul>
+    <div>Content 1</div>
+    <div>Content 2</div>
+</div>
+
+<script>
+    var tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+
+    // destroy the widget
+    tabStrip.destroy();
+</script>

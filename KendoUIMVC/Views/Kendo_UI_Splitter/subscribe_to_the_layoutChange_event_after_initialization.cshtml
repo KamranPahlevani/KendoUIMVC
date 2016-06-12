@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_layoutChange_event_after_initialization";
+}
+
+<h2>subscribe_to_the_layoutChange_event_after_initialization</h2>
+
+<div id="splitter">
+    <div>Pane A</div>
+    <div>Pane B</div>
+</div>
+<script>
+    function splitter_layoutChange(e) {
+        console.log("Splitter layout has changed");
+    }
+    $("#splitter").kendoSplitter({
+        panes: [{ collapsible: true }, {}]
+    });
+    var splitter = $("#splitter").data("kendoSplitter");
+    splitter.bind("layoutChange", splitter_layoutChange);
+</script>

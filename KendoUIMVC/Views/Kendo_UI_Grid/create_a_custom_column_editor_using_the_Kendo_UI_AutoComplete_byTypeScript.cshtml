@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "create_a_custom_column_editor_using_the_Kendo_UI_AutoComplete_byTypeScript";
+}
+
+<h2>create_a_custom_column_editor_using_the_Kendo_UI_AutoComplete_byTypeScript</h2>
+
+<div id="grid"></div>
+
+
+<script src='@Url.Content("~/Scripts/api/typeScripts/create_a_custom_column_editor_using_the_Kendo_UI_AutoComplete_byTypeScript.js?"+DateTime.Now.Ticks+"")'>
+</script>
+
+<script>
+    $(document).ready(function () {
+        var gridClass = new create_a_custom_column_editor_using_the_Kendo_UI_AutoComplete_byTypeScript.create_a_custom_column_editor_using_the_Kendo_UI_AutoComplete_byTypeScript_Class('@Url.Action("GetProducts", "Kendo_Data_DataSource")');
+        gridClass.initializeGrid();
+    })
+</script>
+
+

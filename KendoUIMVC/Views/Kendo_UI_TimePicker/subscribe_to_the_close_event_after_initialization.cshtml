@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_close_event_after_initialization";
+}
+
+<h2>subscribe_to_the_close_event_after_initialization</h2>
+
+<input id="timepicker" />
+<script>
+    $("#timepicker").kendoTimePicker();
+
+    var timepicker = $("#timepicker").data("kendoTimePicker");
+
+    timepicker.bind("close", function (e) {
+        e.preventDefault(); //prevent popup closing
+    });
+</script>

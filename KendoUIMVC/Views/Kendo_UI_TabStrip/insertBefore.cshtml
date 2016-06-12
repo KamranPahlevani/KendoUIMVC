@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "insertBefore";
+}
+
+<h2>insertBefore</h2>
+
+<div id="tabstrip">
+    <ul>
+        <li>Tab</li>
+    </ul>
+    <div>Content</div>
+</div>
+
+<script>
+    var tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+    tabStrip.insertBefore(
+        [{
+            text: "Item 1",
+            url: 'http://www.google.com'               // Link URL if navigation is needed, optional.
+        },
+        {
+            text: "<b>Item 2</b>",
+            encoded: false,                             // Allows use of HTML for item text
+            content: "text"                             // Content for the content element
+        },
+        {
+            text: "Item 3",
+            contentUrl: '@Url.Action("set_dataSource_as_an_existing_kendo_data_DataSource_instance_byTypeScript", "Kendo_UI_Grid")'
+        },
+        {
+            text: "Item 4",
+            imageUrl: '@Url.Content("~/Images/Customers/1.png")',
+        },
+        {
+            text: "Item 5",
+            spriteCssClass: "imageClass3"               // Item image sprite CSS class, optional.
+        }],
+        tabStrip.tabGroup.eq(0)
+    );
+</script>

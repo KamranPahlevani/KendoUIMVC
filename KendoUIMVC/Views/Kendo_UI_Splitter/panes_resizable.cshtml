@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "panes_resizable";
+}
+
+<h2>panes_resizable</h2>
+
+<div id="splitter">
+    <div>Pane A</div>
+    <div>Pane B</div>
+</div>
+<script>
+    $("#splitter").kendoSplitter({
+        panes: [{ resizable: false }, { resizable: false }]
+    });
+</script>

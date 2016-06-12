@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "activateTab";
+}
+
+<h2>activateTab</h2>
+
+<div id="tabstrip">
+    <ul>
+        <li id="tab1">Tab 1</li>
+        <li>Tab 2</li>
+    </ul>
+    <div>Content 1</div>
+    <div>Content 2</div>
+</div>
+
+<script>
+    var tabToActivate = $("#tab1");
+    $("#tabstrip").kendoTabStrip().data("kendoTabStrip").activateTab(tabToActivate);
+</script>

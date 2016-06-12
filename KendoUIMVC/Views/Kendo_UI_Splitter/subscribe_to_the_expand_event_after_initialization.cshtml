@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_expand_event_after_initialization";
+}
+
+<h2>subscribe_to_the_expand_event_after_initialization</h2>
+
+<div id="splitter">
+    <div>Pane A</div>
+    <div>Pane B</div>
+</div>
+<script>
+    function splitter_expand(e) {
+        console.log($(e.pane).html() + " has been expanded");
+    }
+    $("#splitter").kendoSplitter({
+        panes: [{ collapsible: true, collapsed: true }, {}]
+    });
+    var splitter = $("#splitter").data("kendoSplitter");
+    splitter.bind("expand", splitter_expand);
+</script>

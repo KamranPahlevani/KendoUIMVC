@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "set_dataSource_as_an_existing_kendo_data_DataSource_instance_byTypeScript";
+}
+
+<h2>set_dataSource_as_an_existing_kendo_data_DataSource_instance_byTypeScript</h2>
+
+<div id="grid"></div>
+
+<script src='@Url.Content("~/Scripts/api/typeScripts/set_dataSource_as_an_existing_kendo_data_DataSource_instance_byTypeScript.js?"+DateTime.Now.Ticks+"")'>
+</script>
+
+<script>
+    $(document).ready(function () {
+        var gridClass = new set_dataSource_as_an_existing_kendo_data_DataSource_instance_byTypeScript.set_dataSource_as_an_existing_kendo_data_DataSource_instance_byTypeScript_Class('@Url.Action("GetProducts", "Kendo_Data_DataSource")');
+        gridClass.initializeGrid();
+    })
+</script>
+

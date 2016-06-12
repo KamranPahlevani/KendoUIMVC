@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "max";
+}
+
+<h2>max</h2>
+
+<div id="splitter">
+    <div id="pane1">Pane A</div>
+    <div>Pane B</div>
+</div>
+<script>
+    $("#splitter").kendoSplitter();
+    var splitter = $("#splitter").data("kendoSplitter");
+    splitter.max("#pane1", "300px");
+</script>

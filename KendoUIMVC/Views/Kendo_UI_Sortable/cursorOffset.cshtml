@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "cursorOffset";
+}
+
+<h2>cursorOffset</h2>
+
+<ul id="sortable">
+    <li>ItemA1</li>
+    <li>ItemA2</li>
+    <li>ItemA3</li>
+</ul>
+
+<script>
+    $("#sortable").kendoSortable({
+        cursorOffset: { top: 30, left: 30 }
+    });
+</script>

@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "max";
+}
+
+<h2>max</h2>
+
+<input id="timepicker" />
+<script>
+    $("#timepicker").kendoTimePicker({
+        max: new Date(2000, 0, 1, 22, 0, 0) //date part is ignored
+    });
+</script>

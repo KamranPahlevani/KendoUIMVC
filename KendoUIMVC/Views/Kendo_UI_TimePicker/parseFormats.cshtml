@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "parseFormats";
+}
+
+<h2>parseFormats</h2>
+
+<input id="timepicker" />
+<script>
+    $("#timepicker").kendoTimePicker({
+        format: "h:mm tt",
+        parseFormats: ["HH:mm"] //format also will be added to parseFormats
+    });
+</script>

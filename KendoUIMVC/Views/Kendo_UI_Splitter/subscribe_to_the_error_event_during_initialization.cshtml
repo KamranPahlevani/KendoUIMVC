@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_error_event_during_initialization";
+}
+
+<h2>subscribe_to_the_error_event_during_initialization</h2>
+
+<div id="splitter">
+    <div>Pane A</div>
+    <div>Pane B</div>
+</div>
+<script>
+    $("#splitter").kendoSplitter({
+        error: function (e) {
+            console.log(
+                "Pane #" + $(e.pane).index() + " could not be loaded from server" +
+                " (status " + e.xhr.status + ")"
+            );
+        }
+    });
+</script>

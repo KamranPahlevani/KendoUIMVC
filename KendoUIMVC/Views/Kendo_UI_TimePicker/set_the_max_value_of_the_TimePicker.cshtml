@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "set_the_max_value_of_the_TimePicker";
+}
+
+<h2>set_the_max_value_of_the_TimePicker</h2>
+
+<input id="timepicker" />
+<script>
+    $("#timepicker").kendoTimePicker();
+
+    var timepicker = $("#timepicker").data("kendoTimePicker");
+
+    timepicker.max(new Date(2016, 0, 1, 22, 0, 0));
+    
+    console.log(timepicker.max());
+</script>

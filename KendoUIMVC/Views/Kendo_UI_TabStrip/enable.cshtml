@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "enable";
+}
+
+<h2>enable</h2>
+
+<div id="tabstrip">
+    <ul>
+        <li>Tab 1</li>
+        <li>Tab 2</li>
+    </ul>
+    <div>Content 1</div>
+    <div>Content 2</div>
+</div>
+
+<script>
+    var tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+    tabStrip.enable(tabStrip.tabGroup.children().eq(0), false);
+    tabStrip.enable(tabStrip.tabGroup.children().eq(0), true);
+</script>

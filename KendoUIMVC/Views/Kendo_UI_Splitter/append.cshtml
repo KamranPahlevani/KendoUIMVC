@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "append";
+}
+
+<h2>append</h2>
+
+<div id="splitter">
+    <div>Pane A</div>
+    <div>Pane B</div>
+</div>
+<script>
+    $("#splitter").kendoSplitter();
+    var splitter = $("#splitter").data("kendoSplitter");
+
+    // append a 100px collapsible pane
+    var newPane = splitter.append({
+        size: "100px",
+        collapsible: true
+    });
+
+    // set the content of the new pane to "foo"
+    newPane.html("foo");
+</script>

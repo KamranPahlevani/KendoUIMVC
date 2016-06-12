@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "expand";
+}
+
+<h2>expand</h2>
+
+<div id="splitter">
+    <div>Pane A</div>
+    <div>Pane B</div>
+</div>
+<script>
+    $("#splitter").kendoSplitter({
+        panes: [{ collapsed: true }, {}]
+    });
+    var splitter = $("#splitter").data("kendoSplitter");
+    splitter.expand(".k-pane:first");
+</script>

@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_change_event_after_initialization";
+}
+
+<h2>subscribe_to_the_change_event_after_initialization</h2>
+
+<input id="timepicker" />
+<script>
+    $("#timepicker").kendoTimePicker();
+
+    var timepicker = $("#timepicker").data("kendoTimePicker");
+
+    timepicker.bind("change", function () {
+        var value = this.value();
+        console.log(value); //value is the selected date in the timepicker
+    });
+</script>

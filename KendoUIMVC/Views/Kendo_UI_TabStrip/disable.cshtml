@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "disable";
+}
+
+<h2>disable</h2>
+
+<div id="tabstrip">
+    <ul>
+        <li>Tab 1</li>
+        <li>Tab 2</li>
+    </ul>
+    <div>Content 1</div>
+    <div>Content 2</div>
+</div>
+
+<script>
+    var tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+    tabStrip.disable(tabStrip.tabGroup.children().eq(0));
+</script>

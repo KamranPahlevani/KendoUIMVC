@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "ajaxRequest";
+}
+
+<h2>ajaxRequest</h2>
+
+<div id="splitter">
+    <div id="pane1">Pane A</div>
+    <div>Pane B</div>
+</div>
+<script>
+    $("#splitter").kendoSplitter();
+    var splitter = $("#splitter").data("kendoSplitter");
+
+    // load a complete page in the last pane
+    splitter.ajaxRequest(".k-pane:last", "/Kendo_UI_Menu/animation");
+
+    // load content into the pane with ID="pane1"
+    splitter.ajaxRequest("#pane1", "/Kendo_UI_ComboBox/animation");
+</script>

@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "navigatable";
+}
+
+<h2>navigatable</h2>
+
+<div id="tabstrip">
+    <ul>
+        <li>Tab 1</li>
+        <li>Tab 2</li>
+    </ul>
+    <div>Content 1</div>
+    <div>Content 2</div>
+</div>
+
+<script>
+    $("#tabstrip").kendoTabStrip({
+        navigatable: false
+    });
+</script>

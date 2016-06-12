@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "indexOf";
+}
+
+<h2>indexOf</h2>
+
+<div id="sortable">
+    <h4>Sortable List</h4>
+    <div>Item1</div>
+    <div>Item2</div>
+    <div>Item3</div>
+</div>
+
+<script>
+    $("#sortable").kendoSortable({
+        filter: ">div",
+        move: function (e) {
+            //NOTE: the heading element will be excluded from the
+            //collection as it does not match the filter
+
+            //shows the original position of the item
+            console.log("index of item", this.indexOf(e.item));
+            //shows the position where item will be moved to
+            console.log("index of placeholder", this.indexOf(this.placeholder));
+        }
+    });
+</script>

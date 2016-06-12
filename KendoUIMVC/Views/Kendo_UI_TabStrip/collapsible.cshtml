@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "collapsible";
+}
+
+<h2>collapsible</h2>
+
+<div id="tabstrip">
+    <ul>
+        <li>Tab 1</li>
+        <li>Tab 2</li>
+    </ul>
+    <div>Content 1</div>
+    <div>Content 2</div>
+</div>
+
+<script>
+    $("#tabstrip").kendoTabStrip({
+        collapsible: true
+    });
+</script>

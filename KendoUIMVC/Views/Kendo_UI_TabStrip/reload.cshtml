@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "reload";
+}
+
+<h2>reload</h2>
+
+<div id="tabstrip"></div>
+
+<script>
+    var tabStrip = $("#tabstrip").kendoTabStrip({
+        dataTextField: "text",
+        dataContentUrlField: "ContentUrl",
+        dataSource: [{
+            text: "Tab 1",
+            ContentUrl: '@Url.Action("set_dataSource_as_an_existing_kendo_data_DataSource_instance_byTypeScript", "Kendo_UI_Grid")',
+        },
+        {
+            text: "Tab 2",
+            ContentUrl: '@Url.Action("animation", "Kendo_UI_DropDownList")'
+        }]
+    }).data("kendoTabStrip");
+
+    tabStrip.reload("li:first");
+</script>

@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "specify_alternating_row_template_as_a_string_byTypeScript";
+}
+
+<h2>specify_alternating_row_template_as_a_string_byTypeScript</h2>
+
+<div id="grid"></div>
+
+<script src='@Url.Content("~/Scripts/api/typeScripts/specify_alternating_row_template_as_a_string_byTypeScript.js?"+DateTime.Now.Ticks+"")'>
+</script>
+
+<script>
+    $(document).ready(function () {
+        var gridClass = new specify_alternating_row_template_as_a_string_byTypeScript.specify_alternating_row_template_as_a_string_byTypeScript_Class();
+        gridClass.initializeGrid();        
+    })
+</script>

@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "hint";
+}
+
+<h2>hint</h2>
+
+<ul id="sortable">
+    <li>ItemA1</li>
+    <li>ItemA2</li>
+    <li>ItemA3</li>
+</ul>
+
+<script>
+    $("#sortable").kendoSortable({
+        hint: function(element) {
+            return $("<span></span>")
+                    .text(element.text())
+                    .css("color", "#FF0000");
+        }
+    });
+</script>

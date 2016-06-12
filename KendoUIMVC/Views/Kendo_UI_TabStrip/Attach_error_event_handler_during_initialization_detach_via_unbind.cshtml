@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Attach_error_event_handler_during_initialization_detach_via_unbind";
+}
+
+<h2>Attach_error_event_handler_during_initialization_detach_via_unbind</h2>
+
+<div id="tabstrip">
+    <ul>
+        <li>Tab 1</li>
+        <li>Tab 2</li>
+    </ul>
+    <div>Content 1</div>
+    <div>Content 2</div>
+</div>
+
+<script>
+    // event handler for select
+    var onError = function (e) {
+        // access the selected item via e.item (Element)
+
+        // detach error event handler via unbind()
+        tabStrip.unbind("error", onError);
+    };
+
+    // attach select event handler during initialization
+    var tabStrip = $("#tabstrip").kendoTabStrip({
+        error: onError
+    }).data("kendoTabStrip");
+</script>

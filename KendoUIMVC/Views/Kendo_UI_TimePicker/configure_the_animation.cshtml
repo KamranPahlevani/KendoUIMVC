@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "configure_the_animation";
+}
+
+<h2>configure_the_animation</h2>
+
+<input id="timepicker" />
+<script>
+    $("#timepicker").kendoTimePicker({
+        animation: {
+            close: {
+                effects: "fadeOut zoom:out",
+                duration: 300
+            },
+            open: {
+                effects: "fadeIn zoom:in",
+                duration: 300
+            }
+        }
+    });
+</script>

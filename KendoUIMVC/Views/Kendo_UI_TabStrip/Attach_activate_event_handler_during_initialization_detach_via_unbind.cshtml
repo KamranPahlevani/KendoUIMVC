@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Attach activate event handler during initialization; detach via unbind()";
+}
+
+<h2>Attach activate event handler during initialization; detach via unbind()</h2>
+
+<div id="tabStrip">
+    <ul>
+        <li>Tab 1</li>
+        <li>Tab 2</li>
+    </ul>
+    <div>Content 1</div>
+    <div>Content 2</div>
+</div>
+
+<script>
+    // event handler for activate
+    var onActivate = function (e) {
+        // access the activated item via e.item (Element)
+
+        // detach activate event handler via unbind()
+        tabStrip.unbind("activate", onActivate);
+    };
+
+    // attach activate event handler during initialization
+    var tabStrip = $("#tabStrip").kendoTabStrip({
+        activate: onActivate
+    }).data("kendoTabStrip");
+</script>

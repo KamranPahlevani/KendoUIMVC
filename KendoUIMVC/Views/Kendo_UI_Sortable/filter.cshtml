@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "filter";
+}
+
+<h2>filter</h2>
+
+<ul id="sortable">
+    <li class="filtered">ItemA1</li>
+    <li>ItemA2</li>
+    <li>ItemA3</li>
+    <li>ItemA4</li>
+</ul>
+
+<script>
+    $("#sortable").kendoSortable({
+        filter: ">li:not(.filtered)"
+    });
+</script>
+
+<style>
+    .filtered {
+        color: #FF0000;
+    }
+</style>

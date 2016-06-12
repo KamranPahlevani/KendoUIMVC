@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "remove";
+}
+
+<h2>remove</h2>
+
+<div id="tabstrip">
+    <ul>
+        <li>Tab 1</li>
+        <li>Tab 2</li>
+    </ul>
+    <div>Content 1</div>
+    <div>Content 2</div>
+</div>
+
+<script>
+    var tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+    tabStrip.remove("li:last");
+</script>

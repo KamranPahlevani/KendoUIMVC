@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "animation";
+}
+
+<h2>animation</h2>
+
+<div id="tabstrip">
+    <ul>
+        <li>Tab 1</li>
+        <li>Tab 2</li>
+    </ul>
+    <div>Content 1</div>
+    <div>Content 2</div>
+</div>
+
+<script>
+    $("#tabstrip").kendoTabStrip({
+        animation: {
+            // fade-out current tab over 1000 milliseconds
+            close: {
+                duration: 1000,
+                effects: "fadeOut"
+            },
+           // fade-in new tab over 500 milliseconds
+           open: {
+               duration: 500,
+               effects: "fadeIn"
+           }
+       }
+    });
+</script>

@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "open";
+}
+
+<h2>open</h2>
+
+<input id="timepicker" />
+<button id="open" class="btn btn-info">Open</button>
+<script>
+    $("#timepicker").kendoTimePicker();
+
+    var timepicker = $("#timepicker").data("kendoTimePicker");
+
+    $("#open").click(function () {
+        timepicker.open();
+    });
+</script>
