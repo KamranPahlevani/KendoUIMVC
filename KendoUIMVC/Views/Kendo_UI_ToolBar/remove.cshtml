@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "remove";
+}
+
+<h2>remove</h2>
+
+<div id="toolbar"></div>
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+            { type: "button", id: "btn1", text: "Button 1" },
+            { type: "button", id: "btn2", text: "Button 2" }
+        ]
+    });
+
+    var toolbar = $("#toolbar").data("kendoToolBar");
+    toolbar.remove($("#btn2"));
+</script>

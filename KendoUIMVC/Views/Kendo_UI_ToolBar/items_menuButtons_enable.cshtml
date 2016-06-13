@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "items_menuButtons_enable";
+}
+
+<h2>items_menuButtons_enable</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+        {
+            type: "splitButton",
+            text: "splitButton",
+            menuButtons: [
+                { id: "foo", text: "Foo", enable: false },
+                { id: "bar", text: "Bar" },
+                { id: "baz", text: "Baz" }
+            ]
+        }
+        ]
+    });
+</script>

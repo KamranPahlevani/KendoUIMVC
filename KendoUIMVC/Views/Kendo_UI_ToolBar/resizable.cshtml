@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "resizable";
+}
+
+<h2>resizable</h2>
+
+<div id="toolbar"></div>
+<script>
+    $("#toolbar").kendoToolBar({
+        resizable: false,
+        items: [
+            { type: "button", text: "MyButton" }
+        ]
+    });
+</script>

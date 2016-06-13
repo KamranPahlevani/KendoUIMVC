@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "items_attributes";
+}
+
+<h2>items_attributes</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+        { type: "button", text: "My Button", attributes: { "class": "red" } }
+        ]
+    });
+</script>
+
+<style>
+    .red {
+        background-color: red;
+    }
+</style>

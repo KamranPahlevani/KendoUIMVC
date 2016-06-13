@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "items_buttons_url";
+}
+
+<h2>items_buttons_url</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+        {
+            type: "buttonGroup",
+            buttons: [
+            { text: "foo", url: '@Url.Action("set_dataSource_as_an_existing_kendo_data_DataSource_instance_byTypeScript", "Kendo_UI_Grid")'},
+            { text: "bar", url: '@Url.Action("animation", "Kendo_UI_DropDownList")' },
+            ]
+        }
+        ]
+    });
+</script>
+

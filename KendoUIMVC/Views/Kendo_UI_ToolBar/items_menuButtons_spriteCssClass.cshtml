@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "items_menuButtons_spriteCssClass";
+}
+
+<h2>items_menuButtons_spriteCssClass</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+        {
+            type: "splitButton",
+            text: "splitButton",
+            menuButtons: [
+                { id: "foo", text: "Foo", spriteCssClass: "foo" },
+                { id: "bar", text: "Bar", spriteCssClass: "bar" },
+                { id: "baz", text: "Baz", spriteCssClass: "baz" }
+            ]
+        }
+        ]
+    });
+</script>

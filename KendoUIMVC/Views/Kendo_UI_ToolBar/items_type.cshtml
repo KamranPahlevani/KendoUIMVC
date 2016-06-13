@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "items_type";
+}
+
+<h2>items_type</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+            {
+                type: "splitButton",
+                text: "splitButton",
+                menuButtons: [
+                    { id: "foo", text: "Foo" },
+                    { id: "bar", text: "Bar" }
+                ]
+            },
+            {
+                type: "separator"
+            },
+            {
+                type: "button",
+                text: "Button"
+            },
+            {
+                type: "buttonGroup",
+                buttons: [
+                    { text: "Option 1", togglable: true },
+                    { text: "Option 2", togglable: true },
+                    { text: "Option 3", togglable: true }
+                ]
+            }
+        ]
+    });
+</script>

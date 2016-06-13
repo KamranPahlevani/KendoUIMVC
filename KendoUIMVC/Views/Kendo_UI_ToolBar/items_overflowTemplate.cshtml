@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "items_overflowTemplate";
+}
+
+<h2>items_overflowTemplate</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+            {
+                template: "<span>Toolbar template</span>",
+                overflowTemplate: "<span>Overflow template</span>"
+            }
+        ]
+    });
+</script>

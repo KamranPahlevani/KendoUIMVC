@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "items_primary";
+}
+
+<h2>items_primary</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+        { type: "button", text: "Primary", primary: true },
+        { type: "button", text: "Standard" }
+        ]
+    });
+</script>

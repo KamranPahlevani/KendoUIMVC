@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "items_enable";
+}
+
+<h2>items_enable</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+        {
+            type: "button",
+            text: "foo",
+            enable: false
+        }
+        ]
+    });
+</script>

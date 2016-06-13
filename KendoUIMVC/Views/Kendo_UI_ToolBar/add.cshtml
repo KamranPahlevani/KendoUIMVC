@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "add";
+}
+
+<h2>add</h2>
+
+<div id="toolbar"></div>
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+            { type: "button", text: "MyButton" }
+        ]
+    });
+
+    var toolbar = $("#toolbar").data("kendoToolBar");
+    toolbar.add({
+        type: "button",
+        text: "Just added",
+        togglable: true
+    });
+</script>

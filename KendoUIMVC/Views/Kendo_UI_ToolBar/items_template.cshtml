@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "items_template";
+}
+
+<h2>items_template</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+            {
+                template: "<span>Toolbar template</span>"
+            }
+        ]
+    });
+</script>

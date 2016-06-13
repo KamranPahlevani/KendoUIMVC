@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "items_menuButtons_icon";
+}
+
+<h2>items_menuButtons_icon</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+        {
+            type: "splitButton",
+            text: "splitButton",
+            menuButtons: [
+                { id: "foo", text: "Foo", icon: "tick" },
+                { id: "bar", text: "Bar", icon: "note" },
+                { id: "baz", text: "Baz", icon: "clock" }
+            ]
+        }
+        ]
+    });
+</script>

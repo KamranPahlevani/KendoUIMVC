@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_close_event_after_initialization_and_prevent_the_popup_closing";
+}
+
+<h2>subscribe_to_the_close_event_after_initialization_and_prevent_the_popup_closing</h2>
+
+<div id="toolbar"></div>
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+            {
+                type: "splitButton", id: "splitButton", name: "splitButton", text: "Split Button", menuButtons: [
+                  { id: "option1", text: "Option 1" },
+                  { id: "option2", text: "Option 2" },
+                  { id: "option3", text: "Option 3" },
+                  { id: "option4", text: "Option 4" }
+                ]
+            }
+        ]
+    });
+
+    var toolbar = $("#toolbar").data("kendoToolBar");
+    toolbar.bind("close", function (e) {
+        console.log("close", e);
+    });
+</script>

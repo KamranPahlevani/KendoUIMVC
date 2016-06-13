@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "items_showText";
+}
+
+<h2>items_showText</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+            { type: "button", text: "Foo", icon: "tick", showText: "overflow" }
+        ]
+    });
+</script>

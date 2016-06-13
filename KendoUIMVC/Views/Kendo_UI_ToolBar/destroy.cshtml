@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "destroy";
+}
+
+<h2>destroy</h2>
+
+<div id="toolbar"></div>
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+          { type: "button", text: "MyButton" }
+        ]
+    });
+    var toolbar = $("#toolbar").data("kendoToolBar");
+    toolbar.destroy();
+</script>

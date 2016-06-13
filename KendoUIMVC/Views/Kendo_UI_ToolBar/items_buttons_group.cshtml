@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "items_buttons_group";
+}
+
+<h2>items_buttons_group</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+          {
+              type: "buttonGroup",
+              buttons: [
+                { text: "foo", togglable: true, group: "myGroup" },
+                { text: "bar", togglable: true, group: "myGroup" },
+                { text: "baz", togglable: true, group: "myGroup" }
+              ]
+          }
+        ]
+    });
+</script>

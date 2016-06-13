@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "items_id";
+}
+
+<h2>items_id</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+        { type: "button", text: "foo", id: "foo" },
+        { type: "button", text: "bar", id: "bar" },
+        { type: "button", text: "baz", id: "baz" }
+        ]
+    });
+</script>

@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "items_menuButtons_imageUrl";
+}
+
+<h2>items_menuButtons_imageUrl</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+        {
+            type: "splitButton",
+            text: "splitButton",
+            menuButtons: [
+                { id: "foo", text: "Foo", imageUrl: '@Url.Content("~/Images/Customers/1.png")' },
+                { id: "bar", text: "Bar", imageUrl: '@Url.Content("~/Images/Customers/2.png")' },
+                { id: "baz", text: "Baz", imageUrl: '@Url.Content("~/Images/Customers/3.png")' }
+            ]
+        }
+        ]
+    });
+</script>

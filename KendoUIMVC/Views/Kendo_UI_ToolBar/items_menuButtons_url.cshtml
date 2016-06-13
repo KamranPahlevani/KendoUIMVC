@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "items_menuButtons_url";
+}
+
+<h2>items_menuButtons_url</h2>
+
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+        {
+            type: "splitButton",
+            text: "splitButton",
+            menuButtons: [
+                { id: "foo", text: "Grid", url: '@Url.Action("specify_alternating_row_template_as_a_function", "Kendo_UI_Grid")' },
+                { id: "bar", text: "DropDownList", url: '@Url.Action("animation", "Kendo_UI_DropDownList")' }
+            ]
+        }
+        ]
+    });
+</script>
+

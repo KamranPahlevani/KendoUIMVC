@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "enable_command";
+}
+
+<h2>enable_command</h2>
+
+<div id="toolbar"></div>
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+            { type: "button", id: "btn1", text: "Button 1", enable: false }
+        ]
+    });
+
+    var toolbar = $("#toolbar").data("kendoToolBar");
+    toolbar.enable("#btn1"); //enables the initially disabled command
+</script>

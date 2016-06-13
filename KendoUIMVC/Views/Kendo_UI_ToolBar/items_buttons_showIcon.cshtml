@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "items_buttons_showIcon";
+}
+
+<h2>items_buttons_showIcon</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+        {
+            type: "buttonGroup",
+            buttons: [
+            { text: "foo", icon: "clock", showIcon: "toolbar" },
+            { text: "bar", icon: "note", showIcon: "toolbar" },
+            { text: "baz", icon: "refresh", showIcon: "toolbar" }
+            ]
+        }
+        ]
+    });
+</script>

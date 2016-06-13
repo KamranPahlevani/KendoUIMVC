@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_click_event_after_initialization";
+}
+
+<h2>subscribe_to_the_click_event_after_initialization</h2>
+
+<div id="toolbar"></div>
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+            { type: "button", id: "btn1", text: "Button 1" },
+            { type: "button", id: "btn2", text: "Button 2" }
+        ]
+    });
+
+    var toolbar = $("#toolbar").data("kendoToolBar");
+    toolbar.bind("click", function (e) {
+        console.log("click", e.target.text());
+    });
+</script>

@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "items_buttons_click";
+}
+
+<h2>items_buttons_click</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    function onClick() {
+        console.log("click");
+    }
+
+    $("#toolbar").kendoToolBar({
+        items: [
+          {
+              type: "buttonGroup",
+              buttons: [
+                { text: "foo", click: onClick },
+                { text: "bar", click: onClick },
+                { text: "baz", click: onClick }
+              ]
+          }
+        ]
+    });
+</script>

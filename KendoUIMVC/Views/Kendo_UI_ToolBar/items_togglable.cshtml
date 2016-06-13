@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "items_togglable";
+}
+
+<h2>items_togglable</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+            { type: "button", text: "Foo", togglable: true }
+        ]
+    });
+</script>

@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_toggle_event_during_initialization";
+}
+
+<h2>subscribe_to_the_toggle_event_during_initialization</h2>
+
+<div id="toolbar"></div>
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+            { type: "button", id: "btn1", text: "Button 1", togglable: true },
+            { type: "button", id: "btn2", text: "Button 2", togglable: true }
+        ],
+        toggle: function (e) {
+            console.log("toggle", e.target.text(), e.checked);
+        }
+    });
+</script>

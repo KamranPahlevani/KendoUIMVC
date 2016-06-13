@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "items_overflow";
+}
+
+<h2>items_overflow</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+            {
+                type: "splitButton",
+                text: "splitButton",
+                menuButtons: [
+                    { id: "foo", text: "Foo" },
+                    { id: "bar", text: "Bar" }
+                ],
+                overflow: "never"
+            },
+            {
+                type: "button",
+                text: "Button",
+                overflow: "auto"
+            },
+            {
+                type: "buttonGroup",
+                buttons: [
+                    { text: "Option 1", togglable: true },
+                    { text: "Option 2", togglable: true },
+                    { text: "Option 3", togglable: true }
+                ],
+                overflow: "always"
+            }
+        ]
+    });
+</script>

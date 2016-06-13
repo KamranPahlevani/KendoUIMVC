@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "items_click";
+}
+
+<h2>items_click</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+        {
+            type: "button",
+            text: "foo",
+            click: function (e) {
+                console.log(e.target.text() + " is clicked");
+            }
+        }
+        ]
+    });
+</script>

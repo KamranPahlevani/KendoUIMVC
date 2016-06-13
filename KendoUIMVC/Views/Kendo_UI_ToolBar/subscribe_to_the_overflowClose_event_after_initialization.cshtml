@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "subscribe_to_the_overflowClose_event_after_initialization";
+}
+
+<h2>subscribe_to_the_overflowClose_event_after_initialization</h2>
+
+<div id="toolbar"></div>
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+            { type: "button", id: "btn1", text: "Button 1" },
+            { type: "button", id: "btn2", text: "Button 2", overflow: "always" }
+        ]
+    });
+
+    var toolbar = $("#toolbar").data("kendoToolBar");
+    toolbar.bind("overflowClose", function (e) {
+        console.log("close");
+    });
+</script>

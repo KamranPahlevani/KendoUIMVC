@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "items_imageUrl";
+}
+
+<h2>items_imageUrl</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+        { type: "button", text: "foo", imageUrl: '@Url.Content("~/Images/Customers/1.png")' },
+        { type: "button", text: "bar", imageUrl: '@Url.Content("~/Images/Customers/2.png")' },
+        { type: "button", text: "baz", imageUrl: '@Url.Content("~/Images/Customers/3.png")' }
+        ]
+    });
+</script>

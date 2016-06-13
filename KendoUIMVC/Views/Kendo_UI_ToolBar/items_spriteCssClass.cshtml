@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "items_spriteCssClass";
+}
+
+<h2>items_spriteCssClass</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+            { type: "button", text: "Foo", spriteCssClass: "tick" }
+        ]
+    });
+</script>

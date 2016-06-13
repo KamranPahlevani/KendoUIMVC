@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "items_menuButtons_attributes";
+}
+
+<h2>items_menuButtons_attributes</h2>
+
+<div id="toolbar"></div>
+
+<script>
+    $("#toolbar").kendoToolBar({
+        items: [
+        {
+            type: "splitButton",
+            id: "hello",
+            text: "Insert",
+            attributes: { "class": "red" },
+            menuButtons: [
+                { text: "Insert above", icon: "insert-n", attributes: { "class": "blue" } },
+                { text: "Insert between", icon: "insert-m" },
+                { text: "Insert below", icon: "insert-s" }
+            ]
+        }
+        ]
+    });
+</script>
+<style>
+    .red {
+        background-color: red;
+    }
+
+    .blue {
+        color: blue;
+    }
+</style>
